@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Data.Common;
+﻿using System.Data;
 using System.Data.Entity;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Burk.Logic.Repository
 {
@@ -150,7 +145,6 @@ namespace Burk.Logic.Repository
             public override void Operation(T entity)
             {
                 repository.dbContext.Set<T>().Add(entity);
-                //repository.dbContext.GetTable<K>().InsertOnSubmit(entity);
             }
         }
 
@@ -165,12 +159,6 @@ namespace Burk.Logic.Repository
             {
                 repository.dbContext.Set<T>().Attach(entity);
                 repository.dbContext.Entry<T>(entity).State = EntityState.Modified;
-                
-                // если объект не присоединём к dataContext, то присоединяем
-                //repository.dbContext.Set<T>().
-                //if (repository.dbContext.Set<T>().GetOriginalEntityState(entity) == null)
-                //    repository.dataContext.GetTable<K>().Attach(entity);
-                //repository.dataContext.Refresh(RefreshMode.KeepCurrentValues, entity);
             }
         }
 
