@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace Burk.Logic.Repository
+namespace Burk.Core.Repository
 {
     public interface IBaseRepository
     {
@@ -15,8 +15,8 @@ namespace Burk.Logic.Repository
         void Rollback();
         void SubmitChange();
 
-        void Commit(int funcId, IDictionary<string, string> addParams);
+        //void Commit(int funcId, IDictionary<string, string> addParams);
 
-        IDictionary<string, string> GetCommitParams(params string[] keyThenValueArray);
+        //IDictionary<string, string> GetCommitParams(params string[] keyThenValueArray);
     }
 }

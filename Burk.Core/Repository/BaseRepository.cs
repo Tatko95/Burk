@@ -1,15 +1,24 @@
-﻿using System.Data;
+﻿using Burk.Core.Abstract.Log;
+using System.Data;
 using System.Data.Entity;
 using System.Linq;
 
-namespace Burk.Logic.Repository
+namespace Burk.Core.Repository
 {
-    public abstract class BaseRepository
+    public abstract class BaseRepository : IBaseRepository
     {
         #region Fields
         protected DbContext dbContext;
-        protected string connectionString;
+        private ILog logger;
         #endregion
+
+        #region CTOR
+        //public BaseRepository(ILog logger)
+        //{
+        //    this.logger = logger;
+        //}
+        #endregion
+
 
         #region Basic
         public void BeginTransaction()
