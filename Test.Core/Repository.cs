@@ -1,5 +1,6 @@
-﻿using Burk.Logic.Abstract.Repositories;
-using Burk.Logic.Concrete.Repositories;
+﻿using Burk.Core.Abstract.Unity;
+using Burk.Core.Concrete.Unity;
+using Burk.Logic.Abstract.Repositories;
 using Burk.Model.UDB;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
@@ -11,23 +12,24 @@ namespace Test.Core
     [TestClass]
     public class Repository
     {
-        //private Mock<IBurkModelRepository> repository;
-        private IBurkModelRepository repository;
+        private Mock<IBurkModelRepository> repository;
+
         public Repository()
         {
-            //repository = new BurkModelRepository();
+            repository = new Mock<IBurkModelRepository>();
         }
-
         [TestMethod]
-        public void Insert()
+        public void Repository_Insert_Language()
         {
             // arrange
-
+            //IUnityObjectFactory unity = UnityContainerFactory.ObjectFactory;
+            //IBurkModelRepository repository = unity.CreateObject<IBurkModelRepository>();
+            var language = new Language() { Name = "Ukraine" };
             // act
-            //var obj = repository.Insert(new Language() { Name = "Ukraine" });
+            var obj = repository.Object.Insert(language);
 
             // assert
-            //Assert.IsTrue(repository.Table<Language>().Contains(obj));
+            Assert.IsTrue(repository.Object.Table<Language>().FirstOrDefault(x => x.Name == "Ukraine") != null);
         }
     }
 }

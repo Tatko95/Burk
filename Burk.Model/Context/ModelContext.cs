@@ -5,9 +5,8 @@ namespace Burk.Model.Context
 {
     public class ModelContext : DbContext
     {
-        public ModelContext() : base("Burk.Model")
+        public ModelContext() : base("connectionStringModel")
         {
-
         }
 
         public DbSet<Dictionary> Dictionaries { get; set; }
@@ -22,6 +21,6 @@ namespace Burk.Model.Context
         public DbSet<DossierValue> DosValues { get; set; }
         public DbSet<GridValue> GridValues { get; set; }
         public DbSet<Language> Languages { get; set; }
-        public DbSet<Burk.Model.UDB.System> Systems { get; set; }
+        public DbSet<UDB.System> Systems { get; set; }
     }
 }
