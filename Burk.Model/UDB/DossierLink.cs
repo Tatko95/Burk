@@ -21,7 +21,7 @@ namespace Burk.Model.UDB
 
         public override String ToString()
         {
-            return string.Format("Id:{0};", LinkId.ToString());
+            return string.Format("ListId:{0}; Id1:{1}; Id2:{2};", DosLinkId.ToString(), DosList1Id.ToString(), DosList2Id.ToString());
         }
     }
 }

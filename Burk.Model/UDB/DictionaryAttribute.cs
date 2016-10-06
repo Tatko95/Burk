@@ -20,6 +20,7 @@ namespace Burk.Model.UDB
         public int UID { get; set; }
 
         //Ref
+        [ForeignKey("DicAttribute")]
         public int DicAttributeLevelRefId { get; set; }
 
         //public int DicAttributeTypeId { get; set; }
@@ -30,6 +31,8 @@ namespace Burk.Model.UDB
         public Language Language { get; set; }
 
         public Dictionary Dictionary { get; set; }
+
+        public DictionaryAttribute DicAttribute { get; set; }
 
         public override String ToString()
         {

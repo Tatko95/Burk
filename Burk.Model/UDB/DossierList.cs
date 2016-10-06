@@ -15,7 +15,8 @@ namespace Burk.Model.UDB
         [ForeignKey("Inset")]
         public int? DosInsetId { get; set; }
 
-        //public int ListRefId { get; set; }
+        [ForeignKey("DosList")]
+        public int DosListRefId { get; set; }
 
         public DateTime? CreateDate { get; set; }
 
@@ -28,6 +29,8 @@ namespace Burk.Model.UDB
         public DossierObject Object { get; set; }
 
         public DossierInset Inset { get; set; }
+
+        public DossierList DosList { get; set; }
 
         public override String ToString()
         {
