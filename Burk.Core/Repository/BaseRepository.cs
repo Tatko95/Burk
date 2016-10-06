@@ -1,5 +1,6 @@
 ﻿using Burk.Core.Abstract.Log;
 using System.Data;
+using System.Data.Common;
 using System.Data.Entity;
 using System.Linq;
 
@@ -19,13 +20,13 @@ namespace Burk.Core.Repository
         //}
         #endregion
 
-
         #region Basic
         public void BeginTransaction()
         {
             if (dbContext.Database.Connection.State != ConnectionState.Open)
                 dbContext.Database.Connection.Open();
-            dbContext.Database.Connection.BeginTransaction();
+            DbTransaction trans = dbContext.Database.Connection.BeginTransaction();
+            dbContext.Database.UseTransaction(trans);
         }
 
         public void SubmitChange()
@@ -112,15 +113,16 @@ namespace Burk.Core.Repository
             public void Execute(T entity)
             {
                 DbContext dbContext = repository.dbContext;
-                //DbTransaction trans = dataContext.Database.;
-                bool isTrans = dbContext.Database.CurrentTransaction != null ? true : false;
+                DbContextTransaction trans = dbContext.Database.CurrentTransaction;
+                bool isTrans = trans != null ? true : false;
                 try
                 {
                     if (!isTrans)   // если открытой транзакции не было, то создаём новую
                     {
                         if (dbContext.Database.Connection.State != ConnectionState.Open)
                             dbContext.Database.Connection.Open();
-                        dbContext.Database.Connection.BeginTransaction();
+                        DbTransaction transact = dbContext.Database.Connection.BeginTransaction();
+                        dbContext.Database.UseTransaction(transact);
                     }
 
                     Operation(entity);

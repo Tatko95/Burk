@@ -49,11 +49,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Abstract\Repositories\IBurkModelRepository.cs" />
+    <Compile Include="Concrete\Repositories\BurkModelRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Burk.Core\Burk.Core.csproj">
+      <Project>{03E0A438-76BB-49DC-9589-5E8CE90FD185}</Project>
+      <Name>Burk.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Burk.Model\Burk.Model.csproj">
+      <Project>{8d629d92-2ece-48a2-9fcc-72356e26784d}</Project>
+      <Name>Burk.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
