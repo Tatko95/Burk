@@ -28,5 +28,10 @@ namespace Burk.Model.UDB
         public virtual Language Language { get; set; }
 
         public virtual DictionaryAttribute DicAttribute { get; set; }
+
+        public override String ToString()
+        {
+            return string.Format("Id:{0}; Name: {1};", DicValueId.ToString(), FullName);
+        }
     }
 }

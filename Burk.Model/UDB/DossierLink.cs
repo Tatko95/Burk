@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Burk.Model.UDB
@@ -6,16 +7,21 @@ namespace Burk.Model.UDB
     public class DossierLink
     {
         [Key]
-        public int LinkId { get; set; }
+        public int DosLinkId { get; set; }
 
         [ForeignKey("List1")]
-        public int? List1Id { get; set; }
+        public int? DosList1Id { get; set; }
 
         [ForeignKey("List2")]
-        public int? List2Id { get; set; }
+        public int? DosList2Id { get; set; }
 
         public DossierList List1 { get; set; }
 
         public DossierList List2 { get; set; }
+
+        public override String ToString()
+        {
+            return string.Format("Id:{0};", LinkId.ToString());
+        }
     }
 }

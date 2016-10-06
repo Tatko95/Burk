@@ -8,10 +8,10 @@ namespace Burk.Model.UDB
     public class DossierValue
     {
         [Key]
-        public int ValueId { get; set; }
+        public int DosValueId { get; set; }
 
         [ForeignKey("List")]
-        public int? ListId { get; set; }
+        public int? DosListId { get; set; }
 
         public string UserEdit { get; set; }
 
@@ -119,5 +119,10 @@ namespace Burk.Model.UDB
 
         //public File File { get; set; }
         public DossierList List { get; set; }
+
+        public override String ToString()
+        {
+            return string.Format("Id:{0};", DosValueId.ToString());
+        }
     }
 }

@@ -10,7 +10,7 @@ namespace Burk.Model.UDB
         public int GridId { get; set; }
 
         [ForeignKey("Value")]
-        public int? ValueId { get; set; }
+        public int? DosValueId { get; set; }
 
         [ForeignKey("Attribute")]
         public int? AttributeId { get; set; }
@@ -118,5 +118,10 @@ namespace Burk.Model.UDB
         public DossierAttribute Attribute { get; set; }
 
         public DossierValue Value { get; set; }
+
+        public override String ToString()
+        {
+            return string.Format("Id:{0};", GridId.ToString());
+        }
     }
 }

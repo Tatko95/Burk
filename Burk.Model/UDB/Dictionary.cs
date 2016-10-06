@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Burk.Model.UDB
@@ -24,5 +25,10 @@ namespace Burk.Model.UDB
         public Language Language { get; set; }
 
         public virtual System System { get; set; }
+
+        public override String ToString()
+        {
+            return string.Format("Id:{0}; Name: {1};", DictionaryId.ToString(), FullName);
+        }
     }
 }
