@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Burk.Model.UDB
 {
@@ -9,5 +10,10 @@ namespace Burk.Model.UDB
 
         [Required]
         public string Name { get; set; }
+
+        public override String ToString()
+        {
+            return string.Format("Id:{0}; Name: {1};", LanguageId.ToString(), Name);
+        }
     }
 }

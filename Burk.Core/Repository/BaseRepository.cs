@@ -1,4 +1,5 @@
 ﻿using Burk.Core.Abstract.Log;
+using System;
 using System.Data;
 using System.Data.Common;
 using System.Data.Entity;
@@ -14,10 +15,10 @@ namespace Burk.Core.Repository
         #endregion
 
         #region CTOR
-        //public BaseRepository(ILog logger)
-        //{
-        //    this.logger = logger;
-        //}
+        public BaseRepository(ILog logger)
+        {
+            this.logger = logger;
+        }
         #endregion
 
         #region Basic
@@ -84,18 +85,21 @@ namespace Burk.Core.Repository
         {
             InsertOperation<T> operation = new InsertOperation<T>(this);
             operation.Execute(entity);
+            logger.InfoFormat("Insert! Type: {0}; {1}; Date: {2}.", typeof(T).ToString(), entity.ToString(), DateTime.Now);
             return entity;
         }
 
         public void Update<T>(T entity) where T : class
         {
             UpdateOperation<T> operation = new UpdateOperation<T>(this);
+            logger.InfoFormat("Update! Type: {0}; {1}; Date: {2}.", typeof(T).ToString(), entity.ToString(), DateTime.Now);
             operation.Execute(entity);
         }
 
         public void Delete<T>(T entity) where T : class
         {
             DeleteOperation<T> operation = new DeleteOperation<T>(this);
+            logger.InfoFormat("Delete! Type: {0}; {1}; Date: {2}.", typeof(T).ToString(), entity.ToString(), DateTime.Now);
             operation.Execute(entity);
         }
         #endregion

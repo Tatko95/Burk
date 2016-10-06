@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Burk.Model.UDB
@@ -6,10 +7,10 @@ namespace Burk.Model.UDB
     public class DossierAttribute
     {
         [Key]
-        public int AttributeId { get; set; }
+        public int DosAttributeId { get; set; }
 
         [ForeignKey("Inset")]
-        public int? InsetId { get; set; }
+        public int? DosInsetId { get; set; }
 
         [ForeignKey("Dictionary")]
         public int? DictionaryId { get; set; }
@@ -35,5 +36,10 @@ namespace Burk.Model.UDB
         public Dictionary Dictionary { get; set; }
 
         public DossierInset Inset { get; set; }
+
+        public override String ToString()
+        {
+            return string.Format("Id:{0}; Name: {1};", DosAttributeId.ToString(), FullName);
+        }
     }
 }

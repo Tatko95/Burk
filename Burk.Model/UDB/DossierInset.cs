@@ -1,15 +1,16 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using System;
 
 namespace Burk.Model.UDB
 {
     public class DossierInset
     {
         [Key]
-        public int InsetId { get; set; }
+        public int DosInsetId { get; set; }
 
         [ForeignKey("Object")]
-        public int? ObjectId { get; set; }
+        public int? DosObjectId { get; set; }
 
         public string FullName { get; set; }
 
@@ -23,5 +24,10 @@ namespace Burk.Model.UDB
         public Language Language { get; set; }
 
         public DossierObject Object { get; set; }
+
+        public override String ToString()
+        {
+            return string.Format("Id:{0}; Name: {1};", DosInsetId.ToString(), FullName);
+        }
     }
 }

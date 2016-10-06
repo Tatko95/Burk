@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Burk.Model.UDB
@@ -19,7 +20,8 @@ namespace Burk.Model.UDB
         public int UID { get; set; }
 
         //Ref
-        public int DicAttributeRefId { get; set; }
+        [ForeignKey("DicAttribute")]
+        public int DicAttributeLevelRefId { get; set; }
 
         //public int DicAttributeTypeId { get; set; }
 
@@ -29,5 +31,12 @@ namespace Burk.Model.UDB
         public Language Language { get; set; }
 
         public Dictionary Dictionary { get; set; }
+
+        public DictionaryAttribute DicAttribute { get; set; }
+
+        public override String ToString()
+        {
+            return string.Format("Id:{0}; Name: {1};", DicAttributeId.ToString(), FullName);
+        }
     }
 }
