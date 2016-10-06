@@ -12,24 +12,24 @@ namespace Test.Core
     [TestClass]
     public class Repository
     {
-        private Mock<IBurkModelRepository> repository;
+        //private Mock<IBurkModelRepository> repository;
 
         public Repository()
         {
-            repository = new Mock<IBurkModelRepository>();
+            //repository = new Mock<IBurkModelRepository>();
         }
         [TestMethod]
         public void Repository_Insert_Language()
         {
             // arrange
-            //IUnityObjectFactory unity = UnityContainerFactory.ObjectFactory;
-            //IBurkModelRepository repository = unity.CreateObject<IBurkModelRepository>();
+            IUnityObjectFactory unity = UnityContainerFactory.ObjectFactory;
+            IBurkModelRepository repository = unity.CreateObject<IBurkModelRepository>();
             var language = new Language() { Name = "Ukraine" };
             // act
-            var obj = repository.Object.Insert(language);
+            var obj = repository.Insert(language);
 
             // assert
-            Assert.IsTrue(repository.Object.Table<Language>().FirstOrDefault(x => x.Name == "Ukraine") != null);
+            Assert.IsTrue(repository.Table<Language>().FirstOrDefault(x => x.Name == "Ukraine") != null);
         }
     }
 }
