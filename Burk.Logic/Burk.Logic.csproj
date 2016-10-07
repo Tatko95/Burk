@@ -50,7 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\Repositories\IBurkModelRepository.cs" />
+    <Compile Include="Abstract\Services\IDictionaryService.cs" />
+    <Compile Include="Abstract\Services\IUniversalDb.cs" />
     <Compile Include="Concrete\Repositories\BurkModelRepository.cs" />
+    <Compile Include="Concrete\Repositories\DictionaryService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
