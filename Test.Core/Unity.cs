@@ -24,5 +24,16 @@ namespace Test.Core
             //assert
             Assert.IsTrue(log != null);
         }
+
+        //[TestMethod]
+        //public void Unity_CreateBaseService()
+        //{
+        //    //arrange
+        //    IUnityObjectFactory unity = UnityContainerFactory.ObjectFactory;
+        //    //act
+        //    IBaseRepository repo = unity.CreateObject<IBaseRepository>();
+        //    //assert
+        //    Assert.IsTrue(repo != null);
+        //}
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 
 namespace Burk.Core.Service
 {
@@ -8,13 +9,6 @@ namespace Burk.Core.Service
         T Insert(T obj);
         void Update(T obj);
         void Delete(T obj);
-    }
-
-    public interface IBaseService
-    {
-        T GetById<T>(string idName, string idValue) where T : class;
-        T Insert<T>(T obj) where T : class;
-        void Update<T>(T obj) where T : class;
-        void Delete<T>(T obj) where T : class;
+        IQueryable<T> GetTable();
     }
 }
