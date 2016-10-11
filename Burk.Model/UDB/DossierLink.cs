@@ -1,9 +1,11 @@
-﻿using System;
+﻿
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Burk.Model.UDB
 {
+    [Table("DossierLink", Schema = "udb")]
     public class DossierLink
     {
         [Key]

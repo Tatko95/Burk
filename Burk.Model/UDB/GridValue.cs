@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Burk.Model.UDB
 {
+    [Table("GridValue", Schema = "udb")]
     public class GridValue
     {
         [Key]

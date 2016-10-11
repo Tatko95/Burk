@@ -5,6 +5,7 @@ using System.IO;
 
 namespace Burk.Model.UDB
 {
+    [Table("DossierValue", Schema = "udb")]
     public class DossierValue
     {
         [Key]

@@ -4,6 +4,7 @@ using System;
 
 namespace Burk.Model.UDB
 {
+    [Table("DossiertInset", Schema = "udb")]
     public class DossierInset
     {
         [Key]
