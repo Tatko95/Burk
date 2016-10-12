@@ -4,6 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Burk.Model.UDB
 {
+    [Table("DossierAttribute", Schema = "udb")]
     public class DossierAttribute
     {
         [Key]

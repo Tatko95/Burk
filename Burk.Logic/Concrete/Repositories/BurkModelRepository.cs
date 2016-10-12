@@ -14,7 +14,6 @@ namespace Burk.Logic.Concrete.Repositories
         public BurkModelRepository(ILog logger) : base(logger)
         {
             dbContext = new ModelContext();
-            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ModelContext>());
             dbContext.Database.Initialize(false);
             dbContext.Database.CommandTimeout = 60; //минута
         }
