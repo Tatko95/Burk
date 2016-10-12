@@ -12,12 +12,6 @@ namespace Test.Core
     [TestClass]
     public class Repository
     {
-        //private Mock<IBurkModelRepository> repository;
-
-        public Repository()
-        {
-            //repository = new Mock<IBurkModelRepository>();
-        }
         [TestMethod]
         public void Repository_Insert_Language()
         {
@@ -30,6 +24,8 @@ namespace Test.Core
 
             // assert
             Assert.IsTrue(repository.Table<Language>().FirstOrDefault(x => x.Name == "Ukraine") != null);
+
+            repository.Delete(obj);
         }
     }
 }
