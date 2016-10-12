@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Burk.WebUI.Models;
+using Burk.Logic.Concrete.Users.Managers;
 
 namespace Burk.WebUI.Controllers
 {
