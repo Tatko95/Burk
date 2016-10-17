@@ -7,6 +7,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using Burk.Model.Users;
 using Burk.Model.Context;
+using Burk.Logic.Concrete.Users.Managers;
 
 namespace Burk.WebUI
 {
@@ -19,7 +20,7 @@ namespace Burk.WebUI
             app.CreatePerOwinContext(ModelContext.Create);
             app.CreatePerOwinContext<ApplicationUserManager>(ApplicationUserManager.Create);
             app.CreatePerOwinContext<ApplicationSignInManager>(ApplicationSignInManager.Create);
-
+            
             // Enable the application to use a cookie to store information for the signed in user
             // and to use a cookie to temporarily store information about a user logging in with a third party login provider
             // Configure the sign in cookie
@@ -56,7 +57,7 @@ namespace Burk.WebUI
             //   consumerSecret: "");
 
             //app.UseFacebookAuthentication(
-            //   appId: "",
+            //   appId: "1187450567977770",
             //   appSecret: "");
 
             //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()

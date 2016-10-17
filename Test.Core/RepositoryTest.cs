@@ -10,7 +10,7 @@ using System.Linq;
 namespace Test.Core
 {
     [TestClass]
-    public class Repository
+    public class RepositoryTest
     {
         [TestMethod]
         public void Repository_Insert_Language()

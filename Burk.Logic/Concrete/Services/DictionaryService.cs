@@ -5,7 +5,7 @@ using System;
 using System.Linq;
 using Burk.Core.Repository;
 
-namespace Burk.Logic.Concrete.Repositories
+namespace Burk.Logic.Concrete.Services
 {
     public class DictionaryService : BaseService<Dictionary>, IDictionaryService
     {

@@ -14,11 +14,11 @@ namespace Burk.Model.Users
         [ForeignKey("Object")]
         public int DossierObjectId { get; set; }
 
-        [ForeignKey("DicValue")]
-        public int DicValueId { get; set; }
+        [ForeignKey("Feature")]
+        public int FeatureId { get; set; }
 
         public DossierObject Object { get; set; }
 
-        public DictionaryValue DicValue { get; set; }
+        public Feature Feature { get; set; }
     }
 }

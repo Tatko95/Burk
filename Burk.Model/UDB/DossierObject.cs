@@ -14,6 +14,8 @@ namespace Burk.Model.UDB
 
         public string ShortName { get; set; }
 
+        public bool IsDefault { get; set; }
+
         [ForeignKey("System")]
         public int? SystemId { get; set; }
 

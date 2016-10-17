@@ -4,11 +4,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Burk.Model.Users
 {
+    [Table("Role", Schema = "user")]
     public class Role : IdentityRole<string, UserRole>
     {
-        [ForeignKey("System")]
-        public int SystemId { get; set; }
-
-        public UDB.System System { get; set; }
     }
 }
