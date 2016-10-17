@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 namespace Test.Core
 {
     [TestClass]
-    public class Unity
+    public class UnityTest
     {
         [TestMethod]
         public void Unity_CreateLogger()

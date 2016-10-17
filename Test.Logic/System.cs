@@ -4,11 +4,12 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 namespace Test.Logic
 {
     [TestClass]
-    public class UnitTest1
+    public class System
     {
         [TestMethod]
-        public void TestMethod1()
+        public void System_Create()
         {
+
         }
     }
 }
