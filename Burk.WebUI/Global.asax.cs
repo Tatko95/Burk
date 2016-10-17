@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Burk.Core.Abstract.Unity;
+using Burk.Core.Concrete.Unity;
+using Burk.Logic.InitBurk;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,6 +19,11 @@ namespace Burk.WebUI
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
+
+            IUnityObjectFactory unity = UnityContainerFactory.ObjectFactory;
+
+            var init = unity.CreateObject<IInitBurk>();
+            init.Init();
         }
     }
 }

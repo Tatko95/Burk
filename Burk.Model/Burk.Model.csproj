@@ -67,8 +67,32 @@
     <Compile Include="Migrations\201610171051561_FirstMigration.Designer.cs">
       <DependentUpon>201610171051561_FirstMigration.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201610171210035_IsDefaultRole.cs" />
+    <Compile Include="Migrations\201610171210035_IsDefaultRole.Designer.cs">
+      <DependentUpon>201610171210035_IsDefaultRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610171433447_IsDefaultRoleNull.cs" />
+    <Compile Include="Migrations\201610171433447_IsDefaultRoleNull.Designer.cs">
+      <DependentUpon>201610171433447_IsDefaultRoleNull.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Misc\Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Resource.en-GB.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.en-GB.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Resources\Resource.ru-RU.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.ru-RU.resx</DependentUpon>
+    </Compile>
     <Compile Include="UDB\Dictionary.cs" />
     <Compile Include="UDB\DictionaryAttribute.cs" />
     <Compile Include="UDB\DictionaryValue.cs" />
@@ -105,7 +129,26 @@
     <EmbeddedResource Include="Migrations\201610171051561_FirstMigration.resx">
       <DependentUpon>201610171051561_FirstMigration.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610171210035_IsDefaultRole.resx">
+      <DependentUpon>201610171210035_IsDefaultRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610171433447_IsDefaultRoleNull.resx">
+      <DependentUpon>201610171433447_IsDefaultRoleNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resource.en-GB.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.en-GB.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resource.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\Resource.ru-RU.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resource.ru-RU.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
