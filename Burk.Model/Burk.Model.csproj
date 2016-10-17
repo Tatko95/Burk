@@ -59,6 +59,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Context\ModelContext.cs" />
+    <Compile Include="Migrations\201610171018093_InitialCreate.cs" />
+    <Compile Include="Migrations\201610171018093_InitialCreate.Designer.cs">
+      <DependentUpon>201610171018093_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201610171051561_FirstMigration.cs" />
+    <Compile Include="Migrations\201610171051561_FirstMigration.Designer.cs">
+      <DependentUpon>201610171051561_FirstMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="UDB\Dictionary.cs" />
     <Compile Include="UDB\DictionaryAttribute.cs" />
@@ -73,11 +82,12 @@
     <Compile Include="UDB\GridValue.cs" />
     <Compile Include="UDB\Language.cs" />
     <Compile Include="UDB\System.cs" />
+    <Compile Include="Users\Feature.cs" />
     <Compile Include="Users\FeatureInObject.cs" />
     <Compile Include="Users\FeatureInObjectInRole.cs" />
     <Compile Include="Users\Init\ApplicationUserStore.cs" />
     <Compile Include="Users\Role.cs" />
-    <Compile Include="Users\RoleInUser.cs" />
+    <Compile Include="Users\RoleInSystem.cs" />
     <Compile Include="Users\User.cs" />
     <Compile Include="Users\UserClaim.cs" />
     <Compile Include="Users\UserInSystem.cs" />
@@ -87,6 +97,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201610171018093_InitialCreate.resx">
+      <DependentUpon>201610171018093_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201610171051561_FirstMigration.resx">
+      <DependentUpon>201610171051561_FirstMigration.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

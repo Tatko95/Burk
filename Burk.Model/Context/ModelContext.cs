@@ -25,19 +25,20 @@ namespace Burk.Model.Context
         public DbSet<GridValue> GridValues { get; set; }
         public DbSet<Language> Languages { get; set; }
         public DbSet<UDB.System> Systems { get; set; }
+        public DbSet<Feature> Feature { get; set; }
         public DbSet<FeatureInObject> FeatureInObject { get; set; }
         public DbSet<FeatureInObjectInRole> FeatureInObjectInRole { get; set; }
-        public DbSet<RoleInUser> RoleInUser { get; set; }
+        public DbSet<RoleInSystem> RoleInSystem { get; set; }
         public DbSet<UserInSystem> UserInSystem { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Entity<User>().ToTable("AspNetUsers", "user");
-            modelBuilder.Entity<Role>().ToTable("AspNetRoles", "user");
-            modelBuilder.Entity<UserClaim>().ToTable("AspNetUserClaims", "user");
-            modelBuilder.Entity<UserLogin>().ToTable("AspNetUserLogins", "user");
-            modelBuilder.Entity<UserRole>().ToTable("AspNetUserRoles", "user");
+            modelBuilder.Entity<User>().ToTable("Users", "user");
+            modelBuilder.Entity<Role>().ToTable("Roles", "user");
+            modelBuilder.Entity<UserClaim>().ToTable("UserClaims", "user");
+            modelBuilder.Entity<UserLogin>().ToTable("UserLogins", "user");
+            modelBuilder.Entity<UserRole>().ToTable("UserRoles", "user");
         }
 
         public static ModelContext Create()

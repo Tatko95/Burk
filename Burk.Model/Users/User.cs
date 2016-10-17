@@ -1,11 +1,13 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace Burk.Model.Users
 {
+    [Table("User", Schema = "user")]
     public class User : IdentityUser<string, UserLogin, UserRole, UserClaim>
     {
         public User()
