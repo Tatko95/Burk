@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Test.Core
 {
     [TestClass]
-    class SystemTest
+    class System
     {
         //System_Create
     }

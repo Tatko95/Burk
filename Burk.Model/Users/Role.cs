@@ -7,5 +7,6 @@ namespace Burk.Model.Users
     [Table("Role", Schema = "user")]
     public class Role : IdentityRole<string, UserRole>
     {
+        public bool? IsDefault { get; set; }
     }
 }

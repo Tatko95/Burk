@@ -75,6 +75,9 @@
     <Compile Include="Concrete\Users\Managers\ApplicationUserManager.cs" />
     <Compile Include="Concrete\Users\Services\EmailService.cs" />
     <Compile Include="Concrete\Users\Services\SmsService.cs" />
+    <Compile Include="Concrete\Users\Validator\CustomUserValidator.cs" />
+    <Compile Include="InitBurk\IInitBurk.cs" />
+    <Compile Include="InitBurk\InitBurk.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

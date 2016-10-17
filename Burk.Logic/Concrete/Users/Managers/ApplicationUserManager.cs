@@ -1,4 +1,9 @@
-﻿using Burk.Logic.Concrete.Users.Services;
+﻿using Burk.Core.Abstract.Unity;
+using Burk.Core.Concrete.Unity;
+using Burk.Core.Repository;
+using Burk.Logic.Abstract.Repositories;
+using Burk.Logic.Concrete.Users.Services;
+using Burk.Logic.Concrete.Users.Validator;
 using Burk.Model.Context;
 using Burk.Model.Users;
 using Burk.Model.Users.Init;
@@ -20,11 +25,13 @@ namespace Burk.Logic.Concrete.Users.Managers
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context)
         {
             var manager = new ApplicationUserManager(new ApplicationUserStore(context.Get<ModelContext>()));
+
+            IUnityObjectFactory unity = UnityContainerFactory.ObjectFactory;
+
             // Configure validation logic for usernames
-            manager.UserValidator = new UserValidator<User>(manager)
+            manager.UserValidator = new CustomUserValidator(manager, unity.CreateObject<IBurkModelRepository>())
             {
-                AllowOnlyAlphanumericUserNames = true,
-                RequireUniqueEmail = true
+                AllowOnlyAlphanumericUserNames = true
             };
 
             // Configure validation logic for passwords
