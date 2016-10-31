@@ -117,11 +117,39 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Confirm password</value>
+  </data>
+  <data name="CreateNewUser" xml:space="preserve">
+    <value>Create a new user</value>
+  </data>
   <data name="English" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="Flexibility" xml:space="preserve">
+    <value>Flexibility</value>
+  </data>
+  <data name="HighControl" xml:space="preserve">
+    <value>High control</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>Home Page</value>
+  </data>
   <data name="LogIn" xml:space="preserve">
     <value>Log In</value>
+  </data>
+  <data name="MainPageText1" xml:space="preserve">
+    <value>Burk allows you to create your own system with its own logic. You will be able to create a system for its own purposes.</value>
+  </data>
+  <data name="MainPageText2" xml:space="preserve">
+    <value>Security of all data entered.
+The possibility of recovering lost data due to logical data deletion.</value>
+  </data>
+  <data name="MainPageText3" xml:space="preserve">
+    <value>Control of all data at your screen.</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Password</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
@@ -129,7 +157,13 @@
   <data name="Russian" xml:space="preserve">
     <value>Russian</value>
   </data>
+  <data name="Security" xml:space="preserve">
+    <value>Security</value>
+  </data>
   <data name="Ukrainian" xml:space="preserve">
     <value>Ukrainian</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>User name</value>
   </data>
 </root>

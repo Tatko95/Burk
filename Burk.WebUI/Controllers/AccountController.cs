@@ -14,7 +14,7 @@ using Burk.Logic.Concrete.Users.Managers;
 namespace Burk.WebUI.Controllers
 {
     [Authorize]
-    public class AccountController : Controller
+    public class AccountController : BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;

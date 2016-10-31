@@ -117,11 +117,39 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="ConfirmPassword" xml:space="preserve">
+    <value>Підтвердження пароля</value>
+  </data>
+  <data name="CreateNewUser" xml:space="preserve">
+    <value>Створення нового користувача</value>
+  </data>
   <data name="English" xml:space="preserve">
     <value>Англійська</value>
   </data>
+  <data name="Flexibility" xml:space="preserve">
+    <value>Гнучкість</value>
+  </data>
+  <data name="HighControl" xml:space="preserve">
+    <value>Високий контроль</value>
+  </data>
+  <data name="HomePage" xml:space="preserve">
+    <value>Головна сторінка</value>
+  </data>
   <data name="LogIn" xml:space="preserve">
     <value>Ввійти</value>
+  </data>
+  <data name="MainPageText1" xml:space="preserve">
+    <value>Burk дозволяє створювати власні системи, з власною логікою. У вас буде можливість створити систему для своїх власних цілей.</value>
+  </data>
+  <data name="MainPageText2" xml:space="preserve">
+    <value>Безпека всіх введених даних.
+Можливість відновлення втрачених даних, за рахунок логічного видалення даних.</value>
+  </data>
+  <data name="MainPageText3" xml:space="preserve">
+    <value>Контроль над всіми даними у зручному для вас режимі.</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Пароль</value>
   </data>
   <data name="Register" xml:space="preserve">
     <value>Зареєструватись</value>
@@ -129,7 +157,13 @@
   <data name="Russian" xml:space="preserve">
     <value>Російська</value>
   </data>
+  <data name="Security" xml:space="preserve">
+    <value>Безпека</value>
+  </data>
   <data name="Ukrainian" xml:space="preserve">
     <value>Українська</value>
+  </data>
+  <data name="UserName" xml:space="preserve">
+    <value>Ім'я користувача</value>
   </data>
 </root>

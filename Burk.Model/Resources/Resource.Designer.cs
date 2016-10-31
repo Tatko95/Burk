@@ -61,6 +61,24 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Підтвердження пароля.
+        /// </summary>
+        public static string ConfirmPassword {
+            get {
+                return ResourceManager.GetString("ConfirmPassword", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Створення нового користувача.
+        /// </summary>
+        public static string CreateNewUser {
+            get {
+                return ResourceManager.GetString("CreateNewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Англійська.
         /// </summary>
         public static string English {
@@ -70,11 +88,75 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Гнучкість.
+        /// </summary>
+        public static string Flexibility {
+            get {
+                return ResourceManager.GetString("Flexibility", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Високий контроль.
+        /// </summary>
+        public static string HighControl {
+            get {
+                return ResourceManager.GetString("HighControl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Головна сторінка.
+        /// </summary>
+        public static string HomePage {
+            get {
+                return ResourceManager.GetString("HomePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ввійти.
         /// </summary>
         public static string LogIn {
             get {
                 return ResourceManager.GetString("LogIn", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Burk дозволяє створювати власні системи, з власною логікою. У вас буде можливість створити систему для своїх власних цілей..
+        /// </summary>
+        public static string MainPageText1 {
+            get {
+                return ResourceManager.GetString("MainPageText1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Безпека всіх введених даних.
+        ///Можливість відновлення втрачених даних, за рахунок логічного видалення даних..
+        /// </summary>
+        public static string MainPageText2 {
+            get {
+                return ResourceManager.GetString("MainPageText2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Контроль над всіми даними у зручному для вас режимі..
+        /// </summary>
+        public static string MainPageText3 {
+            get {
+                return ResourceManager.GetString("MainPageText3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Пароль.
+        /// </summary>
+        public static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
             }
         }
         
@@ -97,11 +179,29 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Безпека.
+        /// </summary>
+        public static string Security {
+            get {
+                return ResourceManager.GetString("Security", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Українська.
         /// </summary>
         public static string Ukrainian {
             get {
                 return ResourceManager.GetString("Ukrainian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ім&apos;я користувача.
+        /// </summary>
+        public static string UserName {
+            get {
+                return ResourceManager.GetString("UserName", resourceCulture);
             }
         }
     }
