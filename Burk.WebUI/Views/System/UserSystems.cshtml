@@ -1,0 +1,19 @@
+﻿@using Burk.Model.Resources;
+@{
+    ViewBag.Title = @Resource.Systems;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Scripts.Render("~/bundles/jquery")
+
+<script type="text/javascript">
+    $().ready(function () {
+        alert("work");
+    });
+</script>
+
+<h2>@ViewBag.Title</h2>
+
+<div style="height:20px"></div>
+<p>@Html.ActionLink(Resource.CreateNewSystem, "Create", "System", htmlAttributes: new { id = "createLink", @class = "btn btn-primary btn-sm" })</p>
+

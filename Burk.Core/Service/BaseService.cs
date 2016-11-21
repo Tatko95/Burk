@@ -47,7 +47,7 @@ namespace Burk.Core.Service
             repository.Update(obj);
         }
 
-        public virtual IQueryable<T> GetTable()
+        public virtual IQueryable<T> GetAll()
         {
             return repository.Table<T>();
         }

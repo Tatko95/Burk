@@ -5,6 +5,7 @@ using Burk.Model.Users;
 using System;
 using System.Linq;
 using Burk.Model.UDB;
+using Microsoft.AspNet.Identity;
 
 namespace Burk.Logic.Concrete.Services
 {
@@ -20,10 +21,10 @@ namespace Burk.Logic.Concrete.Services
             try
             {
                 repository.BeginTransaction();
-                var system = base.Insert(obj);
+                Model.UDB.System system = base.Insert(obj);
                 UserInSystem userInSystem = new UserInSystem() { System = system, User = user };
                 repository.Insert(userInSystem);
-                
+
                 //пользователю добавить роль "Создатель системы"
                 repository.Commit();
                 return system;
@@ -43,8 +44,8 @@ namespace Burk.Logic.Concrete.Services
                 foreach (var user in userInSystem)
                     repository.Delete(user);
                 IQueryable<Role> roleInSystem = from rInS in repository.Table<RoleInSystem>().Where(x => x.SystemId == obj.SystemId)
-                                   from r in repository.Table<Role>().Where(x => x.Id == rInS.RoleId)
-                                   select r;
+                                                from r in repository.Table<Role>().Where(x => x.Id == rInS.RoleId)
+                                                select r;
                 foreach (var role in roleInSystem)
                     repository.Delete(role);
                 base.Delete(obj);
@@ -52,9 +53,16 @@ namespace Burk.Logic.Concrete.Services
             }
             catch (Exception)
             {
-
                 throw;
             }
+        }
+
+        public IQueryable<Model.UDB.System> GetAllByUser(string userId)
+        {
+            IQueryable<Model.UDB.System> result = from usInSys in repository.Table<UserInSystem>().Where(x => x.UserId == userId)
+                                                  join sys in repository.Table<Burk.Model.UDB.System>() on usInSys.SystemId equals sys.SystemId
+                                                  select sys;
+            return result;
         }
         #endregion
     }

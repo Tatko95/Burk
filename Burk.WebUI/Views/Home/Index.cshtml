@@ -6,7 +6,14 @@
 <div class="jumbotron">
     <h1>Burk - Build and Work</h1>
     <p class="lead">Burk is good system.</p>
-    <p>@Html.ActionLink(Resource.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class="btn btn-primary btn-lg" })</p>
+    @if (Request.IsAuthenticated)
+    {
+        <p>@Html.ActionLink(Resource.Systems, "UserSystems", "System", routeValues: null, htmlAttributes: new { id = "systemsLink", @class = "btn btn-primary btn-lg" })</p>
+    }
+    else
+    {
+        <p>@Html.ActionLink(Resource.Register, "Register", "Account", routeValues: null, htmlAttributes: new { id = "registerLink", @class = "btn btn-primary btn-lg" })</p>
+    }
 </div>
 
 <div class="row">

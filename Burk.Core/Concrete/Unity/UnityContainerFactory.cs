@@ -14,7 +14,7 @@ namespace Burk.Core.Concrete.Unity
     public static class UnityContainerFactory
     {
         #region Fields
-        private static IUnityContainer unityContainer;
+        public static IUnityContainer unityContainer;
         #endregion
 
         #region Properties
@@ -25,6 +25,16 @@ namespace Burk.Core.Concrete.Unity
                 if (unityContainer == null)
                     unityContainer = CreateUnityContainer();
                 return unityContainer.Resolve<IUnityObjectFactory>();
+            }
+        }
+
+        public static IUnityContainer UnityContainer
+        {
+            get
+            {
+                if (unityContainer == null)
+                    unityContainer = CreateUnityContainer();
+                return unityContainer;
             }
         }
         #endregion
