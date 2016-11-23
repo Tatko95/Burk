@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Burk.Model.Resources;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Burk.WebUI.Models
@@ -70,16 +71,16 @@ namespace Burk.WebUI.Models
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
-        [Display(Name = "Password")]
+        [Display(Name = "Password", ResourceType = typeof(Resource))]
         public string Password { get; set; }
 
         [DataType(DataType.Password)]
-        [Display(Name = "Confirm password")]
+        [Display(Name = "ConfirmPassword", ResourceType = typeof(Resource))]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
 
         [Required]
-        [Display(Name = "User name")]
+        [Display(Name = "UserName", ResourceType = typeof(Resource))]
         public string UserName { get; set; }
     }
 

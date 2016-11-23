@@ -3,7 +3,7 @@ using System;
 
 namespace Burk.Core.Concrete.Log
 {
-    class Log4NetFactory : ILogFactory
+    public class Log4NetFactory : ILogFactory
     {
         public object GetLogger(Type parentType)
         {

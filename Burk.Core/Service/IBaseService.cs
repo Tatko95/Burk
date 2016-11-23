@@ -9,6 +9,6 @@ namespace Burk.Core.Service
         T Insert(T obj);
         void Update(T obj);
         void Delete(T obj);
-        IQueryable<T> GetTable();
+        IQueryable<T> GetAll();
     }
 }

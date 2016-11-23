@@ -10,6 +10,7 @@
     <title>@ViewBag.Title - My ASP.NET Application</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
 
 </head>
 <body>
@@ -34,21 +35,19 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
+        <footer style="text-align:center">
             <p>&copy; @DateTime.Now.Year - Burk</p>
-            <ul style="margin-top:10px;">
                 @{
                     CultureInfo currentCulture = Thread.CurrentThread.CurrentCulture;
-                    <li><a href="/Home/ChangeCurrentCulture/@((int)Language.en)">@Resource.English</a></li>
-                    <li><a href="/Home/ChangeCurrentCulture/@((int)Language.ua)">@Resource.Ukrainian</a></li>
-                    <li><a href="/Home/ChangeCurrentCulture/@((int)Language.ru)">@Resource.Russian</a></li>
+                    <a href="/Home/ChangeCurrentCulture/@((int)Language.en)">@Resource.English</a> <br/>
+                    <a href="/Home/ChangeCurrentCulture/@((int)Language.ua)">@Resource.Ukrainian</a> <br/>
+                    <a href="/Home/ChangeCurrentCulture/@((int)Language.ru)">@Resource.Russian</a>
                 }
-            </ul>
             
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/jquery")*@
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)
 </body>

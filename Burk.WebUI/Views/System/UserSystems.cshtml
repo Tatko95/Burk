@@ -1,0 +1,45 @@
+﻿@using Burk.Model.Resources;
+@{
+    ViewBag.Title = @Resource.Systems;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Styles.Render("~/Content/JQWidgetscss")
+@Scripts.Render("~/bundles/JQWidgets")
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#jqxgrid").jqxGrid(
+            {
+                width: 800,
+                height: 346,
+                source: {
+                    datatype: "json",
+                    datafields: [
+                        { name: 'FullName', type: 'string' },
+                        { name: 'ShortName', type: 'string' },
+                        { name: 'SystemId', type: 'int' },
+                    ],
+                    id: 'SystemId',
+                    url: "@Url.Action("GetListSystems")",
+                    loadComplete: function (data) { },
+                },
+                theme: "boostrap",
+                pageable: true,
+                sortable: true,
+                columnsresize: true,
+                columns: [
+                  { text: 'Full', datafield: 'FullName', cellsrenderer: cellsrenderer, align: 'center', width: 350 },
+                  { text: 'Short', datafield: 'ShortName', cellsrenderer: cellsrenderer, align: 'center', width: 350 },
+                  { text: 'SystemId', datafield: 'SystemId', cellsrenderer: cellsrenderer, align: 'center', width: 100 }
+                ],
+            });
+    });
+</script>
+
+<h2>@ViewBag.Title</h2>
+
+<div style="height:20px"></div>
+<p>@Html.ActionLink(Resource.CreateNewSystem, "Create", "System", htmlAttributes: new { id = "createLink", @class = "btn btn-primary btn-sm" })</p>
+
+<div id="jqxgrid"></div>

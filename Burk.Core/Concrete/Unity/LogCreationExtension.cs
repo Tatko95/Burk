@@ -8,7 +8,7 @@ using System.Linq;
 
 namespace Burk.Core.Concrete.Unity
 {
-    internal class LogCreationExtension<T, U> : UnityContainerExtension
+    public class LogCreationExtension<T, U> : UnityContainerExtension
             where U : ILogFactory, new()
     {
         #region METHODS

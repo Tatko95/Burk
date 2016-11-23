@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Burk.Core.Concrete.Unity
 {
-    internal class BuildTrackingExtension : UnityContainerExtension
+    public class BuildTrackingExtension : UnityContainerExtension
     {
         #region METHODS
         #region UnityContainerExtension

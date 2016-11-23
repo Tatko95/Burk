@@ -12,7 +12,7 @@ using Burk.Logic.Concrete.Users.Managers;
 namespace Burk.WebUI.Controllers
 {
     [Authorize]
-    public class ManageController : Controller
+    public class ManageController : BaseController
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
@@ -53,7 +53,7 @@ namespace Burk.WebUI.Controllers
 
         //
         // GET: /Manage/Index
-        public async Task<ActionResult> Index(ManageMessageId? message)
+        public ActionResult Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =
                 message == ManageMessageId.ChangePasswordSuccess ? "Your password has been changed."
@@ -68,10 +68,10 @@ namespace Burk.WebUI.Controllers
             var model = new IndexViewModel
             {
                 HasPassword = HasPassword(),
-                PhoneNumber = await UserManager.GetPhoneNumberAsync(userId),
-                TwoFactor = await UserManager.GetTwoFactorEnabledAsync(userId),
-                Logins = await UserManager.GetLoginsAsync(userId),
-                BrowserRemembered = await AuthenticationManager.TwoFactorBrowserRememberedAsync(userId)
+                PhoneNumber = UserManager.GetPhoneNumber(userId),
+                TwoFactor = UserManager.GetTwoFactorEnabled(userId),
+                Logins = UserManager.GetLogins(userId),
+                BrowserRemembered = AuthenticationManager.TwoFactorBrowserRemembered(userId)
             };
             return View(model);
         }
