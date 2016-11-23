@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace Burk.WebUI
 {
@@ -11,8 +10,26 @@ namespace Burk.WebUI
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
-            bundles.Add(new ScriptBundle("~bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/JQWidgets").Include(
+                        "~/Scripts/JQWidgets/jqxcore.js",
+                        "~/Scripts/JQWidgets/jqxdata.js",
+                        "~/Scripts/JQWidgets/jqxbuttons.js",
+                        "~/Scripts/JQWidgets/jqxscrollbar.js",
+                        "~/Scripts/JQWidgets/jqxmenu.js",
+                        "~/Scripts/JQWidgets/jqxcheckbox.js",
+                        "~/Scripts/JQWidgets/jqxlistbox.js",
+                        "~/Scripts/JQWidgets/jqxdropdownlist.js",
+                        "~/Scripts/JQWidgets/jqxgrid.js",
+                        "~/Scripts/JQWidgets/jqxgrid.sort.js",
+                        "~/Scripts/JQWidgets/jqxgrid.pager.js",
+                        "~/Scripts/JQWidgets/jqxgrid.selection.js",
+                        "~/Scripts/JQWidgets/jqxgrid.edit.js",
+                        "~/Scripts/JQWidgets/jqxgrid.columnsresize.js",
+                        "~/Scripts/JQWidgets/custom.js"));
+
+            bundles.Add(new StyleBundle("~/Content/JQWidgetscss").Include(
+                        "~/Content/JQWidgets/jqx.base.css",
+                        "~/Content/JQWidgets/jqx.boostrap.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
