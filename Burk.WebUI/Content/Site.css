@@ -22,3 +22,7 @@ select,
 textarea {
     max-width: 280px;
 }
+
+
+/*===========================Custom=========================*/
+ .ui-dialog { z-index: 99999999 !important ;}

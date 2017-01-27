@@ -32,20 +32,21 @@
             </div>
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer style="text-align:center">
-            <p>&copy; @DateTime.Now.Year - Burk</p>
-                @{
-                    CultureInfo currentCulture = Thread.CurrentThread.CurrentCulture;
-                    <a href="/Home/ChangeCurrentCulture/@((int)Language.en)">@Resource.English</a> <br/>
-                    <a href="/Home/ChangeCurrentCulture/@((int)Language.ua)">@Resource.Ukrainian</a> <br/>
-                    <a href="/Home/ChangeCurrentCulture/@((int)Language.ru)">@Resource.Russian</a>
-                }
-            
-        </footer>
     </div>
+
+    <footer style="text-align:center">
+        <hr />
+        <p>&copy; @DateTime.Now.Year - Burk</p>
+        @{
+            CultureInfo currentCulture = Thread.CurrentThread.CurrentCulture;
+            <a href="/Home/ChangeCurrentCulture/@((int)Language.en)">@Resource.English</a> <br />
+            <a href="/Home/ChangeCurrentCulture/@((int)Language.ua)">@Resource.Ukrainian</a> <br />
+            <a href="/Home/ChangeCurrentCulture/@((int)Language.ru)">@Resource.Russian</a>
+        }
+    </footer>
 
     @*@Scripts.Render("~/bundles/jquery")*@
     @Scripts.Render("~/bundles/bootstrap")

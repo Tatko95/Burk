@@ -7,9 +7,18 @@ namespace Burk.WebUI
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
+            #region JQuery
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/jqueryUI").Include(
+                        "~/Scripts/jquery-ui-{version}.js"));
+
+            bundles.Add(new StyleBundle("~/Content/jqueryUIcss").Include(
+                        "~/Content/themes/base/jquery-ui.min.css"));
+            #endregion
+
+            #region JQWidjets
             bundles.Add(new ScriptBundle("~/bundles/JQWidgets").Include(
                         "~/Scripts/JQWidgets/jqxcore.js",
                         "~/Scripts/JQWidgets/jqxdata.js",
@@ -30,6 +39,7 @@ namespace Burk.WebUI
             bundles.Add(new StyleBundle("~/Content/JQWidgetscss").Include(
                         "~/Content/JQWidgets/jqx.base.css",
                         "~/Content/JQWidgets/jqx.boostrap.css"));
+            #endregion
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
