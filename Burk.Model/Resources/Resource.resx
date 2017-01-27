@@ -135,6 +135,9 @@
   <data name="Flexibility" xml:space="preserve">
     <value>Гнучкість</value>
   </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Повна назва</value>
+  </data>
   <data name="HighControl" xml:space="preserve">
     <value>Високий контроль</value>
   </data>
@@ -168,6 +171,9 @@
   </data>
   <data name="Security" xml:space="preserve">
     <value>Безпека</value>
+  </data>
+  <data name="ShortName" xml:space="preserve">
+    <value>Коротка назва</value>
   </data>
   <data name="Systems" xml:space="preserve">
     <value>Системи</value>

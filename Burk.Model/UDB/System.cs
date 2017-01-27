@@ -11,8 +11,10 @@ namespace Burk.Model.UDB
         public int SystemId { get; set; }
 
         [Required]
+        [Display(Name = "FullName")]
         public string FullName { get; set; }
 
+        [Display(Name = "ShortName")]
         public string ShortName { get; set; }
 
         [ForeignKey("Language")]

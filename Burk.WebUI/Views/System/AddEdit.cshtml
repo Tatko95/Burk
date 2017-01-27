@@ -1,0 +1,66 @@
+﻿@model Burk.Model.UDB.System
+
+@Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript">
+    function GetFormObject(formid, add) { var result = $('#' + formid + (add != null ? add : '')).serializeArray(); var checkBox = $('#' + formid + ' input[type=checkbox]:checked').map(function () { return { "name": this.name, "value": this.value }; }).get(); for (var x in checkBox) { delete result[checkBox[x].name]; var nObj = {}; nObj[checkBox[x].name] = checkBox[x].value; result = MergeObj(result, nObj); } return result; }
+
+    function Save() {
+        var data = JSON.stringify({ model: GetFormObject('addEditSystemDialog') });
+        if ($('#addEditSystemDialog').valid()) {
+            
+            console.log(data);
+            $.ajax({
+                type: "POST",
+                data: data,
+                contentType: 'application/json',
+                url: '/System/AddEdit/',
+                success: function (text) {
+                    alert("work");
+                    //if (text == "Success") {
+                    //    OnSuccessSavePost();
+                    //    $.unblockUI();
+                    //}
+                    //else {
+                    //    OnIsCopyPost();
+                    //    $.unblockUI();
+                    //}
+                }
+            });
+            $('#addEditDialog').dialog('destroy').html("");
+        }
+        else {
+            alert("НеВсіПоляЗаповнені");
+        }
+        //var data = { model: GetFormObject('addEditSystemDialog') };
+        //$.ajax({
+        //    type: "POST",
+        //    data: JSON.stringify(data),
+        //    contentType: 'application/json',
+        //    url: '/Post/AddEdit/',
+        //    success: function (text) {
+        //        if (text == "Success") {
+        //            OnSuccessSavePost();
+        //            $.unblockUI();
+        //        }
+        //        else {
+        //            OnIsCopyPost();
+        //            $.unblockUI();
+        //        }
+        //    }
+        //});
+        //$('#addEditPostForm #save_btn').attr('disabled', true);
+        
+    }
+</script>
+@using (Html.BeginForm("AddEdit", "System", FormMethod.Post, new { id = "addEditSystemDialog" }))
+{
+    @Html.HiddenFor(x => x.SystemId)
+    @Html.HiddenFor(x => x.UID)
+
+    <div class="tb_title">@Html.DisplayNameFor(x => x.FullName):<span class="req">*</span></div>
+    <div>@Html.TextBoxFor(x => x.FullName)</div>
+    <div class="tb_title">@Html.DisplayNameFor(x => x.ShortName):</div>
+    <div>@Html.TextBoxFor(x => x.ShortName)</div>
+
+    <input id="saveBtn" type="button" class="btn btn-primary btn-sm" onclick="Save()" value="saaaaave" />
+}

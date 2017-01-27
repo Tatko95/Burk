@@ -34,7 +34,10 @@ namespace Burk.WebUI
                         "~/Scripts/JQWidgets/jqxgrid.selection.js",
                         "~/Scripts/JQWidgets/jqxgrid.edit.js",
                         "~/Scripts/JQWidgets/jqxgrid.columnsresize.js",
-                        "~/Scripts/JQWidgets/custom.js"));
+                        "~/Scripts/JQWidgets/custom.js",
+                        "~/Scripts/JQWidgets/globalization/globalize.js"
+                        //"~/Scripts/JQwidgets/globalization/globalize.culture.ru-RU.js"
+                        ));
 
             bundles.Add(new StyleBundle("~/Content/JQWidgetscss").Include(
                         "~/Content/JQWidgets/jqx.base.css",

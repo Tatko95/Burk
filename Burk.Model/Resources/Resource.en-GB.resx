@@ -135,6 +135,9 @@
   <data name="Flexibility" xml:space="preserve">
     <value>Flexibility</value>
   </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Full name</value>
+  </data>
   <data name="HighControl" xml:space="preserve">
     <value>High control</value>
   </data>
@@ -168,6 +171,9 @@ The possibility of recovering lost data due to logical data deletion.</value>
   </data>
   <data name="Security" xml:space="preserve">
     <value>Security</value>
+  </data>
+  <data name="ShortName" xml:space="preserve">
+    <value>Short name</value>
   </data>
   <data name="Systems" xml:space="preserve">
     <value>Systems</value>

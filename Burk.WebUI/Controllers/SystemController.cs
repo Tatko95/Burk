@@ -35,26 +35,6 @@ namespace Burk.WebUI.Controllers
             User user = UserManager.FindById(User.Identity.GetUserId());
             var systems = service.GetAllByUser(user.Id);
             var systemsList = systems.ToList();
-            systemsList.Add(new Model.UDB.System() { FullName = "1", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 1 });
-            systemsList.Add(new Model.UDB.System() { FullName = "2", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 2 });
-            systemsList.Add(new Model.UDB.System() { FullName = "3", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 4 });
-            systemsList.Add(new Model.UDB.System() { FullName = "4", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 5 });
-            systemsList.Add(new Model.UDB.System() { FullName = "5", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 16 });
-            systemsList.Add(new Model.UDB.System() { FullName = "6", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 17 });
-            systemsList.Add(new Model.UDB.System() { FullName = "7", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 18 });
-            systemsList.Add(new Model.UDB.System() { FullName = "8", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 19 });
-            systemsList.Add(new Model.UDB.System() { FullName = "9", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 10 });
-            systemsList.Add(new Model.UDB.System() { FullName = "0", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 122 });
-            systemsList.Add(new Model.UDB.System() { FullName = "й", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 133 });
-            systemsList.Add(new Model.UDB.System() { FullName = "d", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 144 });
-            systemsList.Add(new Model.UDB.System() { FullName = "у", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 155 });
-            systemsList.Add(new Model.UDB.System() { FullName = "к", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 166 });
-            systemsList.Add(new Model.UDB.System() { FullName = "е", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 188 });
-            systemsList.Add(new Model.UDB.System() { FullName = "н", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 177 });
-            systemsList.Add(new Model.UDB.System() { FullName = "г", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 199 });
-            systemsList.Add(new Model.UDB.System() { FullName = "ш", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 112 });
-            systemsList.Add(new Model.UDB.System() { FullName = "щ", LanguageId = 1, ShortName = "s", UID = 1, SystemId = 135 });
-
 
             var jsonData = from item in systemsList
                            select new
@@ -63,6 +43,7 @@ namespace Burk.WebUI.Controllers
                                item.FullName,
                                item.ShortName
                            };
+
             return Json(jsonData, JsonRequestBehavior.AllowGet);
         }
         #endregion
@@ -77,10 +58,10 @@ namespace Burk.WebUI.Controllers
 
         #region AddEdit
         [HttpGet]
-        public ActionResult AddEdit()
+        public ActionResult AddEdit(int systemId = 0)
         {
-
-            return PartialView();
+            Burk.Model.UDB.System system = service.GetById("SystemId", systemId.ToString());
+            return PartialView(system);
         }
 
         [HttpPost]
@@ -90,11 +71,5 @@ namespace Burk.WebUI.Controllers
         }
         #endregion
         #endregion
-        
-        // GET: System
-        public ActionResult Index()
-        {
-            return View();
-        }
     }
 }
