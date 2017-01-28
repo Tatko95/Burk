@@ -138,6 +138,9 @@
   <data name="English" xml:space="preserve">
     <value>Англійська</value>
   </data>
+  <data name="ErrorDeveloper" xml:space="preserve">
+    <value>Виникла помилка, зверніться до розробників!</value>
+  </data>
   <data name="Flexibility" xml:space="preserve">
     <value>Гнучкість</value>
   </data>
@@ -181,13 +184,16 @@
   <data name="Save" xml:space="preserve">
     <value>Зберегти</value>
   </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Збережено</value>
+  </data>
   <data name="Security" xml:space="preserve">
     <value>Безпека</value>
   </data>
   <data name="ShortName" xml:space="preserve">
     <value>Коротка назва</value>
   </data>
-  <data name="SucCreate" xml:space="preserve">
+  <data name="SucCreateSystem" xml:space="preserve">
     <value>Нова система створена! Натисніть "ОК", щоб перейти до налаштувань системи.</value>
   </data>
   <data name="Systems" xml:space="preserve">

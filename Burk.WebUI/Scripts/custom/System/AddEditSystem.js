@@ -10,20 +10,24 @@ function Save() {
             data: data,
             contentType: 'application/json',
             success: function (text) {
-                //if (text == "Success") {
-                //    OnSuccessSavePost();
-                //    $.unblockUI();
-                //}
-                //else {
-                //    OnIsCopyPost();
-                //    $.unblockUI();
-                //}
+                alert(text);
+                if (text == "SuccessCreate") {
+                    //    $.unblockUI();
+                    ShowMessageBox(1, "SuccessfulCreateDiv", localization.SucCreateSystem, function () { });
+                    $('#addEditDialog').dialog('destroy').html("");
+                }
+                else if (text == "SuccessEdit") {
+                    ShowMessageBox(1, "SuccessfulCreateDiv", localization.Saved, function () { });
+                    //    $.unblockUI();
+                    $('#addEditDialog').dialog('destroy').html("");
+                }
+                else if (text == "Error") {
+                    ShowMessageBox(1, "ErrorDiv", localization.ErrorDeveloper);
+                }
             }
         });
-        ShowMessageBox(1, "SuccessfulCreateDiv", localization.SucCreate)
-        $('#addEditDialog').dialog('destroy').html("");
     }
     else {
-        ShowMessageBox(1, "ErrorInputDiv", localization.ReqError)
+        ShowMessageBox(1, "ErrorInputDiv", localization.ReqError);
     }
 }

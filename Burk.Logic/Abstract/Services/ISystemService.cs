@@ -11,9 +11,9 @@ namespace Burk.Logic.Abstract.Services
         /// Создание новой системы
         /// </summary>
         /// <param name="obj">система</param>
-        /// <param name="user">пользователь, который создает систему</param>
+        /// <param name="userId">Ид пользователя, который создает систему</param>
         /// <returns>созданая система</returns>
-        Model.UDB.System Insert(Model.UDB.System obj, User user);
+        Model.UDB.System Insert(Model.UDB.System obj, string userId);
 
         /// <summary>
         /// Получения систем пользователя

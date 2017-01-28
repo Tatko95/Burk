@@ -138,6 +138,9 @@
   <data name="English" xml:space="preserve">
     <value>English</value>
   </data>
+  <data name="ErrorDeveloper" xml:space="preserve">
+    <value>Error, please contact the developers!</value>
+  </data>
   <data name="Flexibility" xml:space="preserve">
     <value>Flexibility</value>
   </data>
@@ -181,13 +184,16 @@ The possibility of recovering lost data due to logical data deletion.</value>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Saved</value>
+  </data>
   <data name="Security" xml:space="preserve">
     <value>Security</value>
   </data>
   <data name="ShortName" xml:space="preserve">
     <value>Short name</value>
   </data>
-  <data name="SucCreate" xml:space="preserve">
+  <data name="SucCreateSystem" xml:space="preserve">
     <value>The new system created! Click "OK" to access the system settings.</value>
   </data>
   <data name="Systems" xml:space="preserve">

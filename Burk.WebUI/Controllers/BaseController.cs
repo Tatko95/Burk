@@ -1,5 +1,7 @@
 ﻿using Burk.Logic.Concrete.Users.Managers;
+using Burk.Model.Users;
 using Burk.WebUI.Helpers;
+using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Web;
@@ -54,6 +56,11 @@ namespace Burk.WebUI.Controllers
             {
                 userManager = value;
             }
+        }
+
+        public User CurrentUser
+        {
+            get { return UserManager.FindById(User.Identity.GetUserId()); }
         }
         #endregion
     }

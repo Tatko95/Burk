@@ -124,6 +124,15 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Виникла помилка, зверніться до розробників!.
+        /// </summary>
+        public static string ErrorDeveloper {
+            get {
+                return ResourceManager.GetString("ErrorDeveloper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Гнучкість.
         /// </summary>
         public static string Flexibility {
@@ -251,6 +260,15 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Збережено.
+        /// </summary>
+        public static string Saved {
+            get {
+                return ResourceManager.GetString("Saved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Безпека.
         /// </summary>
         public static string Security {
@@ -271,9 +289,9 @@ namespace Burk.Model.Resources {
         /// <summary>
         ///   Looks up a localized string similar to Нова система створена! Натисніть &quot;ОК&quot;, щоб перейти до налаштувань системи..
         /// </summary>
-        public static string SucCreate {
+        public static string SucCreateSystem {
             get {
-                return ResourceManager.GetString("SucCreate", resourceCulture);
+                return ResourceManager.GetString("SucCreateSystem", resourceCulture);
             }
         }
         

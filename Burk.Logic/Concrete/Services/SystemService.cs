@@ -16,21 +16,26 @@ namespace Burk.Logic.Concrete.Services
         #endregion
 
         #region Methods
-        public Model.UDB.System Insert(Model.UDB.System obj, User user)
+        public Model.UDB.System Insert(Model.UDB.System obj, string userId)
         {
             try
             {
                 repository.BeginTransaction();
-                Model.UDB.System system = base.Insert(obj);
+                Model.UDB.System system = repository.Insert(obj);
+
+                var user = repository.Table<User>().FirstOrDefault(x => x.Id == userId);
                 UserInSystem userInSystem = new UserInSystem() { System = system, User = user };
                 repository.Insert(userInSystem);
 
-                //пользователю добавить роль "Создатель системы"
+                Role createrRole = repository.Table<Role>().FirstOrDefault(x => x.Name == "Creator");
+                UserRole createrRoleInSystem = new UserRole() { System = system, UserId = userId, RoleId = createrRole.Id };
+
                 repository.Commit();
                 return system;
             }
             catch (Exception ex)
             {
+                repository.Rollback();
                 throw new Exception("Error in Insert System! See innerException", ex);
             }
         }

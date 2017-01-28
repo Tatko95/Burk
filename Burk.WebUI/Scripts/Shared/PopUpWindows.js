@@ -8,12 +8,10 @@ function ShowMessageBox(typeBlock, divId, text, callback) {
         translations["OK"] = 'OK';
 
         buttons[translations["OK"]] = function () {
-            if (callBack === null || callBack === undefined) {
-                $("#" + divId).dialog('close');
+            if (callback !== null || callback !== undefined) {
+                callback();
             }
-            else {
-                callBack();
-            }
+            $("#" + divId).dialog('close');
         };
 
         $('#' + divId).html("<b>" + text + "<b/>").dialog({
@@ -21,11 +19,14 @@ function ShowMessageBox(typeBlock, divId, text, callback) {
             height: 'auto',
             resizable: false,
             modal: true,
-            closeOnEscape: true,
+            closeOnEscape: false,
             zIndex: 900,
             show: { effect: "drop", direction: "left" },
             hide: { effect: "drop", direction: "left" },
             buttons: buttons,
+            open: function (event, ui) {
+                $(".ui-dialog-titlebar-close", ui.dialog | ui).hide();
+            },
             close: function () {
                 $(this).dialog('destroy').html("");
             }
