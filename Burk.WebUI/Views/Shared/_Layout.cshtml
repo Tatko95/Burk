@@ -13,10 +13,10 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    <script src="~/Scripts/Shared/Serialization.js" type="text/javascript"></script>
-    <script src="@Url.Content("~/Home/GenerateJS_Of_Resource")" type="text/javascript"></script>
+    @Scripts.Render("~/bundles/SharedScripts")
 </head>
 <body>
+    <script src="@Url.Content("~/Home/GenerateJS_Of_Resource")" type="text/javascript"></script>
     <script type="text/javascript">
         var UICulture = '@UICulture';
     </script>

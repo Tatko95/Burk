@@ -172,6 +172,9 @@
   <data name="Register" xml:space="preserve">
     <value>Регистрация</value>
   </data>
+  <data name="ReqError" xml:space="preserve">
+    <value>Не все обязательные поля заполнены</value>
+  </data>
   <data name="Russian" xml:space="preserve">
     <value>Русский</value>
   </data>
@@ -183,6 +186,9 @@
   </data>
   <data name="ShortName" xml:space="preserve">
     <value>Короткое название</value>
+  </data>
+  <data name="SucCreate" xml:space="preserve">
+    <value>Новая система создана! Нажмите «ОК», чтобы перейти к настройкам системы.</value>
   </data>
   <data name="Systems" xml:space="preserve">
     <value>Системы</value>

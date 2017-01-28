@@ -36,12 +36,18 @@ namespace Burk.WebUI
                         "~/Scripts/JQWidgets/jqxgrid.columnsresize.js",
                         "~/Scripts/JQWidgets/custom.js",
                         "~/Scripts/JQWidgets/globalization/globalize.js"
-                        //"~/Scripts/JQwidgets/globalization/globalize.culture.ru-RU.js"
                         ));
 
             bundles.Add(new StyleBundle("~/Content/JQWidgetscss").Include(
                         "~/Content/JQWidgets/jqx.base.css",
                         "~/Content/JQWidgets/jqx.boostrap.css"));
+            #endregion
+
+            #region SharedScripts
+            bundles.Add(new ScriptBundle("~/bundles/SharedScripts").Include(
+            "~/Scripts/Shared/Serialization.js",
+            "~/Scripts/Shared/PopUpWindows.js"
+            ));
             #endregion
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(

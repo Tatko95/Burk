@@ -224,6 +224,15 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Не всі обов&apos;язкові поля заповнені.
+        /// </summary>
+        public static string ReqError {
+            get {
+                return ResourceManager.GetString("ReqError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Російська.
         /// </summary>
         public static string Russian {
@@ -256,6 +265,15 @@ namespace Burk.Model.Resources {
         public static string ShortName {
             get {
                 return ResourceManager.GetString("ShortName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нова система створена! Натисніть &quot;ОК&quot;, щоб перейти до налаштувань системи..
+        /// </summary>
+        public static string SucCreate {
+            get {
+                return ResourceManager.GetString("SucCreate", resourceCulture);
             }
         }
         

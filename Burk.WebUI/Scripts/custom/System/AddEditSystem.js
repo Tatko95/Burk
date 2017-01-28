@@ -4,14 +4,12 @@
 function Save() {
     var data = JSON.stringify({ model: GetFormObject('addEditSystemDialog') });
     if ($('#addEditSystemDialog').valid()) {
-        console.log(data);
         $.ajax({
             type: "POST",
+            url: '/System/AddEdit/',
             data: data,
             contentType: 'application/json',
-            url: '/System/AddEdit/',
             success: function (text) {
-                alert("work");
                 //if (text == "Success") {
                 //    OnSuccessSavePost();
                 //    $.unblockUI();
@@ -22,9 +20,10 @@ function Save() {
                 //}
             }
         });
+        ShowMessageBox(1, "SuccessfulCreateDiv", localization.SucCreate)
         $('#addEditDialog').dialog('destroy').html("");
     }
     else {
-        alert("НеВсіПоляЗаповнені"); //зробити випадаюче вікно
+        ShowMessageBox(1, "ErrorInputDiv", localization.ReqError)
     }
 }

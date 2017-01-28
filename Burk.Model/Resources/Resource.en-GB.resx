@@ -172,6 +172,9 @@ The possibility of recovering lost data due to logical data deletion.</value>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
+  <data name="ReqError" xml:space="preserve">
+    <value>Not all required fields are filled</value>
+  </data>
   <data name="Russian" xml:space="preserve">
     <value>Russian</value>
   </data>
@@ -183,6 +186,9 @@ The possibility of recovering lost data due to logical data deletion.</value>
   </data>
   <data name="ShortName" xml:space="preserve">
     <value>Short name</value>
+  </data>
+  <data name="SucCreate" xml:space="preserve">
+    <value>The new system created! Click "OK" to access the system settings.</value>
   </data>
   <data name="Systems" xml:space="preserve">
     <value>Systems</value>
