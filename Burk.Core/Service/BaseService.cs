@@ -5,7 +5,7 @@ using System.Linq.Dynamic;
 
 namespace Burk.Core.Service
 {
-    public abstract class BaseService<T> : IBaseService<T> where T : class
+    public abstract class BaseService<T> : IBaseService<T> where T : class, new()
     {
         #region Fields
         protected IBaseRepository repository;
@@ -29,7 +29,7 @@ namespace Burk.Core.Service
                 idValueObj = idValue;
 
             T result = repository.Table<T>().Where(idName + " == @0", idValueObj).FirstOrDefault();
-            return result;
+            return result ?? new T();
         }
 
         public virtual void Delete(T obj)

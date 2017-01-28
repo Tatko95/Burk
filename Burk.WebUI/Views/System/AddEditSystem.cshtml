@@ -1,0 +1,18 @@
+﻿@model Burk.Model.UDB.System
+@using Burk.Model.Resources;
+
+@Scripts.Render("~/bundles/jqueryval")
+<script type="text/javascript" src="~/Scripts/custom/System/AddEditSystem.js"></script>
+
+@using (Html.BeginForm("AddEdit", "System", FormMethod.Post, new { id = "addEditSystemDialog" }))
+{
+    @Html.HiddenFor(x => x.SystemId)
+    @Html.HiddenFor(x => x.UID)
+
+    <div class="tb_title">@Html.DisplayNameFor(x => x.FullName):<span class="req">*</span></div>
+    <div>@Html.TextBoxFor(x => x.FullName)</div>
+    <div class="tb_title">@Html.DisplayNameFor(x => x.ShortName):</div>
+    <div>@Html.TextBoxFor(x => x.ShortName)</div>
+
+    <input id="saveBtn" type="button" class="btn btn-primary btn-sm" onclick="Save()" value="@Resource.Save" />
+}

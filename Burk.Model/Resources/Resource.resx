@@ -120,11 +120,17 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Підтвердження пароля</value>
   </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Створення нового</value>
+  </data>
   <data name="CreateNewSystem" xml:space="preserve">
     <value>Створити нову систему</value>
   </data>
   <data name="CreateNewUser" xml:space="preserve">
     <value>Створення нового користувача</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редагувати</value>
   </data>
   <data name="EditProfile" xml:space="preserve">
     <value>Редагувати профіль</value>
@@ -134,6 +140,9 @@
   </data>
   <data name="Flexibility" xml:space="preserve">
     <value>Гнучкість</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>Повна назва</value>
   </data>
   <data name="HighControl" xml:space="preserve">
     <value>Високий контроль</value>
@@ -166,8 +175,14 @@
   <data name="Russian" xml:space="preserve">
     <value>Російська</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Зберегти</value>
+  </data>
   <data name="Security" xml:space="preserve">
     <value>Безпека</value>
+  </data>
+  <data name="ShortName" xml:space="preserve">
+    <value>Коротка назва</value>
   </data>
   <data name="Systems" xml:space="preserve">
     <value>Системи</value>

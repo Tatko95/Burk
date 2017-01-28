@@ -74,7 +74,7 @@ Globalize.addCultureInfo( "ru-RU", "default", {
 				f: "d MMMM yyyy 'г.' H:mm",
 				F: "d MMMM yyyy 'г.' H:mm:ss",
 				Y: "MMMM yyyy"
-			}
+			},
 		}
 	}
 });

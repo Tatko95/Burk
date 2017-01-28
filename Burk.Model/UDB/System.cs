@@ -1,6 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Burk.Model.Resources;
 
 namespace Burk.Model.UDB
 {
@@ -11,8 +12,10 @@ namespace Burk.Model.UDB
         public int SystemId { get; set; }
 
         [Required]
+        [Display(Name = "FullName", ResourceType = typeof(Resource))]
         public string FullName { get; set; }
 
+        [Display(Name = "ShortName", ResourceType = typeof(Resource))]
         public string ShortName { get; set; }
 
         [ForeignKey("Language")]
@@ -24,7 +27,7 @@ namespace Burk.Model.UDB
 
         public override String ToString()
         {
-            return string.Format("Id:{0}; Name: {1};", SystemId.ToString(), FullName);
+            return string.Format("SystemId:{0}; FullName: {1}; UID: {2}", SystemId.ToString(), FullName, UID.ToString());
         }
     }
 }
