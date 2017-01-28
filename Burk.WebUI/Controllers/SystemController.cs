@@ -10,6 +10,7 @@ using System.Web.Mvc;
 
 namespace Burk.WebUI.Controllers
 {
+    [Authorize]
     public class SystemController : BaseController
     {
         #region Fields
@@ -60,8 +61,8 @@ namespace Burk.WebUI.Controllers
         [HttpGet]
         public ActionResult AddEdit(int systemId = 0)
         {
-            Burk.Model.UDB.System system = service.GetById("SystemId", systemId.ToString());
-            return PartialView(system);
+            Model.UDB.System system = service.GetById("SystemId", systemId.ToString());
+            return PartialView("AddEditSystem", system);
         }
 
         [HttpPost]

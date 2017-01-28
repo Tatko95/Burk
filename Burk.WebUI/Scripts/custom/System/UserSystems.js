@@ -44,7 +44,7 @@ function AddEdit(objKey) {
                 modal: true,
                 show: { effect: "drop", direction: "left" },
                 hide: { effect: "drop", direction: "left" },
-                title: objKey == null ? "Create new" : "Edit",
+                title: objKey == null ? localization.CreateNew : localization.Edit,
                 closeOnEscape: true,
                 close: function () {
                     $(this).dialog('destroy').html("");

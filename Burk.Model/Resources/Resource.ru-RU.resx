@@ -120,11 +120,17 @@
   <data name="ConfirmPassword" xml:space="preserve">
     <value>Подтверждение пароля</value>
   </data>
+  <data name="CreateNew" xml:space="preserve">
+    <value>Создание новго</value>
+  </data>
   <data name="CreateNewSystem" xml:space="preserve">
     <value>Создать нову систему</value>
   </data>
   <data name="CreateNewUser" xml:space="preserve">
     <value>Создание новго пользователя</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>Редактировать</value>
   </data>
   <data name="EditProfile" xml:space="preserve">
     <value>Редактировать профиль</value>
@@ -168,6 +174,9 @@
   </data>
   <data name="Russian" xml:space="preserve">
     <value>Русский</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>Сохранить</value>
   </data>
   <data name="Security" xml:space="preserve">
     <value>Безопасность</value>
