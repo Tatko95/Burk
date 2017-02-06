@@ -210,6 +210,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\SettingSystemController.cs" />
     <Compile Include="Controllers\SystemController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -645,6 +646,7 @@
     <Content Include="Scripts\JQWidgets\jqxknockout.js" />
     <Content Include="Scripts\JQWidgets\jqxlistbox.js" />
     <Content Include="Scripts\JQWidgets\jqxlistmenu.js" />
+    <Content Include="Scripts\JQWidgets\jqxloader.js" />
     <Content Include="Scripts\JQWidgets\jqxmaskedinput.js" />
     <Content Include="Scripts\JQWidgets\jqxmenu.js" />
     <Content Include="Scripts\JQWidgets\jqxnavigationbar.js" />
@@ -673,6 +675,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\Shared\PopUpWindows.js" />
     <Content Include="Scripts\Shared\Serialization.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
@@ -709,6 +712,7 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\System\UserSystems.cshtml" />
     <Content Include="Views\System\AddEditSystem.cshtml" />
+    <Content Include="Views\SettingSystem\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

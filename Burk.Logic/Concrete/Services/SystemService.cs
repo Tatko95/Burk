@@ -16,44 +16,28 @@ namespace Burk.Logic.Concrete.Services
         #endregion
 
         #region Methods
-        public Model.UDB.System Insert(Model.UDB.System obj, User user)
+        public Model.UDB.System Insert(Model.UDB.System obj, string userId)
         {
             try
             {
                 repository.BeginTransaction();
-                Model.UDB.System system = base.Insert(obj);
+                Model.UDB.System system = repository.Insert(obj);
+
+                var user = repository.Table<User>().FirstOrDefault(x => x.Id == userId);
                 UserInSystem userInSystem = new UserInSystem() { System = system, User = user };
                 repository.Insert(userInSystem);
 
-                //пользователю добавить роль "Создатель системы"
+                Role createrRole = repository.Table<Role>().FirstOrDefault(x => x.Name == "Creator");
+                UserRole createrRoleInSystem = new UserRole() { System = system, UserId = userId, RoleId = createrRole.Id, SystemIdIfRoleDefault = obj.SystemId };
+
                 repository.Commit();
+
                 return system;
             }
             catch (Exception ex)
             {
+                repository.Rollback();
                 throw new Exception("Error in Insert System! See innerException", ex);
-            }
-        }
-
-        public override void Delete(Model.UDB.System obj)
-        {
-            try
-            {
-                repository.BeginTransaction();
-                IQueryable<UserInSystem> userInSystem = repository.Table<UserInSystem>();
-                foreach (var user in userInSystem)
-                    repository.Delete(user);
-                IQueryable<Role> roleInSystem = from rInS in repository.Table<RoleInSystem>().Where(x => x.SystemId == obj.SystemId)
-                                                from r in repository.Table<Role>().Where(x => x.Id == rInS.RoleId)
-                                                select r;
-                foreach (var role in roleInSystem)
-                    repository.Delete(role);
-                base.Delete(obj);
-                repository.Commit();
-            }
-            catch (Exception)
-            {
-                throw;
             }
         }
 
@@ -63,6 +47,36 @@ namespace Burk.Logic.Concrete.Services
                                                   join sys in repository.Table<Burk.Model.UDB.System>() on usInSys.SystemId equals sys.SystemId
                                                   select sys;
             return result;
+        }
+
+        public void Delete(int systemId)
+        {
+            repository.BeginTransaction();
+            try
+            {
+                Model.UDB.System deleteSystem = GetById("SystemId", systemId.ToString());
+                Delete(deleteSystem);
+                var userInSystem = repository.Table<UserInSystem>().Where(x => x.SystemId == systemId);
+                var roles = repository.Table<Role>().Where(x => x.SystemId == systemId);
+                foreach (var user in userInSystem)
+                {
+                    var userRoles = from rolesO in roles
+                                    from userRole in repository.Table<UserRole>().Where(x => x.RoleId == rolesO.Id && x.UserId == user.UserId)
+                                    select userRole;
+
+                    foreach (var role in userRoles)
+                        repository.Delete(role);
+                    repository.Delete(user);
+                }
+                foreach (var role in roles)
+                    repository.Delete(role);
+                repository.Commit();
+            }
+            catch (Exception ex)
+            {
+                repository.Rollback();
+                throw new Exception("See InerEx", ex);
+            }
         }
         #endregion
     }

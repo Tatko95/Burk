@@ -75,6 +75,14 @@
     <Compile Include="Migrations\201610171433447_IsDefaultRoleNull.Designer.cs">
       <DependentUpon>201610171433447_IsDefaultRoleNull.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701281453005_SystemIdIfDefault_In_UserRoles.cs" />
+    <Compile Include="Migrations\201701281453005_SystemIdIfDefault_In_UserRoles.Designer.cs">
+      <DependentUpon>201701281453005_SystemIdIfDefault_In_UserRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201702050825536_AddSystemIdInRole.cs" />
+    <Compile Include="Migrations\201702050825536_AddSystemIdInRole.Designer.cs">
+      <DependentUpon>201702050825536_AddSystemIdInRole.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Misc\Enums.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -134,6 +142,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201610171433447_IsDefaultRoleNull.resx">
       <DependentUpon>201610171433447_IsDefaultRoleNull.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701281453005_SystemIdIfDefault_In_UserRoles.resx">
+      <DependentUpon>201701281453005_SystemIdIfDefault_In_UserRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702050825536_AddSystemIdInRole.resx">
+      <DependentUpon>201702050825536_AddSystemIdInRole.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.en-GB.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

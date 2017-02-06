@@ -129,6 +129,12 @@
   <data name="CreateNewUser" xml:space="preserve">
     <value>Создание новго пользователя</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Удалить</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Удалено</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Редактировать</value>
   </data>
@@ -137,6 +143,9 @@
   </data>
   <data name="English" xml:space="preserve">
     <value>Английский</value>
+  </data>
+  <data name="ErrorDeveloper" xml:space="preserve">
+    <value>Возникла ошибка! Обратитесь к розработчикам!</value>
   </data>
   <data name="Flexibility" xml:space="preserve">
     <value>Гибкость</value>
@@ -172,17 +181,29 @@
   <data name="Register" xml:space="preserve">
     <value>Регистрация</value>
   </data>
+  <data name="ReqError" xml:space="preserve">
+    <value>Не все обязательные поля заполнены</value>
+  </data>
   <data name="Russian" xml:space="preserve">
     <value>Русский</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Сохранить</value>
   </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Сохранено</value>
+  </data>
   <data name="Security" xml:space="preserve">
     <value>Безопасность</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Настройки</value>
+  </data>
   <data name="ShortName" xml:space="preserve">
     <value>Короткое название</value>
+  </data>
+  <data name="SucCreateSystem" xml:space="preserve">
+    <value>Новая система создана! Нажмите «ОК», чтобы перейти к настройкам системы.</value>
   </data>
   <data name="Systems" xml:space="preserve">
     <value>Системы</value>

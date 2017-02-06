@@ -97,6 +97,24 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Видалити.
+        /// </summary>
+        public static string Delete {
+            get {
+                return ResourceManager.GetString("Delete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Видалено.
+        /// </summary>
+        public static string Deleted {
+            get {
+                return ResourceManager.GetString("Deleted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Редагувати.
         /// </summary>
         public static string Edit {
@@ -120,6 +138,15 @@ namespace Burk.Model.Resources {
         public static string English {
             get {
                 return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Виникла помилка, зверніться до розробників!.
+        /// </summary>
+        public static string ErrorDeveloper {
+            get {
+                return ResourceManager.GetString("ErrorDeveloper", resourceCulture);
             }
         }
         
@@ -224,6 +251,15 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Не всі обов&apos;язкові поля заповнені.
+        /// </summary>
+        public static string ReqError {
+            get {
+                return ResourceManager.GetString("ReqError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Російська.
         /// </summary>
         public static string Russian {
@@ -242,6 +278,15 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Збережено.
+        /// </summary>
+        public static string Saved {
+            get {
+                return ResourceManager.GetString("Saved", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Безпека.
         /// </summary>
         public static string Security {
@@ -251,11 +296,29 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Налаштування.
+        /// </summary>
+        public static string Settings {
+            get {
+                return ResourceManager.GetString("Settings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Коротка назва.
         /// </summary>
         public static string ShortName {
             get {
                 return ResourceManager.GetString("ShortName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Нова система створена! Натисніть &quot;ОК&quot;, щоб перейти до налаштувань системи..
+        /// </summary>
+        public static string SucCreateSystem {
+            get {
+                return ResourceManager.GetString("SucCreateSystem", resourceCulture);
             }
         }
         

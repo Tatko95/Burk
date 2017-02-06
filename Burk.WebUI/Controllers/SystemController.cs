@@ -33,8 +33,7 @@ namespace Burk.WebUI.Controllers
         #region GRIDS
         public JsonResult GetListSystems()
         {
-            User user = UserManager.FindById(User.Identity.GetUserId());
-            var systems = service.GetAllByUser(user.Id);
+            var systems = service.GetAllByUser(CurrentUser.Id);
             var systemsList = systems.ToList();
 
             var jsonData = from item in systemsList
@@ -68,7 +67,40 @@ namespace Burk.WebUI.Controllers
         [HttpPost]
         public ActionResult AddEdit(Model.UDB.System model)
         {
-            return Content(string.Empty);
+            try
+            {
+                if (model.SystemId == default(int))
+                {
+                    service.Insert(model, CurrentUser.Id);
+                    return Content("SuccessCreate");
+                }
+                else
+                {
+                    service.Update(model);
+                    return Content("SuccessEdit");
+                }
+            }
+            catch (Exception ex)
+            {
+                return Content("Error");
+                throw new Exception("Error in controller", ex);
+            }
+        }
+        #endregion
+
+        #region Delete
+        public ActionResult Delete(int systemId)
+        {
+            try
+            {
+                service.Delete(systemId);
+            }
+            catch (Exception ex)
+            {
+                return Content("Error");
+                throw;
+            }
+            return Content("Deleted");
         }
         #endregion
         #endregion

@@ -14,5 +14,8 @@
     <div class="tb_title">@Html.DisplayNameFor(x => x.ShortName):</div>
     <div>@Html.TextBoxFor(x => x.ShortName)</div>
 
+    <div id="ErrorInputDiv"/>
+    <div id="SuccessfulCreateDiv"/>
+
     <input id="saveBtn" type="button" class="btn btn-primary btn-sm" onclick="Save()" value="@Resource.Save" />
 }

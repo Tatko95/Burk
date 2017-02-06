@@ -129,6 +129,12 @@
   <data name="CreateNewUser" xml:space="preserve">
     <value>Create a new user</value>
   </data>
+  <data name="Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Deleted" xml:space="preserve">
+    <value>Deleted</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
@@ -137,6 +143,9 @@
   </data>
   <data name="English" xml:space="preserve">
     <value>English</value>
+  </data>
+  <data name="ErrorDeveloper" xml:space="preserve">
+    <value>Error, please contact the developers!</value>
   </data>
   <data name="Flexibility" xml:space="preserve">
     <value>Flexibility</value>
@@ -172,17 +181,29 @@ The possibility of recovering lost data due to logical data deletion.</value>
   <data name="Register" xml:space="preserve">
     <value>Register</value>
   </data>
+  <data name="ReqError" xml:space="preserve">
+    <value>Not all required fields are filled</value>
+  </data>
   <data name="Russian" xml:space="preserve">
     <value>Russian</value>
   </data>
   <data name="Save" xml:space="preserve">
     <value>Save</value>
   </data>
+  <data name="Saved" xml:space="preserve">
+    <value>Saved</value>
+  </data>
   <data name="Security" xml:space="preserve">
     <value>Security</value>
   </data>
+  <data name="Settings" xml:space="preserve">
+    <value>Settings</value>
+  </data>
   <data name="ShortName" xml:space="preserve">
     <value>Short name</value>
+  </data>
+  <data name="SucCreateSystem" xml:space="preserve">
+    <value>The new system created! Click "OK" to access the system settings.</value>
   </data>
   <data name="Systems" xml:space="preserve">
     <value>Systems</value>
