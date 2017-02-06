@@ -5,7 +5,7 @@
 function InitGrid() {
     $("#jqxgrid").jqxGrid(
         {
-            width: 700,
+            width: 835,
             height: 346,
             localization: getLocalization(UICulture),
             source: {
@@ -17,6 +17,8 @@ function InitGrid() {
                 ],
                 id: 'SystemId',
                 url: URLGrid,
+                sortcolumn: 'SystemId',
+                sortdirection: 'desc',
                 loadComplete: function (data) { },
             },
             theme: "boostrap",
@@ -25,8 +27,24 @@ function InitGrid() {
             columnsresize: true,
             columns: [
                 { datafield: 'SystemId', hidden: true },
+                {
+                    text: '', datafield: 'Edit', columntype: 'button', width: 110, cellsrenderer: function () {
+                        return localization.Edit;
+                    }, buttonclick: function (row) {
+                        var systemId = $("#jqxgrid").jqxGrid('getrowid', row);
+                        AddEdit(systemId);
+                    }
+                },
                 { text: localization.FullName, datafield: 'FullName', cellsrenderer: cellsrenderer, align: 'center', width: 350 },
-                { text: localization.ShortName, datafield: 'ShortName', cellsrenderer: cellsrenderer, align: 'center', width: 350 }
+                { text: localization.ShortName, datafield: 'ShortName', cellsrenderer: cellsrenderer, align: 'center', width: 350 },
+                {
+                    text: '', datafield: 'Delete', columntype: 'button', width: 19, cellsrenderer: function () {
+                        return "x";
+                    }, buttonclick: function (row) {
+                        var systemId = $("#jqxgrid").jqxGrid('getrowid', row);
+                        Delete(systemId);
+                    }
+                },
             ],
         });
 }
@@ -50,6 +68,21 @@ function AddEdit(objKey) {
                     $(this).dialog('destroy').html("");
                 }
             });
+        }
+    });
+}
+
+function Delete(objKey) {
+    $.ajax({
+        url: '/System/Delete/',
+        data: { systemId: objKey },
+        success: function (text) {
+            if (text === "Deleted") {
+                ShowMessageBox(1, "SuccessDeletedDiv", localization.Deleted, function () { $("#jqxgrid").jqxGrid('updatebounddata'); });
+            }
+            else if (text === "Error") {
+                ShowMessageBox(1, "ErrorDiv", localization.ErrorDeveloper);
+            }
         }
     });
 }

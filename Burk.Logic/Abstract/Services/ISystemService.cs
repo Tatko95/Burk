@@ -21,5 +21,11 @@ namespace Burk.Logic.Abstract.Services
         /// <param name="userId">Id пользователя</param>
         /// <returns>системы</returns>
         IQueryable<Model.UDB.System> GetAllByUser(string userId);
+
+        /// <summary>
+        /// Удаление системы
+        /// </summary>
+        /// <param name="id">Ид системы</param>
+        void Delete(int systemId);
     }
 }

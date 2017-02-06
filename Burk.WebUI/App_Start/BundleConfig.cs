@@ -46,7 +46,8 @@ namespace Burk.WebUI
             #region SharedScripts
             bundles.Add(new ScriptBundle("~/bundles/SharedScripts").Include(
             "~/Scripts/Shared/Serialization.js",
-            "~/Scripts/Shared/PopUpWindows.js"
+            "~/Scripts/Shared/PopUpWindows.js",
+            "~/Scripts/Shared/CRUD.js"
             ));
             #endregion
 

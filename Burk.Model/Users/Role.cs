@@ -8,5 +8,10 @@ namespace Burk.Model.Users
     public class Role : IdentityRole<string, UserRole>
     {
         public bool? IsDefault { get; set; }
+
+        [ForeignKey("System")]
+        public int? SystemId { get; set; }
+
+        public UDB.System System { get; set; }
     }
 }

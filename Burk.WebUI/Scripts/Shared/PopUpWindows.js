@@ -8,7 +8,7 @@ function ShowMessageBox(typeBlock, divId, text, callback) {
         translations["OK"] = 'OK';
 
         buttons[translations["OK"]] = function () {
-            if (callback !== null || callback !== undefined) {
+            if (callback !== null && callback !== undefined) {
                 callback();
             }
             $("#" + divId).dialog('close');

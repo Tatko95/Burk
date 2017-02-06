@@ -10,14 +10,13 @@ function Save() {
             data: data,
             contentType: 'application/json',
             success: function (text) {
-                alert(text);
                 if (text == "SuccessCreate") {
                     //    $.unblockUI();
-                    ShowMessageBox(1, "SuccessfulCreateDiv", localization.SucCreateSystem, function () { });
+                    ShowMessageBox(1, "SuccessfulCreateDiv", localization.SucCreateSystem, function () { $("#jqxgrid").jqxGrid('updatebounddata'); });
                     $('#addEditDialog').dialog('destroy').html("");
                 }
                 else if (text == "SuccessEdit") {
-                    ShowMessageBox(1, "SuccessfulCreateDiv", localization.Saved, function () { });
+                    ShowMessageBox(1, "SuccessfulCreateDiv", localization.Saved, function () { $("#jqxgrid").jqxGrid('updatebounddata'); });
                     //    $.unblockUI();
                     $('#addEditDialog').dialog('destroy').html("");
                 }

@@ -87,6 +87,22 @@ namespace Burk.WebUI.Controllers
             }
         }
         #endregion
+
+        #region Delete
+        public ActionResult Delete(int systemId)
+        {
+            try
+            {
+                service.Delete(systemId);
+            }
+            catch (Exception ex)
+            {
+                return Content("Error");
+                throw;
+            }
+            return Content("Deleted");
+        }
+        #endregion
         #endregion
     }
 }
