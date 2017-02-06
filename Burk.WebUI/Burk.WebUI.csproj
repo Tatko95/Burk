@@ -646,6 +646,7 @@
     <Content Include="Scripts\JQWidgets\jqxknockout.js" />
     <Content Include="Scripts\JQWidgets\jqxlistbox.js" />
     <Content Include="Scripts\JQWidgets\jqxlistmenu.js" />
+    <Content Include="Scripts\JQWidgets\jqxloader.js" />
     <Content Include="Scripts\JQWidgets\jqxmaskedinput.js" />
     <Content Include="Scripts\JQWidgets\jqxmenu.js" />
     <Content Include="Scripts\JQWidgets\jqxnavigationbar.js" />

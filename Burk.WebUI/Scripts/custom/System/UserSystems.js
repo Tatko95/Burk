@@ -73,14 +73,17 @@ function AddEdit(objKey) {
 }
 
 function Delete(objKey) {
+    ShowBlockUI();
     $.ajax({
         url: '/System/Delete/',
         data: { systemId: objKey },
         success: function (text) {
             if (text === "Deleted") {
+                UnblockUI();
                 ShowMessageBox(1, "SuccessDeletedDiv", localization.Deleted, function () { $("#jqxgrid").jqxGrid('updatebounddata'); });
             }
             else if (text === "Error") {
+                UnblockUI();
                 ShowMessageBox(1, "ErrorDiv", localization.ErrorDeveloper);
             }
         }

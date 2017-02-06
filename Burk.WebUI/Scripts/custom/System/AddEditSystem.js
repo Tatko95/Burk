@@ -4,23 +4,26 @@
 function Save() {
     var data = JSON.stringify({ model: GetFormObject('addEditSystemDialog') });
     if ($('#addEditSystemDialog').valid()) {
+        ShowBlockUI();
         $.ajax({
             type: "POST",
             url: '/System/AddEdit/',
             data: data,
             contentType: 'application/json',
             success: function (text) {
-                if (text == "SuccessCreate") {
-                    //    $.unblockUI();
-                    ShowMessageBox(1, "SuccessfulCreateDiv", localization.SucCreateSystem, function () { $("#jqxgrid").jqxGrid('updatebounddata'); });
+                var result = text.split(' ')[0];
+                if (result == "SuccessCreate") {
+                    UnblockUI();
+                    ShowMessageBox(1, "SuccessfulCreateDiv", localization.SucCreateSystem, function () { window.location.href = "/SettingSystem/Index?systemId=" + text.split(' ')[1] });
                     $('#addEditDialog').dialog('destroy').html("");
                 }
-                else if (text == "SuccessEdit") {
+                else if (result == "SuccessEdit") {
                     ShowMessageBox(1, "SuccessfulCreateDiv", localization.Saved, function () { $("#jqxgrid").jqxGrid('updatebounddata'); });
-                    //    $.unblockUI();
+                    UnblockUI();
                     $('#addEditDialog').dialog('destroy').html("");
                 }
-                else if (text == "Error") {
+                else if (result == "Error") {
+                    UnblockUI();
                     ShowMessageBox(1, "ErrorDiv", localization.ErrorDeveloper);
                 }
             }

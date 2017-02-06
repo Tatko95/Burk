@@ -28,6 +28,7 @@ namespace Burk.WebUI
                         "~/Scripts/JQWidgets/jqxcheckbox.js",
                         "~/Scripts/JQWidgets/jqxlistbox.js",
                         "~/Scripts/JQWidgets/jqxdropdownlist.js",
+                        "~/Scripts/JQWidgets/jqxloader.js",
                         "~/Scripts/JQWidgets/jqxgrid.js",
                         "~/Scripts/JQWidgets/jqxgrid.sort.js",
                         "~/Scripts/JQWidgets/jqxgrid.pager.js",
