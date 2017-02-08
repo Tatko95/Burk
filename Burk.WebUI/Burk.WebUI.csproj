@@ -317,6 +317,7 @@
     <Content Include="Content\JQWidgets\images\icon-right.png" />
     <Content Include="Content\JQWidgets\images\icon-save-white.png" />
     <Content Include="Content\JQWidgets\images\icon-save.png" />
+    <Content Include="Content\JQWidgets\images\icon-settings.png" />
     <Content Include="Content\JQWidgets\images\icon-showpassword-white.png" />
     <Content Include="Content\JQWidgets\images\icon-showpassword.png" />
     <Content Include="Content\JQWidgets\images\icon-up-blue.png" />

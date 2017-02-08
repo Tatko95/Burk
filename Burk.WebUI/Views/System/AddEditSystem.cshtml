@@ -2,7 +2,7 @@
 @using Burk.Model.Resources;
 
 <script type="text/javascript" src="~/Scripts/custom/System/AddEditSystem.js"></script>
-
+@Scripts.Render("~/bundles/jqueryval")
 @using (Html.BeginForm("AddEdit", "System", FormMethod.Post, new { id = "addEditSystemDialog" }))
 {
     @Html.HiddenFor(x => x.SystemId)
