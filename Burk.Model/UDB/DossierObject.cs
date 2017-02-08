@@ -20,8 +20,9 @@ namespace Burk.Model.UDB
 
         public bool IsDefault { get; set; }
 
+        [Required]
         [ForeignKey("System")]
-        public int? SystemId { get; set; }
+        public int SystemId { get; set; }
 
         public int UID { get; set; }
 

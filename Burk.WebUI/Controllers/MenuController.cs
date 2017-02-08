@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using Burk.Model.Resources;
 using Burk.Model.UDB;
+using System;
 
 namespace Burk.WebUI.Controllers
 {
@@ -26,16 +27,20 @@ namespace Burk.WebUI.Controllers
         }
         #endregion
 
-        public JsonResult GetMenuItems(int systemId)
+        public JsonResult GetMenuItemsForSettings(int systemId)
         {
             var list = service.GetMenuItemsForSettings(systemId);
             return Json(list, JsonRequestBehavior.AllowGet);
         }
 
+        #region CRUD with MenuItem
+        #region AddEdit
         [HttpGet]
         public ActionResult AddEditMenuItem(int? dossierId)
         {
             DossierObject model = service.GetById("DosObjectId", dossierId.ToString());
+            if (model.System == null)
+                model.SystemId = (int)Session["SystemId"];
             return PartialView(model);
         }
 
@@ -44,7 +49,13 @@ namespace Burk.WebUI.Controllers
         {
             try
             {
-                service.Insert(model);
+                if (model.DosObjectId == 0)
+                    service.Insert(model);
+                else
+                {
+                    //service.GetById("DosObjectId", model.DosObjectId.ToString());
+                    service.Update(model);
+                }
             }
             catch (System.Exception)
             {
@@ -52,5 +63,23 @@ namespace Burk.WebUI.Controllers
             }
             return Content("Success");
         }
+        #endregion
+
+        #region Delete
+        public ActionResult DeleteMenuItem(int dossierId)
+        {
+            try
+            {
+                var model = service.GetById("DosObjectId", dossierId.ToString());
+                service.Delete(model);
+            }
+            catch (Exception)
+            {
+                return Content("Error");
+            }
+            return Content("Success");
+        }
+        #endregion
+        #endregion
     }
 }

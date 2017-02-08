@@ -2,10 +2,8 @@
 });
 
 function Save() {
-    var data = JSON.stringify({ model: GetFormObject('addEditMenuItemDialog') });
-    alert("1");
-    if ($('#addEditMenuItemDialog').valid()) {
-        alert("2");
+    var data = JSON.stringify({ model: GetFormObject('addEditMenuItemForm') });
+    if ($('#addEditMenuItemForm').valid()) {
         ShowBlockUI();
         $.ajax({
             type: "POST",
@@ -13,12 +11,12 @@ function Save() {
             data: data,
             contentType: 'application/json',
             success: function (text) {
-                if (result == "Success") {
+                if (text == "Success") {
                     ShowMessageBox(1, "SuccessfulCreateDiv", localization.Saved, function () { LoadMenu(); });
                     UnblockUI();
                     $('#addEditMenuItemDialog').dialog('destroy').html("");
                 }
-                else if (result == "Error") {
+                else if (text == "Error") {
                     UnblockUI();
                     ShowMessageBox(1, "ErrorDiv", localization.ErrorDeveloper);
                 }

@@ -39,7 +39,10 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
+                    @if (ViewBag.IsShowSystemName == true)
+                    {
+                        <li>@Html.ActionLink(Session["SystemName"].ToString(), "Index", "Home")</li>
+                    }
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
@@ -66,5 +69,6 @@
 
     <div id="ErrorDiv"/>
     <div id="jqxLoader"></div>
+    <div id="SuccessDiv"></div>
 </body>
 </html>

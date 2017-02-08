@@ -2,11 +2,12 @@
 @using Burk.Model.Resources;
 
 <script type="text/javascript" src="~/Scripts/custom/SystemSettings/AddEditMenuItem.js"></script>
-
-@using (Html.BeginForm("AddEdit", "System", FormMethod.Post, new { id = "addEditMenuItemDialog" }))
+@Scripts.Render("~/bundles/jqueryval")
+@using (Html.BeginForm("AddEdit", "System", FormMethod.Post, new { id = "addEditMenuItemForm" }))
 {
     @Html.HiddenFor(x => x.DosObjectId)
     @Html.HiddenFor(x => x.UID)
+    @Html.HiddenFor(x => x.SystemId)
 
     <div class="tb_title">@Html.DisplayNameFor(x => x.FullName):<span class="req">*</span></div>
     <div>@Html.TextBoxFor(x => x.FullName)</div>

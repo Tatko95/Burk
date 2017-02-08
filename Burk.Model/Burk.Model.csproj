@@ -87,6 +87,10 @@
     <Compile Include="Migrations\201702071454171_ReqInDossier.Designer.cs">
       <DependentUpon>201702071454171_ReqInDossier.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702081314422_ReqSystemIdInDossier.cs" />
+    <Compile Include="Migrations\201702081314422_ReqSystemIdInDossier.Designer.cs">
+      <DependentUpon>201702081314422_ReqSystemIdInDossier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Misc\Enums.cs" />
     <Compile Include="Misc\MenuItem.cs" />
@@ -156,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702071454171_ReqInDossier.resx">
       <DependentUpon>201702071454171_ReqInDossier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702081314422_ReqSystemIdInDossier.resx">
+      <DependentUpon>201702081314422_ReqSystemIdInDossier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.en-GB.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

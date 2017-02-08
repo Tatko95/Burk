@@ -1,11 +1,27 @@
 ﻿$(document).ready(function () {
     LoadMenu();
+    $("#jqxMenu").on('itemclick', function (event) {
+        dossierId = event.args.id / 100 >> 0
+        if (event.args.id == 0) {
+            AddEditMenuItem(event.args.id);
+        }
+        else if (event.args.id > 100 && event.args.id % 10 == 1) {
+            AddEditMenuItem(dossierId);
+        }
+        else if (event.args.id > 100 && event.args.id % 10 == 2) {
+            DeleteMenuItem(dossierId);
+        }
+        else {
+            //go to page
+        }
+    });
+    
 });
 
 function LoadMenu() {
     ShowBlockUI();
     $.ajax({
-        url: '/Menu/GetMenuItems/',
+        url: '/Menu/GetMenuItemsForSettings/',
         type: 'GET',
         data: { systemId: $("#SystemId").val() },
         success: function (result) {
@@ -28,9 +44,6 @@ function LoadMenu() {
             var records = dataAdapter.getRecordsHierarchy('id', 'parentid', 'items', [{ name: 'text', map: 'label' }]);
 
             $("#jqxMenu").jqxMenu({ source: records, width: '120', mode: 'vertical' });
-            $("#jqxMenu").on('itemclick', function (event) {
-                AddEditMenuItem(event.args.id);
-            });
             UnblockUI();
         }
     });
@@ -55,6 +68,24 @@ function AddEditMenuItem(objKey) {
                     $(this).dialog('destroy').html("");
                 }
             });
+        }
+    });
+}
+
+function DeleteMenuItem(objKey) {
+    $.ajax({
+        url: '/Menu/DeleteMenuItem/',
+        type: 'GET',
+        data: { dossierId: objKey },
+        success: function (result) {
+            if (result === "Success") {
+                UnblockUI();
+                ShowMessageBox(1, "SuccessDiv", localization.Deleted, function () { LoadMenu(); });
+            }
+            else if (result === "Error") {
+                UnblockUI();
+                ShowMessageBox(1, "ErrorDiv", localization.ErrorDeveloper);
+            }
         }
     });
 }
