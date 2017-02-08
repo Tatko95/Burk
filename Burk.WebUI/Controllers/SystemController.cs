@@ -71,8 +71,8 @@ namespace Burk.WebUI.Controllers
             {
                 if (model.SystemId == default(int))
                 {
-                    service.Insert(model, CurrentUser.Id);
-                    return Content("SuccessCreate");
+                    var returnModel = service.Insert(model, CurrentUser.Id);
+                    return Content("SuccessCreate " + returnModel.SystemId);
                 }
                 else
                 {

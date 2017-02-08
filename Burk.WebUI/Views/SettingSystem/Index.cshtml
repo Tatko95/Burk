@@ -1,0 +1,12 @@
+﻿@using Burk.Model.Resources;
+@{
+    ViewBag.Title = Resource.Settings;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="input_with_menu">
+    <h2>@ViewBag.Title</h2>
+
+    <div style="height:20px"></div>
+    @Html.Hidden("SystemId", ViewData["SystemId"])
+</div>

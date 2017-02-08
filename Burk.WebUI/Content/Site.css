@@ -25,8 +25,35 @@ textarea {
 
 
 /*===========================Custom=========================*/
- .ui-dialog { z-index: 99999999 !important ;}
+.ui-dialog {
+    z-index: 99999999 !important;
+}
 
- .tb_title{ font-weight:bold; padding:8px 0px 2px 0px; min-height:16px; line-height:14px; font-size: 11pt !important;}
+.tb_title {
+    font-weight: bold;
+    padding: 8px 0px 2px 0px;
+    min-height: 16px;
+    line-height: 14px;
+    font-size: 11pt !important;
+}
 
- .req{ color:red; font-weight:bold; padding-left:2px; font-size: 11pt !important;}
+.req {
+    color: red;
+    font-weight: bold;
+    padding-left: 2px;
+    font-size: 11pt !important;
+}
+/*Menu*/
+.input_with_menu {
+    margin-left: 40px;
+}
+
+#jqxLoader {
+    z-index: 99999999999999999999999;
+}
+
+/*Validation Massage*/
+.field-validation-error {
+    font-size:11px;
+    color:red;
+}

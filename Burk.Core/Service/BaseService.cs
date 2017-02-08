@@ -21,6 +21,9 @@ namespace Burk.Core.Service
         #region Methods
         public virtual T GetById(string idName, string idValue)
         {
+            if (idName == null || idValue == null)
+                return new T();
+
             int idValueInt;
             object idValueObj;
             if (int.TryParse(idValue, out idValueInt))

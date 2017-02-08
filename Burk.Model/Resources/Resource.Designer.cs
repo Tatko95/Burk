@@ -61,6 +61,15 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Додати.
+        /// </summary>
+        public static string Add {
+            get {
+                return ResourceManager.GetString("Add", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Підтвердження пароля.
         /// </summary>
         public static string ConfirmPassword {

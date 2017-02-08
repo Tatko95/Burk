@@ -9,7 +9,7 @@ using Microsoft.AspNet.Identity;
 
 namespace Burk.Logic.Concrete.Services
 {
-    public class SystemService : BaseService<Model.UDB.System>, ISystemService, IBaseService<Model.UDB.System>
+    public class SystemService : BaseService<Model.UDB.System>, ISystemService
     {
         #region CTOR
         public SystemService(IBurkModelRepository repo) : base(repo) { }
