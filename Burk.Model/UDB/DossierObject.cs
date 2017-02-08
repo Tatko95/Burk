@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Burk.Model.Resources;
+using System;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,8 +11,11 @@ namespace Burk.Model.UDB
         [Key]
         public int DosObjectId { get; set; }
 
+        [Required]
+        [Display(Name = "FullName", ResourceType = typeof(Resource))]
         public string FullName { get; set; }
 
+        [Display(Name = "ShortName", ResourceType = typeof(Resource))]
         public string ShortName { get; set; }
 
         public bool IsDefault { get; set; }

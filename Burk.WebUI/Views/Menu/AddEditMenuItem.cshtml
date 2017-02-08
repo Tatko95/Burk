@@ -1,16 +1,15 @@
-﻿@model Burk.Model.UDB.System
+﻿@model Burk.Model.UDB.DossierObject
 @using Burk.Model.Resources;
 
-<script type="text/javascript" src="~/Scripts/custom/System/AddEditSystem.js"></script>
+<script type="text/javascript" src="~/Scripts/custom/SystemSettings/AddEditMenuItem.js"></script>
 
-@using (Html.BeginForm("AddEdit", "System", FormMethod.Post, new { id = "addEditSystemDialog" }))
+@using (Html.BeginForm("AddEdit", "System", FormMethod.Post, new { id = "addEditMenuItemDialog" }))
 {
-    @Html.HiddenFor(x => x.SystemId)
+    @Html.HiddenFor(x => x.DosObjectId)
     @Html.HiddenFor(x => x.UID)
 
     <div class="tb_title">@Html.DisplayNameFor(x => x.FullName):<span class="req">*</span></div>
     <div>@Html.TextBoxFor(x => x.FullName)</div>
-    <div>@Html.ValidationMessageFor(x => x.FullName)</div>
     <div class="tb_title">@Html.DisplayNameFor(x => x.ShortName):</div>
     <div>@Html.TextBoxFor(x => x.ShortName)</div>
 

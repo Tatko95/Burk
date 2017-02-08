@@ -83,8 +83,13 @@
     <Compile Include="Migrations\201702050825536_AddSystemIdInRole.Designer.cs">
       <DependentUpon>201702050825536_AddSystemIdInRole.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702071454171_ReqInDossier.cs" />
+    <Compile Include="Migrations\201702071454171_ReqInDossier.Designer.cs">
+      <DependentUpon>201702071454171_ReqInDossier.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Misc\Enums.cs" />
+    <Compile Include="Misc\MenuItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resource.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -148,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702050825536_AddSystemIdInRole.resx">
       <DependentUpon>201702050825536_AddSystemIdInRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702071454171_ReqInDossier.resx">
+      <DependentUpon>201702071454171_ReqInDossier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.en-GB.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

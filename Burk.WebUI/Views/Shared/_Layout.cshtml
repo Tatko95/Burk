@@ -13,6 +13,12 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+
+    @Scripts.Render("~/bundles/jqueryUI")
+    @Styles.Render("~/Content/jqueryUIcss")
+    @Styles.Render("~/Content/JQWidgetscss")
+    @Scripts.Render("~/bundles/JQWidgets")
+    @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/SharedScripts")
 </head>
 <body>
@@ -39,7 +45,7 @@
             </div>
         </div>
     </div>
-
+    @Html.Partial("_MenuPartial")
     <div class="container body-content">
         @RenderBody()
     </div>
