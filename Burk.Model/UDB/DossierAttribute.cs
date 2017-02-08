@@ -22,6 +22,8 @@ namespace Burk.Model.UDB
 
         public string ValueName { get; set; }
 
+        public int Index { get; set; }
+
         public int UID { get; set; }
 
         [ForeignKey("Grid")]

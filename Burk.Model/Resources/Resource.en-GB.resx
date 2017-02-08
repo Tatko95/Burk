@@ -138,6 +138,9 @@
   <data name="Deleted" xml:space="preserve">
     <value>Deleted</value>
   </data>
+  <data name="Down" xml:space="preserve">
+    <value>Down</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Edit</value>
   </data>
@@ -205,6 +208,9 @@ The possibility of recovering lost data due to logical data deletion.</value>
   <data name="ShortName" xml:space="preserve">
     <value>Short name</value>
   </data>
+  <data name="Successfully" xml:space="preserve">
+    <value>Successfully</value>
+  </data>
   <data name="SucCreateSystem" xml:space="preserve">
     <value>The new system created! Click "OK" to access the system settings.</value>
   </data>
@@ -213,6 +219,9 @@ The possibility of recovering lost data due to logical data deletion.</value>
   </data>
   <data name="Ukrainian" xml:space="preserve">
     <value>Ukrainian</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Up</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>User name</value>

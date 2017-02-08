@@ -138,6 +138,9 @@
   <data name="Deleted" xml:space="preserve">
     <value>Удалено</value>
   </data>
+  <data name="Down" xml:space="preserve">
+    <value>Вниз</value>
+  </data>
   <data name="Edit" xml:space="preserve">
     <value>Редактировать</value>
   </data>
@@ -205,6 +208,9 @@
   <data name="ShortName" xml:space="preserve">
     <value>Короткое название</value>
   </data>
+  <data name="Successfully" xml:space="preserve">
+    <value>Успешно</value>
+  </data>
   <data name="SucCreateSystem" xml:space="preserve">
     <value>Новая система создана! Нажмите «ОК», чтобы перейти к настройкам системы.</value>
   </data>
@@ -213,6 +219,9 @@
   </data>
   <data name="Ukrainian" xml:space="preserve">
     <value>Украинский</value>
+  </data>
+  <data name="Up" xml:space="preserve">
+    <value>Вверх</value>
   </data>
   <data name="UserName" xml:space="preserve">
     <value>Имя пользователя</value>

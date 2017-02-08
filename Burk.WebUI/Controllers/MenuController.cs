@@ -49,15 +49,9 @@ namespace Burk.WebUI.Controllers
         {
             try
             {
-                if (model.DosObjectId == 0)
-                    service.Insert(model);
-                else
-                {
-                    //service.GetById("DosObjectId", model.DosObjectId.ToString());
-                    service.Update(model);
-                }
+                service.Upsert(model);
             }
-            catch (System.Exception)
+            catch (Exception)
             {
                 return Content("Error");
             }
@@ -80,6 +74,34 @@ namespace Burk.WebUI.Controllers
             return Content("Success");
         }
         #endregion
+        #endregion
+
+        #region UpDown MenuItem
+        public ActionResult UpMenuItem(int dossierId)
+        {
+            try
+            {
+                service.UpMenuItem(dossierId);
+            }
+            catch (Exception)
+            {
+                return Content("Error");
+            }
+            return Content("Success");
+        }
+
+        public ActionResult DownMenuItem(int dossierId)
+        {
+            try
+            {
+                service.DownMenuItem(dossierId);
+            }
+            catch (Exception)
+            {
+                return Content("Error");
+            }
+            return Content("Success");
+        }
         #endregion
     }
 }

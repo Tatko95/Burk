@@ -20,6 +20,8 @@ namespace Burk.Model.UDB
 
         public string GridName { get; set; }
 
+        public int Index { get; set; }
+
         public int UID { get; set; }
 
         [ForeignKey("Language")]

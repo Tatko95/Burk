@@ -11,11 +11,17 @@
         else if (event.args.id > 100 && event.args.id % 10 == 2) {
             DeleteMenuItem(dossierId);
         }
+        else if (event.args.id > 100 && event.args.id % 10 == 3) {
+            UpMenuItem(dossierId);
+        }
+        else if (event.args.id > 100 && event.args.id % 10 == 4) {
+            DownMenuItem(dossierId);
+        }
         else {
             //go to page
         }
     });
-    
+
 });
 
 function LoadMenu() {
@@ -81,6 +87,44 @@ function DeleteMenuItem(objKey) {
             if (result === "Success") {
                 UnblockUI();
                 ShowMessageBox(1, "SuccessDiv", localization.Deleted, function () { LoadMenu(); });
+            }
+            else if (result === "Error") {
+                UnblockUI();
+                ShowMessageBox(1, "ErrorDiv", localization.ErrorDeveloper);
+            }
+        }
+    });
+}
+
+function UpMenuItem(objKey) {
+    ShowBlockUI();
+    $.ajax({
+        url: '/Menu/UpMenuItem/',
+        type: 'GET',
+        data: { dossierId: objKey },
+        success: function (result) {
+            if (result === "Success") {
+                UnblockUI();
+                ShowMessageBox(1, "SuccessDiv", localization.Successfully, function () { LoadMenu(); });
+            }
+            else if (result === "Error") {
+                UnblockUI();
+                ShowMessageBox(1, "ErrorDiv", localization.ErrorDeveloper);
+            }
+        }
+    });
+}
+
+function DownMenuItem(objKey) {
+    ShowBlockUI();
+    $.ajax({
+        url: '/Menu/DownMenuItem/',
+        type: 'GET',
+        data: { dossierId: objKey },
+        success: function (result) {
+            if (result === "Success") {
+                UnblockUI();
+                ShowMessageBox(1, "SuccessDiv", localization.Successfully, function () { LoadMenu(); });
             }
             else if (result === "Error") {
                 UnblockUI();
