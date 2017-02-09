@@ -56,8 +56,12 @@ namespace Burk.Logic.Concrete.Services
         {
             if (model.DosObjectId == 0)
             {
-                int maxIndex= repository.Table<DossierObject>().Where(x => x.SystemId == model.SystemId).Count();
-                model.Index = maxIndex + 1;
+                var dossierObjects = repository.Table<DossierObject>().Where(x => x.SystemId == model.SystemId).OrderByDescending(x => x.Index);
+                if (!dossierObjects.Any())
+                    model.Index = 1;
+                else
+                    model.Index = dossierObjects.First().Index + 1;
+                
                 Insert(model);
             }
             else
@@ -72,9 +76,10 @@ namespace Burk.Logic.Concrete.Services
             try
             {
                 var model = GetById("DosObjectId", dossierId.ToString());
-                model.Index = model.Index - 1;
-                var modelEnemy = repository.Table<DossierObject>().FirstOrDefault(x => x.SystemId == model.SystemId && x.Index == model.Index);
-                modelEnemy.Index = modelEnemy.Index + 1;
+                var modelEnemy = repository.Table<DossierObject>().Where(x => x.SystemId == model.SystemId && x.Index < model.Index).OrderByDescending(x => x.Index).First();
+                int helpIndex = model.Index;
+                model.Index = modelEnemy.Index;
+                modelEnemy.Index = helpIndex;
                 repository.Update(model);
                 repository.Update(modelEnemy);
                 repository.Commit();
@@ -92,9 +97,10 @@ namespace Burk.Logic.Concrete.Services
             try
             {
                 var model = GetById("DosObjectId", dossierId.ToString());
-                model.Index = model.Index + 1;
-                var modelEnemy = repository.Table<DossierObject>().FirstOrDefault(x => x.SystemId == model.SystemId && x.Index == model.Index);
-                modelEnemy.Index = modelEnemy.Index - 1;
+                var modelEnemy = repository.Table<DossierObject>().Where(x => x.SystemId == model.SystemId && x.Index > model.Index).OrderBy(x => x.Index).First();
+                int helpIndex = model.Index;
+                model.Index = modelEnemy.Index;
+                modelEnemy.Index = helpIndex;
                 repository.Update(model);
                 repository.Update(modelEnemy);
                 repository.Commit();
