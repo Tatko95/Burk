@@ -67,11 +67,13 @@
     <Compile Include="Abstract\Repositories\IBurkModelRepository.cs" />
     <Compile Include="Abstract\Services\IDictionaryService.cs" />
     <Compile Include="Abstract\Services\IDossierService.cs" />
+    <Compile Include="Abstract\Services\IInsetService.cs" />
     <Compile Include="Abstract\Services\ISystemService.cs" />
     <Compile Include="Abstract\Services\IUniversalDb.cs" />
     <Compile Include="Concrete\Repositories\BurkModelRepository.cs" />
     <Compile Include="Concrete\Services\DictionaryService.cs" />
     <Compile Include="Concrete\Services\DossierService.cs" />
+    <Compile Include="Concrete\Services\InsetService.cs" />
     <Compile Include="Concrete\Services\SystemService.cs" />
     <Compile Include="Concrete\Users\Managers\ApplicationSignInManager.cs" />
     <Compile Include="Concrete\Users\Managers\ApplicationUserManager.cs" />

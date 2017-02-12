@@ -1,35 +1,36 @@
 ﻿$(document).ready(function () {
-    LoadMenu();
-    $("#jqxMenu").on('itemclick', function (event) {
-        dossierId = event.args.id / 10000 >> 0
+    LoadInsetMenu();
+    $("#jqxMenuInset").on('itemclick', function (event) {
+        insetId = event.args.id / 10000 >> 0
         if (event.args.id == 0) {
-            AddEditMenuItem(event.args.id);
+            AddEditInsetItem(event.args.id);
         }
         else if (event.args.id > 10000 && event.args.id % 10 == 1) {
-            AddEditMenuItem(dossierId);
+            AddEditInsetItem(insetId);
         }
         else if (event.args.id > 10000 && event.args.id % 10 == 2) {
-            DeleteMenuItem(dossierId);
+            DeleteInsetItem(insetId);
         }
         else if (event.args.id > 10000 && event.args.id % 10 == 3) {
-            UpMenuItem(dossierId);
+            LeftInsetItem(insetId);
         }
         else if (event.args.id > 10000 && event.args.id % 10 == 4) {
-            DownMenuItem(dossierId);
+            RightInsetItem(insetId);
         }
         else {
-            window.location.href = "/SettingSystem/Index?systemId=" + $('#SystemId').val() + "&dossierId=" + event.args.id;
+            //go to page
+            //window.location.href = "/SettingSystem/Index?systemId=" + $('#SystemId').val() + "&dossierId=" + event.args.id;
         }
     });
 
 });
 
-function LoadMenu() {
+function LoadInsetMenu() {
     ShowBlockUI();
     $.ajax({
-        url: '/Menu/GetMenuItemsForSettings/',
+        url: '/Inset/GetInsetItemForSettings/',
         type: 'GET',
-        data: { systemId: $("#SystemId").val() },
+        data: { dossierId: $("#DossierId").val() },
         success: function (result) {
             var data = result;
             var source =
@@ -49,19 +50,19 @@ function LoadMenu() {
             dataAdapter.dataBind();
             var records = dataAdapter.getRecordsHierarchy('id', 'parentid', 'items', [{ name: 'text', map: 'label' }]);
 
-            $("#jqxMenu").jqxMenu({ source: records, width: '120', mode: 'vertical' });
+            $("#jqxMenuInset").jqxMenu({ source: records, width: 'auto' });
             UnblockUI();
         }
     });
 }
 
-function AddEditMenuItem(objKey) {
+function AddEditInsetItem(objKey) {
     $.ajax({
-        url: '/Menu/AddEditMenuItem/',
+        url: '/Inset/AddEditInsetItem/',
         type: 'GET',
-        data: { dossierId: objKey },
+        data: { insetId: objKey },
         success: function (result) {
-            $("#addEditMenuItemDialog").html(result).dialog({
+            $("#addEditInsetDialog").html(result).dialog({
                 width: 220,
                 height: 220,
                 resizable: false,
@@ -78,15 +79,15 @@ function AddEditMenuItem(objKey) {
     });
 }
 
-function DeleteMenuItem(objKey) {
+function DeleteInsetItem(objKey) {
     $.ajax({
-        url: '/Menu/DeleteMenuItem/',
+        url: '/Inset/DeleteInsetItem/',
         type: 'GET',
-        data: { dossierId: objKey },
+        data: { insetId: objKey },
         success: function (result) {
             if (result === "Success") {
                 UnblockUI();
-                ShowMessageBox(1, "SuccessDiv", localization.Deleted, function () { LoadMenu(); });
+                ShowMessageBox(1, "SuccessDiv", localization.Deleted, function () { LoadInsetMenu(); });
             }
             else if (result === "Error") {
                 UnblockUI();
@@ -96,16 +97,16 @@ function DeleteMenuItem(objKey) {
     });
 }
 
-function UpMenuItem(objKey) {
+function LeftInsetItem(objKey) {
     ShowBlockUI();
     $.ajax({
-        url: '/Menu/UpMenuItem/',
+        url: '/Inset/LeftInsetItem/',
         type: 'GET',
-        data: { dossierId: objKey },
+        data: { insetId: objKey },
         success: function (result) {
             if (result === "Success") {
                 UnblockUI();
-                ShowMessageBox(1, "SuccessDiv", localization.Successfully, function () { LoadMenu(); });
+                ShowMessageBox(1, "SuccessDiv", localization.Successfully, function () { LoadInsetMenu(); });
             }
             else if (result === "Error") {
                 UnblockUI();
@@ -115,16 +116,16 @@ function UpMenuItem(objKey) {
     });
 }
 
-function DownMenuItem(objKey) {
+function RightInsetItem(objKey) {
     ShowBlockUI();
     $.ajax({
-        url: '/Menu/DownMenuItem/',
+        url: '/Inset/RightInsetItem/',
         type: 'GET',
-        data: { dossierId: objKey },
+        data: { insetId: objKey },
         success: function (result) {
             if (result === "Success") {
                 UnblockUI();
-                ShowMessageBox(1, "SuccessDiv", localization.Successfully, function () { LoadMenu(); });
+                ShowMessageBox(1, "SuccessDiv", localization.Successfully, function () { LoadInsetMenu(); });
             }
             else if (result === "Error") {
                 UnblockUI();

@@ -1,13 +1,14 @@
-﻿@model Burk.Model.UDB.DossierObject
+﻿@model Burk.Model.UDB.DossierInset
+
 @using Burk.Model.Resources;
 
-<script type="text/javascript" src="~/Scripts/custom/SystemSettings/AddEditMenuItem.js"></script>
+<script type="text/javascript" src="~/Scripts/custom/SystemSettings/AddEditInsetItem.js"></script>
 @Scripts.Render("~/bundles/jqueryval")
-@using (Html.BeginForm("AddEdit", "Menu", FormMethod.Post, new { id = "addEditMenuItemForm" }))
+@using (Html.BeginForm("AddEdit", "Inset", FormMethod.Post, new { id = "addEditInsetItemForm" }))
 {
     @Html.HiddenFor(x => x.DosObjectId)
     @Html.HiddenFor(x => x.UID)
-    @Html.HiddenFor(x => x.SystemId)
+    @Html.HiddenFor(x => x.DosInsetId)
     @Html.HiddenFor(x => x.Index)
 
     <div class="tb_title">@Html.DisplayNameFor(x => x.FullName):<span class="req">*</span></div>
@@ -18,5 +19,5 @@
     <div id="ErrorInputDiv" />
     <div id="SuccessfulCreateDiv" />
 
-    <input id="saveBtn" type="button" class="btn btn-primary btn-sm" onclick="Save()" value="@Resource.Save" />
+    <input id="saveBtn" type="button" class="btn btn-primary btn-sm" onclick="SaveInset()" value="@Resource.Save" />
 }

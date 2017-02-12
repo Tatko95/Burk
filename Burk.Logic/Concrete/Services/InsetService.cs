@@ -1,34 +1,36 @@
 ﻿using Burk.Core.Service;
 using Burk.Logic.Abstract.Repositories;
 using Burk.Logic.Abstract.Services;
-using Burk.Model.UDB;
-using System.Collections.Generic;
-using System.Linq;
 using Burk.Model.Misc;
 using Burk.Model.Resources;
+using Burk.Model.UDB;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace Burk.Logic.Concrete.Services
 {
-    public class DossierService : BaseService<DossierObject>, IDossierService
+    public class InsetService : BaseService<DossierInset>, IInsetService
     {
         #region CTOR
-        public DossierService(IBurkModelRepository repo) : base(repo) { }
+        public InsetService(IBurkModelRepository repo) : base(repo) { }
         #endregion
 
         #region Lists
-        public List<MenuItem> GetMenuItems(int systemId)
+        public List<MenuItem> GetInsetItems(int dossierId)
         {
-            var dossiers = repository.Table<DossierObject>().Where(x => x.SystemId == systemId).OrderBy(x => x.Index);
+            var insets = repository.Table<DossierInset>().Where(x => x.DosObjectId == dossierId).OrderBy(x => x.Index);
             List<MenuItem> result = new List<MenuItem>();
-            foreach (var dossier in dossiers)
-                result.Add(new MenuItem() { id = dossier.DosObjectId, parentid = -1, text = dossier.FullName });
+            foreach (var inset in insets)
+                result.Add(new MenuItem() { id = inset.DosInsetId, parentid = -1, text = inset.FullName });
             return result;
         }
 
-        public List<MenuItem> GetMenuItemsForSettings(int systemId)
+        public List<MenuItem> GetInsetItemsForSettings(int dossierId)
         {
-            List<MenuItem> listItemsMenu = GetMenuItems(systemId);
+            List<MenuItem> listItemsMenu = GetInsetItems(dossierId);
             List<MenuItem> result = new List<MenuItem>();
             int i = 0;
             foreach (var itemMenu in listItemsMenu)
@@ -37,9 +39,9 @@ namespace Burk.Logic.Concrete.Services
                 result.Add(new MenuItem() { id = (itemMenu.id * 10000 + 1), parentid = itemMenu.id, text = Resource.Edit });
                 result.Add(new MenuItem() { id = (itemMenu.id * 10000 + 2), parentid = itemMenu.id, text = Resource.Delete });
                 if (i != 0)
-                    result.Add(new MenuItem() { id = (itemMenu.id * 10000 + 3), parentid = itemMenu.id, text = Resource.Up });
+                    result.Add(new MenuItem() { id = (itemMenu.id * 10000 + 3), parentid = itemMenu.id, text = Resource.Left });
                 if (i != listItemsMenu.Count - 1)
-                    result.Add(new MenuItem() { id = (itemMenu.id * 10000 + 4), parentid = itemMenu.id, text = Resource.Down });
+                    result.Add(new MenuItem() { id = (itemMenu.id * 10000 + 4), parentid = itemMenu.id, text = Resource.Right });
                 i++;
             }
             if (result.Count < 100)
@@ -52,16 +54,16 @@ namespace Burk.Logic.Concrete.Services
         #endregion
 
         #region CRUD
-        public void Upsert(DossierObject model)
+        public void Upsert(DossierInset model)
         {
-            if (model.DosObjectId == 0)
+            if (model.DosInsetId == 0)
             {
-                var dossierObjects = repository.Table<DossierObject>().Where(x => x.SystemId == model.SystemId).OrderByDescending(x => x.Index);
-                if (!dossierObjects.Any())
+                var insets = repository.Table<DossierInset>().Where(x => x.DosObjectId == model.DosObjectId).OrderByDescending(x => x.Index);
+                if (!insets.Any())
                     model.Index = 1;
                 else
-                    model.Index = dossierObjects.First().Index + 1;
-                
+                    model.Index = insets.First().Index + 1;
+
                 Insert(model);
             }
             else
@@ -70,13 +72,13 @@ namespace Burk.Logic.Concrete.Services
         #endregion
 
         #region UpDownMenuItem
-        public void UpMenuItem(int dossierId)
+        public void LeftInsetItem(int insetId)
         {
             repository.BeginTransaction();
             try
             {
-                var model = GetById("DosObjectId", dossierId.ToString());
-                var modelEnemy = repository.Table<DossierObject>().Where(x => x.SystemId == model.SystemId && x.Index < model.Index).OrderByDescending(x => x.Index).First();
+                var model = GetById("DosInsetId", insetId.ToString());
+                var modelEnemy = repository.Table<DossierInset>().Where(x => x.DosObjectId == model.DosObjectId && x.Index < model.Index).OrderByDescending(x => x.Index).First();
                 int helpIndex = model.Index;
                 model.Index = modelEnemy.Index;
                 modelEnemy.Index = helpIndex;
@@ -91,13 +93,13 @@ namespace Burk.Logic.Concrete.Services
             }
         }
 
-        public void DownMenuItem(int dossierId)
+        public void RightInsetItem(int insetId)
         {
             repository.BeginTransaction();
             try
             {
-                var model = GetById("DosObjectId", dossierId.ToString());
-                var modelEnemy = repository.Table<DossierObject>().Where(x => x.SystemId == model.SystemId && x.Index > model.Index).OrderBy(x => x.Index).First();
+                var model = GetById("DosInsetId", insetId.ToString());
+                var modelEnemy = repository.Table<DossierInset>().Where(x => x.DosObjectId == model.DosObjectId && x.Index > model.Index).OrderBy(x => x.Index).First();
                 int helpIndex = model.Index;
                 model.Index = modelEnemy.Index;
                 modelEnemy.Index = helpIndex;

@@ -226,4 +226,10 @@
   <data name="UserName" xml:space="preserve">
     <value>Ім'я користувача</value>
   </data>
+  <data name="Left" xml:space="preserve">
+    <value>Вліво</value>
+  </data>
+  <data name="Right" xml:space="preserve">
+    <value>Вправо</value>
+  </data>
 </root>

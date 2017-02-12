@@ -226,4 +226,10 @@ The possibility of recovering lost data due to logical data deletion.</value>
   <data name="UserName" xml:space="preserve">
     <value>User name</value>
   </data>
+  <data name="Left" xml:space="preserve">
+    <value>Left</value>
+  </data>
+  <data name="Right" xml:space="preserve">
+    <value>Right</value>
+  </data>
 </root>

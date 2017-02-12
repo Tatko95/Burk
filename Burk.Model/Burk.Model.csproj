@@ -95,6 +95,10 @@
     <Compile Include="Migrations\201702081429466_AddIndexInUDB.Designer.cs">
       <DependentUpon>201702081429466_AddIndexInUDB.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201702092219153_ReqInInset.cs" />
+    <Compile Include="Migrations\201702092219153_ReqInInset.Designer.cs">
+      <DependentUpon>201702092219153_ReqInInset.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Misc\Enums.cs" />
     <Compile Include="Misc\MenuItem.cs" />
@@ -170,6 +174,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702081429466_AddIndexInUDB.resx">
       <DependentUpon>201702081429466_AddIndexInUDB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201702092219153_ReqInInset.resx">
+      <DependentUpon>201702092219153_ReqInInset.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.en-GB.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
