@@ -71,6 +71,8 @@ namespace Burk.WebUI.Controllers
             Session["SystemId"] = null;
             Session["DossierName"] = null;
             Session["DossierId"] = null;
+            Session["DossierInsetName"] = null;
+            Session["DossierInsetId"] = null;
         }
         #endregion
     }

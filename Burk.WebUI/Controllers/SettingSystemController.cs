@@ -11,7 +11,7 @@ namespace Burk.WebUI.Controllers
         #region Fields
         private ISystemService service;
         private IDossierService dossierService;
-        //private ApplicationUserManager userManager;
+        private IInsetService insetService;
         #endregion
 
         #region ctor
@@ -20,17 +20,19 @@ namespace Burk.WebUI.Controllers
             service = _service;
         }
 
-        public SettingSystemController(IDossierService _dossierService ,ISystemService _service, ApplicationUserManager userManager) : base(userManager)
+        public SettingSystemController(IInsetService _insetService, IDossierService _dossierService ,ISystemService _service, ApplicationUserManager userManager) : base(userManager)
         {
             service = _service;
             dossierService = _dossierService;
+            insetService = _insetService;
             ViewBag.IsShowSystemName = true;
             ViewBag.IsShowMenu = true;
         }
         #endregion
 
-        public ActionResult Index(int systemId, int? dossierId)
+        public ActionResult Index(int systemId, int? dossierId, int? insetId)
         {
+            CleanSessions();
             var system = service.GetById("SystemId", systemId.ToString());
             Session["SystemName"] = system.FullName;
             Session["SystemId"] = system.SystemId;
@@ -39,6 +41,12 @@ namespace Burk.WebUI.Controllers
                 var dossierObject = dossierService.GetById("DosObjectId", dossierId.ToString());
                 Session["DossierName"] = dossierObject.FullName;
                 Session["DossierId"] = dossierId;
+            }
+            if (insetId != null && insetId != 0)
+            {
+                var insetObject = insetService.GetById("DosInsetId", insetId.ToString());
+                Session["DossierInsetName"] = insetObject.FullName;
+                Session["DossierInsetId"] = insetId;
             }
             return View();
         }
