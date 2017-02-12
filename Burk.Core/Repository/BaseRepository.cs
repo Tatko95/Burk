@@ -133,11 +133,11 @@ namespace Burk.Core.Repository
                     dbContext.SaveChanges();
                     if (!isTrans) repository.Commit(); // если открытой транзакции не было, то сохраняем изменения в базе
                 }
-                catch
+                catch(Exception ex)
                 {
                     if (dbContext.Database.CurrentTransaction != null)
                         dbContext.Database.CurrentTransaction.Rollback();
-                    throw;
+                    throw new Exception("See Inner ex", ex);
                 }
                 finally
                 {

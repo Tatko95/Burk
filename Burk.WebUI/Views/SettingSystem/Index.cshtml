@@ -5,8 +5,15 @@
 }
 
 <div class="input_with_menu">
-    <h2>@ViewBag.Title</h2>
+    @Html.Hidden("SystemId", Session["SystemId"])
+    @Html.Hidden("DossierId", Session["DossierId"])
+    <h2>@(ViewBag.Title + (ViewData["DossierName"] == null ? string.Empty : "(" + ViewData["DossierName"].ToString() + ")"))</h2>
 
+    @if (Session["DossierId"] != null)
+    {
+        <script src="~/Scripts/custom/SystemSettings/InsetSettings.js" type="text/javascript"></script>
+        <div id='jqxMenuInset'></div>
+        <div id="addEditInsetDialog"></div>
+    }
     <div style="height:20px"></div>
-    @Html.Hidden("SystemId", ViewData["SystemId"])
 </div>

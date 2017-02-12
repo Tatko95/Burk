@@ -54,6 +54,26 @@ textarea {
 
 /*Validation Massage*/
 .field-validation-error {
-    font-size:11px;
-    color:red;
+    font-size: 11px;
+    color: red;
+}
+
+/*Menu*/
+
+.jqx-menu {
+    margin-left: -2px !important;
+    margin-top: -1px !important;
+    background-color: #222222 !important;
+}
+
+.jqx-menu-dropdown {
+    background-color: #222222 !important;
+}
+
+.jqx-menu-item-top {
+    color: #999999 !important;
+}
+
+.jqx-menu-item {
+    color: #999999 !important;
 }

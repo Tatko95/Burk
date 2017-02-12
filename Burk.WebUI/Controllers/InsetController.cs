@@ -1,36 +1,36 @@
 ﻿using Burk.Logic.Abstract.Services;
 using Burk.Logic.Concrete.Users.Managers;
-using Burk.Model.Misc;
-using System.Collections.Generic;
-using System.Web.Mvc;
-using Burk.Model.Resources;
 using Burk.Model.UDB;
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 
 namespace Burk.WebUI.Controllers
 {
-    public class MenuController : BaseController
+    public class InsetController : BaseController
     {
         #region Fields
-        private IDossierService service;
+        private IInsetService service;
         #endregion
 
         #region ctor
-        public MenuController(IDossierService _service)
+        public InsetController(IInsetService _service)
         {
             service = _service;
         }
 
-        public MenuController(IDossierService _service, ApplicationUserManager userManager) : base(userManager)
+        public InsetController(IInsetService _service, ApplicationUserManager userManager) : base(userManager)
         {
             service = _service;
         }
         #endregion
 
         #region LIST
-        public JsonResult GetMenuItemsForSettings(int systemId)
+        public JsonResult GetInsetItemForSettings(int dossierId)
         {
-            var list = service.GetMenuItemsForSettings(systemId);
+            var list = service.GetInsetItemsForSettings(dossierId);
             return Json(list, JsonRequestBehavior.AllowGet);
         }
         #endregion
@@ -38,16 +38,16 @@ namespace Burk.WebUI.Controllers
         #region CRUD with MenuItem
         #region AddEdit
         [HttpGet]
-        public ActionResult AddEditMenuItem(int? dossierId)
+        public ActionResult AddEditInsetItem(int? insetId)
         {
-            DossierObject model = service.GetById("DosObjectId", dossierId.ToString());
-            if (dossierId == null || dossierId == 0)
-                model.SystemId = (int)Session["SystemId"];
+            DossierInset model = service.GetById("DosInsetId", insetId.ToString());
+            if (insetId == null || insetId == 0)
+                model.DosObjectId = (int)Session["DossierId"];
             return PartialView(model);
         }
 
         [HttpPost]
-        public ActionResult AddEditMenuItem(DossierObject model)
+        public ActionResult AddEditInsetItem(DossierInset model)
         {
             try
             {
@@ -62,14 +62,14 @@ namespace Burk.WebUI.Controllers
         #endregion
 
         #region Delete
-        public ActionResult DeleteMenuItem(int dossierId)
+        public ActionResult DeleteInsetItem(int insetId)
         {
             try
             {
-                var model = service.GetById("DosObjectId", dossierId.ToString());
+                var model = service.GetById("DosInsetId", insetId.ToString());
                 service.Delete(model);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return Content("Error");
             }
@@ -78,12 +78,12 @@ namespace Burk.WebUI.Controllers
         #endregion
         #endregion
 
-        #region UpDown MenuItem
-        public ActionResult UpMenuItem(int dossierId)
+        #region RightLeft InsetItem
+        public ActionResult LeftInsetItem(int insetId)
         {
             try
             {
-                service.UpMenuItem(dossierId);
+                service.LeftInsetItem(insetId);
             }
             catch (Exception)
             {
@@ -92,11 +92,11 @@ namespace Burk.WebUI.Controllers
             return Content("Success");
         }
 
-        public ActionResult DownMenuItem(int dossierId)
+        public ActionResult RightInsetItem(int insetId)
         {
             try
             {
-                service.DownMenuItem(dossierId);
+                service.RightInsetItem(insetId);
             }
             catch (Exception)
             {

@@ -1,17 +1,11 @@
-﻿using Burk.Core.Abstract.Unity;
-using Burk.Core.Concrete.Unity;
+﻿using Burk.Core.Concrete.Unity;
 using Burk.Logic.InitBurk;
 using Burk.WebUI.Utils;
-using System;
-using System.Collections.Generic;
 using System.Data.Entity;
-using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using Microsoft.Practices.Unity;
-using Microsoft.Practices.Unity.Configuration;
 using Burk.Model.Context;
 using Microsoft.AspNet.Identity;
 using Burk.Model.Users;
@@ -55,6 +49,8 @@ namespace Burk.WebUI
             UnityContainerFactory.UnityContainer.RegisterType<ISystemService, SystemService>(new TransientLifetimeManager());
             UnityContainerFactory.UnityContainer.RegisterType<IInitBurk, InitBurk>(new TransientLifetimeManager());
             UnityContainerFactory.UnityContainer.RegisterType<IDossierService, DossierService>(new TransientLifetimeManager());
+            UnityContainerFactory.UnityContainer.RegisterType<IInsetService, InsetService>(new TransientLifetimeManager());
+
         }
     }
 }

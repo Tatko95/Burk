@@ -209,6 +209,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InsetController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\SettingSystemController.cs" />
@@ -577,7 +578,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\custom\SystemSettings\AddEditInsetItem.js" />
     <Content Include="Scripts\custom\SystemSettings\AddEditMenuItem.js" />
+    <Content Include="Scripts\custom\SystemSettings\InsetSettings.js" />
     <Content Include="Scripts\custom\SystemSettings\MenuSettings.js" />
     <Content Include="Scripts\custom\System\AddEditSystem.js" />
     <Content Include="Scripts\custom\System\UserSystems.js" />
@@ -726,6 +729,7 @@
     <Content Include="Views\SettingSystem\Index.cshtml" />
     <Content Include="Views\Shared\_MenuPartial.cshtml" />
     <Content Include="Views\Menu\AddEditMenuItem.cshtml" />
+    <Content Include="Views\Inset\AddEditInsetItem.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

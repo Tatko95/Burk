@@ -124,6 +124,15 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Вниз.
+        /// </summary>
+        public static string Down {
+            get {
+                return ResourceManager.GetString("Down", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Редагувати.
         /// </summary>
         public static string Edit {
@@ -192,6 +201,15 @@ namespace Burk.Model.Resources {
         public static string HomePage {
             get {
                 return ResourceManager.GetString("HomePage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вліво.
+        /// </summary>
+        public static string Left {
+            get {
+                return ResourceManager.GetString("Left", resourceCulture);
             }
         }
         
@@ -269,6 +287,15 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Вправо.
+        /// </summary>
+        public static string Right {
+            get {
+                return ResourceManager.GetString("Right", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Російська.
         /// </summary>
         public static string Russian {
@@ -323,6 +350,15 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Успішно.
+        /// </summary>
+        public static string Successfully {
+            get {
+                return ResourceManager.GetString("Successfully", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Нова система створена! Натисніть &quot;ОК&quot;, щоб перейти до налаштувань системи..
         /// </summary>
         public static string SucCreateSystem {
@@ -346,6 +382,15 @@ namespace Burk.Model.Resources {
         public static string Ukrainian {
             get {
                 return ResourceManager.GetString("Ukrainian", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Вгору.
+        /// </summary>
+        public static string Up {
+            get {
+                return ResourceManager.GetString("Up", resourceCulture);
             }
         }
         
