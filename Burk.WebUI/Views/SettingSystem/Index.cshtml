@@ -7,7 +7,7 @@
 <div class="input_with_menu">
     @Html.Hidden("SystemId", Session["SystemId"])
     @Html.Hidden("DossierId", Session["DossierId"])
-    <h2>@(ViewBag.Title + (ViewData["DossierName"] == null ? string.Empty : "(" + ViewData["DossierName"].ToString() + ")"))</h2>
+    <h2>@(ViewBag.Title + (Session["DossierName"] == null ? string.Empty : "(" + Session["DossierName"].ToString() + ")"))</h2>
 
     @if (Session["DossierId"] != null)
     {

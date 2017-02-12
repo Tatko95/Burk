@@ -26,7 +26,7 @@ namespace Burk.WebUI.Controllers
         #region Localization
         protected override void OnActionExecuting(ActionExecutingContext filterContext)
         {
-            
+
             int culture = 0;
             if (Session == null || Session["CurrentCulture"] == null)
             {
@@ -61,6 +61,16 @@ namespace Burk.WebUI.Controllers
         public User CurrentUser
         {
             get { return UserManager.FindById(User.Identity.GetUserId()); }
+        }
+        #endregion
+
+        #region Session
+        protected void CleanSessions()
+        {
+            Session["SystemName"] = null;
+            Session["SystemId"] = null;
+            Session["DossierName"] = null;
+            Session["DossierId"] = null;
         }
         #endregion
     }

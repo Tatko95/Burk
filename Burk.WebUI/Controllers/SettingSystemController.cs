@@ -37,7 +37,7 @@ namespace Burk.WebUI.Controllers
             if (dossierId != null && dossierId != 0)
             {
                 var dossierObject = dossierService.GetById("DosObjectId", dossierId.ToString());
-                ViewData["DossierName"] = dossierObject.FullName;
+                Session["DossierName"] = dossierObject.FullName;
                 Session["DossierId"] = dossierId;
             }
             return View();
