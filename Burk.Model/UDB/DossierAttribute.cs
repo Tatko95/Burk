@@ -25,6 +25,20 @@ namespace Burk.Model.UDB
         public int Index { get; set; }
 
         public int UID { get; set; }
+        
+        [NotMapped]
+        public AttributeType AttributeType
+        {
+            get
+            {
+                if (ValueName.Contains("Text"))
+                    return AttributeType.Text;
+                else if (ValueName.Contains("Number"))
+                    return AttributeType.Number;
+                else // if Date
+                    return AttributeType.Date;
+            }
+        }
 
         [ForeignKey("Grid")]
         public int? GridId { get; set; }
@@ -44,5 +58,12 @@ namespace Burk.Model.UDB
         {
             return string.Format("Id:{0}; Name: {1};", DosAttributeId.ToString(), FullName);
         }
+    }
+
+    public enum AttributeType
+    {
+        Text = 1,
+        Number = 2,
+        Date = 3
     }
 }

@@ -41,7 +41,8 @@
                 <ul class="nav navbar-nav">
                     @if (ViewBag.IsShowSystemName == true)
                     {
-                        <li>@Html.ActionLink(Session["SystemName"].ToString(), "Index", "Home")</li>
+                        <li>@Html.ActionLink(Session["SystemName"].ToString(), "Index", "SettingSystem")</li>
+                        <li>@Html.ActionLink(Resource.Dictionaries, "DictionaryIndex", "SettingSystem")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

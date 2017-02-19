@@ -232,4 +232,7 @@
   <data name="Right" xml:space="preserve">
     <value>Вправо</value>
   </data>
+  <data name="Dictionaries" xml:space="preserve">
+    <value>Довідники</value>
+  </data>
 </root>

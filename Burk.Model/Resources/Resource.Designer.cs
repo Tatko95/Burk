@@ -124,6 +124,15 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Довідники.
+        /// </summary>
+        public static string Dictionaries {
+            get {
+                return ResourceManager.GetString("Dictionaries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Вниз.
         /// </summary>
         public static string Down {
