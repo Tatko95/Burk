@@ -1,6 +1,7 @@
 ﻿using Burk.Logic.Abstract.Services;
 using Burk.Logic.Concrete.Users.Managers;
 using Burk.Model.Misc;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace Burk.WebUI.Controllers
@@ -12,6 +13,7 @@ namespace Burk.WebUI.Controllers
         private ISystemService service;
         private IDossierService dossierService;
         private IInsetService insetService;
+        private IDictionaryService dictionaryService;
         #endregion
 
         #region ctor
@@ -20,16 +22,18 @@ namespace Burk.WebUI.Controllers
             service = _service;
         }
 
-        public SettingSystemController(IInsetService _insetService, IDossierService _dossierService ,ISystemService _service, ApplicationUserManager userManager) : base(userManager)
+        public SettingSystemController(IDictionaryService _dicService, IInsetService _insetService, IDossierService _dossierService ,ISystemService _service, ApplicationUserManager userManager) : base(userManager)
         {
             service = _service;
             dossierService = _dossierService;
             insetService = _insetService;
+            dictionaryService = _dicService;
             ViewBag.IsShowSystemName = true;
             ViewBag.IsShowMenu = true;
         }
         #endregion
 
+        #region Attribute
         public ActionResult Index(int systemId, int? dossierId, int? insetId)
         {
             CleanSessions();
@@ -50,5 +54,6 @@ namespace Burk.WebUI.Controllers
             }
             return View();
         }
+        #endregion
     }
 }

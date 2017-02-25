@@ -235,4 +235,7 @@
   <data name="Dictionaries" xml:space="preserve">
     <value>Довідники</value>
   </data>
+  <data name="Values" xml:space="preserve">
+    <value>Значення</value>
+  </data>
 </root>

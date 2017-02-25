@@ -4,27 +4,53 @@ using Burk.Model.UDB;
 using System;
 using System.Linq;
 using Burk.Core.Repository;
+using Burk.Logic.Abstract.Repositories;
 
 namespace Burk.Logic.Concrete.Services
 {
     public class DictionaryService : BaseService<Dictionary>, IDictionaryService
     {
         #region CTOR
-        public DictionaryService(IBaseRepository repo) : base(repo) { }
+        public DictionaryService(IBurkModelRepository repo) : base(repo) { }
         #endregion
 
-        #region Methods
-        public IQueryable<DictionaryAttribute> GetFirstLvl(int dictionaryId)
+        #region Dictonary
+        public IQueryable<Dictionary> GetDictionaries(int systemId)
         {
-            var result = repository.Table<DictionaryAttribute>().Where(x => x.DictionaryId == dictionaryId);
+            var result = repository.Table<Dictionary>().Where(x => x.SystemId == systemId);
+            return result;
+        }
+        #endregion
+
+        #region Dictionary Value
+        public IQueryable<DictionaryValue> GetDictionaryValues(int dictionaryId)
+        {
+            var result = repository.Table<DictionaryValue>().Where(x => x.DictionaryId == dictionaryId);
             return result;
         }
 
-        public IQueryable<DictionaryAttribute> GetNextLvl(int dictionaryAttributeId)
+        #region CRUD
+        public void DeleteValue(DictionaryValue model)
         {
-            var result = repository.Table<DictionaryAttribute>().Where(x => x.DicAttributeLevelRefId == dictionaryAttributeId);
-            return result;
+            repository.Delete(model);
         }
+
+        public DictionaryValue GetValueById(int id)
+        {
+            var model = repository.Table<DictionaryValue>().FirstOrDefault(x => x.DicValueId == id);
+            return model?? new DictionaryValue();
+        }
+
+        public void InsertValue(DictionaryValue value)
+        {
+            repository.Insert(value);
+        }
+
+        public void UpdateValue(DictionaryValue value)
+        {
+            repository.Update(value);
+        }
+        #endregion
         #endregion
     }
 }

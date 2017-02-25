@@ -235,4 +235,7 @@ The possibility of recovering lost data due to logical data deletion.</value>
   <data name="Dictionaries" xml:space="preserve">
     <value>Dictionaries</value>
   </data>
+  <data name="Values" xml:space="preserve">
+    <value>Values</value>
+  </data>
 </root>

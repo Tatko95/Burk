@@ -411,5 +411,14 @@ namespace Burk.Model.Resources {
                 return ResourceManager.GetString("UserName", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Значення.
+        /// </summary>
+        public static string Values {
+            get {
+                return ResourceManager.GetString("Values", resourceCulture);
+            }
+        }
     }
 }
