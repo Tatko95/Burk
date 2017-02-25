@@ -4197,6 +4197,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
   padding: 15px 15px;
   font-size: 18px;
   line-height: 20px;
+  width:114px;
 }
 
 .navbar-brand:hover,
@@ -4247,6 +4248,9 @@ textarea.input-group-sm > .input-group-btn > .btn {
   padding-top: 10px;
   padding-bottom: 10px;
   line-height: 20px;
+  border-width:1px;
+  border-color:black; 
+  border-style:inset
 }
 
 @media (max-width: 767px) {

@@ -13,6 +13,7 @@ namespace Burk.Model.UDB
         [ForeignKey("DicAttribute")]
         public int? DicAttributeId { get; set; }
 
+        [Required]
         public string FullName { get; set; }
 
         public string ShortName { get; set; }
@@ -23,12 +24,18 @@ namespace Burk.Model.UDB
 
         public int UID { get; set; }
 
+        [Required]
+        [ForeignKey("Dictionary")]
+        public int DictionaryId { get; set; }
+
         [ForeignKey("Language")]
         public int? LanguageId { get; set; }
 
         public virtual Language Language { get; set; }
 
         public virtual DictionaryAttribute DicAttribute { get; set; }
+
+        public virtual Dictionary Dictionary { get; set; }
 
         public override String ToString()
         {

@@ -1,0 +1,33 @@
+﻿@using Burk.Model.Resources
+@{
+    ViewBag.Title = Resource.Dictionaries;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<script type="text/javascript" src="~/Scripts/custom/Dictionary/Settings.js"></script>
+
+<script type="text/javascript">
+    var URLGridDictionaries = "@Url.Action("GetListDictionaries")";
+    var URLGridValues = "@Url.Action("GetListValues")";
+</script>
+
+@Html.Hidden("SystemId", Session["SystemId"])
+
+<div class="input_with_menu">
+    <div>
+        <h2>@Resource.Dictionaries</h2>
+        <input id="createDictionaryBtn" type="button" class="btn btn-primary btn-sm" onclick="AddEditDictionary(true)" value="@Resource.Add" />
+        <div id="jqxgridDictionaries" />
+        <div style="height:20px"></div>
+    </div>
+
+    <div id="valuesDiv" hidden="hidden">
+        <h2>@Resource.Values</h2>
+        <input id="createValueBtn" type="button" class="btn btn-primary btn-sm" onclick="AddEditValue(0)" value="@Resource.Add" />
+        <div id="jqxgridValues" />
+    </div>
+
+    <div id="addEditDictionary"></div>
+    <div id="SuccessDeletedDiv"></div>
+</div>
+

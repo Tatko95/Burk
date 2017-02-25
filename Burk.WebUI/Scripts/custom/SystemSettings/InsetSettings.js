@@ -1,7 +1,7 @@
 ﻿$(document).ready(function () {
     LoadInsetMenu();
     $("#jqxMenuInset").on('itemclick', function (event) {
-        insetId = event.args.id / 10000 >> 0
+        insetId = event.args.id / 10000 >> 0;
         if (event.args.id == 0) {
             AddEditInsetItem(event.args.id);
         }
@@ -18,8 +18,7 @@
             RightInsetItem(insetId);
         }
         else {
-            //go to page
-            //window.location.href = "/SettingSystem/Index?systemId=" + $('#SystemId').val() + "&dossierId=" + event.args.id;
+            window.location.href = "/SettingSystem/Index?systemId=" + $('#SystemId').val() + "&dossierId=" + $('#DossierId').val() + "&insetId=" + event.args.id;
         }
     });
 

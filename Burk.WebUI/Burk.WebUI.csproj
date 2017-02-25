@@ -208,6 +208,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\DictionaryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InsetController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -578,6 +579,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\custom\Dictionary\AddEditDictionary.js" />
+    <Content Include="Scripts\custom\Dictionary\AddEditDictionaryValue.js" />
+    <Content Include="Scripts\custom\Dictionary\Settings.js" />
     <Content Include="Scripts\custom\SystemSettings\AddEditInsetItem.js" />
     <Content Include="Scripts\custom\SystemSettings\AddEditMenuItem.js" />
     <Content Include="Scripts\custom\SystemSettings\InsetSettings.js" />
@@ -730,6 +734,9 @@
     <Content Include="Views\Shared\_MenuPartial.cshtml" />
     <Content Include="Views\Menu\AddEditMenuItem.cshtml" />
     <Content Include="Views\Inset\AddEditInsetItem.cshtml" />
+    <Content Include="Views\Dictionary\Index.cshtml" />
+    <Content Include="Views\Dictionary\AddEditDictionary.cshtml" />
+    <Content Include="Views\Dictionary\AddEditValue.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

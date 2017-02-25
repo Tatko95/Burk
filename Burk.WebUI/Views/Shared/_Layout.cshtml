@@ -18,7 +18,7 @@
     @Styles.Render("~/Content/jqueryUIcss")
     @Styles.Render("~/Content/JQWidgetscss")
     @Scripts.Render("~/bundles/JQWidgets")
-    
+
     @Scripts.Render("~/bundles/SharedScripts")
 </head>
 <body>
@@ -41,7 +41,8 @@
                 <ul class="nav navbar-nav">
                     @if (ViewBag.IsShowSystemName == true)
                     {
-                        <li>@Html.ActionLink(Session["SystemName"].ToString(), "Index", "Home")</li>
+                        <li>@Html.ActionLink(Session["SystemName"].ToString(), "Index", "SettingSystem")</li>
+                        <li>@Html.ActionLink(@Resource.Dictionaries, "Index", "Dictionary")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -66,8 +67,9 @@
 
     @RenderSection("scripts", required: false)
 
-    <div id="ErrorDiv"/>
+    <div id="ErrorDiv" />
     <div id="jqxLoader"></div>
     <div id="SuccessDiv"></div>
+    <div id="AddEditDiv"></div>
 </body>
 </html>

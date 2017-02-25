@@ -19,8 +19,9 @@ namespace Burk.Model.UDB
 
         public int UID { get; set; }
 
+        [Required]
         [ForeignKey("System")]
-        public int? SystemId { get; set; }
+        public int SystemId { get; set; }
 
         [ForeignKey("Language")]
         public int? LanguageId { get; set; }
