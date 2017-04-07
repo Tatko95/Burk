@@ -172,7 +172,7 @@ function ConfiguratePopOver(attr) {
         "<input type='button' id='edit" + attr.ServerId + "' class='btn btn-primary btn-sm' value='" + localization.Edit + "' onclick='EditAttribute(this)'/>" +
         "</div>");
 
-    $('#' + attr.Id).append("<button style='float:right; background-color:black; height:23px' id='popoverBtn" + attr.Id + "'>&nbsp&nbsp</button>");
+    $('#' + attr.Id).append("<button style='float:right; background-color:#428bca; height:23px' id='popoverBtn" + attr.Id + "'>&nbsp&nbsp</button>");
     $('#' + attr.Id).append("</br>");
     $("#popover" + attr.Id).jqxPopover({ title: "", showCloseButton: true, selector: $("#popoverBtn" + attr.Id) });
 }
@@ -188,7 +188,14 @@ function DeleteAttribute(element) {
                 ShowMessageBox(1, "ErrorDiv", localization.ErrorDeveloper);
             }
             $('#' + clientId).remove();
-            $('#AttributePanel').click()
+            $('#AttributePanel').click();
+            var deletedIndex;
+            panel.Attributes.forEach(function (item, i) {
+                if (item.ServerId == serverId) {
+                    deletedIndex = i;
+                }
+            });
+            panel.Attributes.splice(deletedIndex, 1);
         }
     });
 }
