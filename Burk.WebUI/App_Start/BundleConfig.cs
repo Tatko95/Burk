@@ -36,7 +36,10 @@ namespace Burk.WebUI
                         "~/Scripts/JQWidgets/jqxgrid.edit.js",
                         "~/Scripts/JQWidgets/jqxgrid.columnsresize.js",
                         "~/Scripts/JQWidgets/custom.js",
-                        "~/Scripts/JQWidgets/globalization/globalize.js"
+                        "~/Scripts/JQWidgets/globalization/globalize.js",
+                        "~/Scripts/JQWidgets/jqxdocking.js",
+                        "~/Scripts/JQWidgets/jqxwindow.js",
+                        "~/Scripts/JQWidgets/jqxpopover.js"
                         ));
 
             bundles.Add(new StyleBundle("~/Content/JQWidgetscss").Include(

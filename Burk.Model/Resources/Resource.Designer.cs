@@ -70,6 +70,42 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Додати поле.
+        /// </summary>
+        public static string AddField {
+            get {
+                return ResourceManager.GetString("AddField", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Додати рядок значень.
+        /// </summary>
+        public static string AddRowValue {
+            get {
+                return ResourceManager.GetString("AddRowValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Додати таблицю.
+        /// </summary>
+        public static string AddTable {
+            get {
+                return ResourceManager.GetString("AddTable", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип атрибуту.
+        /// </summary>
+        public static string AttributeType {
+            get {
+                return ResourceManager.GetString("AttributeType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Підтвердження пароля.
         /// </summary>
         public static string ConfirmPassword {
@@ -102,6 +138,15 @@ namespace Burk.Model.Resources {
         public static string CreateNewUser {
             get {
                 return ResourceManager.GetString("CreateNewUser", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Дата.
+        /// </summary>
+        public static string Date {
+            get {
+                return ResourceManager.GetString("Date", resourceCulture);
             }
         }
         
@@ -174,6 +219,24 @@ namespace Burk.Model.Resources {
         public static string ErrorDeveloper {
             get {
                 return ResourceManager.GetString("ErrorDeveloper", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Назва поля.
+        /// </summary>
+        public static string FieldName {
+            get {
+                return ResourceManager.GetString("FieldName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Тип поля.
+        /// </summary>
+        public static string FieldType {
+            get {
+                return ResourceManager.GetString("FieldType", resourceCulture);
             }
         }
         
@@ -265,6 +328,15 @@ namespace Burk.Model.Resources {
         public static string MainPageText3 {
             get {
                 return ResourceManager.GetString("MainPageText3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Число.
+        /// </summary>
+        public static string Number {
+            get {
+                return ResourceManager.GetString("Number", resourceCulture);
             }
         }
         
@@ -382,6 +454,15 @@ namespace Burk.Model.Resources {
         public static string Systems {
             get {
                 return ResourceManager.GetString("Systems", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Текст.
+        /// </summary>
+        public static string Text {
+            get {
+                return ResourceManager.GetString("Text", resourceCulture);
             }
         }
         

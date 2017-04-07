@@ -111,6 +111,14 @@
     <Compile Include="Migrations\201702250915119_ReqInTableForCascadeDelete.Designer.cs">
       <DependentUpon>201702250915119_ReqInTableForCascadeDelete.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703242014335_ReqFullNameIn.cs" />
+    <Compile Include="Migrations\201703242014335_ReqFullNameIn.Designer.cs">
+      <DependentUpon>201703242014335_ReqFullNameIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703251215165_AddFieldInAttribute.cs" />
+    <Compile Include="Migrations\201703251215165_AddFieldInAttribute.Designer.cs">
+      <DependentUpon>201703251215165_AddFieldInAttribute.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Misc\Enums.cs" />
     <Compile Include="Misc\MenuItem.cs" />
@@ -198,6 +206,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201702250915119_ReqInTableForCascadeDelete.resx">
       <DependentUpon>201702250915119_ReqInTableForCascadeDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703242014335_ReqFullNameIn.resx">
+      <DependentUpon>201703242014335_ReqFullNameIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703251215165_AddFieldInAttribute.resx">
+      <DependentUpon>201703251215165_AddFieldInAttribute.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.en-GB.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

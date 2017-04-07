@@ -33,7 +33,6 @@ namespace Burk.WebUI.Controllers
         }
         #endregion
 
-        #region Attribute
         public ActionResult Index(int systemId, int? dossierId, int? insetId)
         {
             CleanSessions();
@@ -54,6 +53,5 @@ namespace Burk.WebUI.Controllers
             }
             return View();
         }
-        #endregion
     }
 }

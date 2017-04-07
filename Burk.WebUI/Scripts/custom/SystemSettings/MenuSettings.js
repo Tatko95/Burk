@@ -86,7 +86,9 @@ function DeleteMenuItem(objKey) {
         success: function (result) {
             if (result === "Success") {
                 UnblockUI();
-                ShowMessageBox(1, "SuccessDiv", localization.Deleted, function () { LoadMenu(); });
+                ShowMessageBox(1, "SuccessDiv", localization.Deleted, function () {
+                    window.location.href = "/SettingSystem/Index?systemId=" + $('#SystemId').val();
+                });
             }
             else if (result === "Error") {
                 UnblockUI();

@@ -238,4 +238,31 @@ The possibility of recovering lost data due to logical data deletion.</value>
   <data name="Values" xml:space="preserve">
     <value>Values</value>
   </data>
+  <data name="AddField" xml:space="preserve">
+    <value>Add field</value>
+  </data>
+  <data name="AddRowValue" xml:space="preserve">
+    <value>Add row value</value>
+  </data>
+  <data name="AddTable" xml:space="preserve">
+    <value>Add table</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="FieldName" xml:space="preserve">
+    <value>Field name</value>
+  </data>
+  <data name="FieldType" xml:space="preserve">
+    <value>Field type</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Text</value>
+  </data>
+  <data name="AttributeType" xml:space="preserve">
+    <value>Attribute type</value>
+  </data>
 </root>

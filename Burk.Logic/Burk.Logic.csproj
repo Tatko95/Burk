@@ -65,12 +65,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\Repositories\IBurkModelRepository.cs" />
+    <Compile Include="Abstract\Services\IAttributeService.cs" />
     <Compile Include="Abstract\Services\IDictionaryService.cs" />
     <Compile Include="Abstract\Services\IDossierService.cs" />
     <Compile Include="Abstract\Services\IInsetService.cs" />
     <Compile Include="Abstract\Services\ISystemService.cs" />
     <Compile Include="Abstract\Services\IUniversalDb.cs" />
     <Compile Include="Concrete\Repositories\BurkModelRepository.cs" />
+    <Compile Include="Concrete\Services\AttributeService.cs" />
     <Compile Include="Concrete\Services\DictionaryService.cs" />
     <Compile Include="Concrete\Services\DossierService.cs" />
     <Compile Include="Concrete\Services\InsetService.cs" />

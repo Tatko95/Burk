@@ -238,4 +238,31 @@
   <data name="Values" xml:space="preserve">
     <value>Значения</value>
   </data>
+  <data name="AddField" xml:space="preserve">
+    <value>Добавить поле</value>
+  </data>
+  <data name="AddRowValue" xml:space="preserve">
+    <value>Добавить ряд значений</value>
+  </data>
+  <data name="AddTable" xml:space="preserve">
+    <value>Добавить таблицу</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="FieldName" xml:space="preserve">
+    <value>Название поля</value>
+  </data>
+  <data name="FieldType" xml:space="preserve">
+    <value>Тип поля</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Число</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Текст</value>
+  </data>
+  <data name="AttributeType" xml:space="preserve">
+    <value>Тип атрибута</value>
+  </data>
 </root>

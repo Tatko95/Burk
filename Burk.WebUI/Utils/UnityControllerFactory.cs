@@ -25,8 +25,7 @@ namespace Burk.WebUI.Utils
             if (controllerType == null)
                 throw new HttpException(
                         404, String.Format(
-                            "The controller for path '{0}' could not be found" +
-                        "or it does not implement IController.",
+                            "The controller for path '{0}' could not be found or it does not implement IController.",
                         reqContext.HttpContext.Request.Path));
 
             if (!typeof(IController).IsAssignableFrom(controllerType))

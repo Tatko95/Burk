@@ -64,12 +64,13 @@ namespace Burk.WebUI.Controllers
         #region Delete
         public ActionResult DeleteMenuItem(int dossierId)
         {
+            CleanSessions();
             try
             {
                 var model = service.GetById("DosObjectId", dossierId.ToString());
                 service.Delete(model);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return Content("Error");
             }

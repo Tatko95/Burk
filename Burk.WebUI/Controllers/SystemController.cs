@@ -95,7 +95,7 @@ namespace Burk.WebUI.Controllers
             {
                 service.Delete(systemId);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return Content("Error");
                 throw;

@@ -17,7 +17,17 @@
         <div id="addEditInsetDialog"></div>
         if (Session["DossierInsetId"] != null)
         {
-            <h2>@(Session["DossierInsetName"] == null ? ViewBag.Title : Session["DossierInsetName"].ToString())</h2>
+            <script src="~/Scripts/custom/SystemSettings/AttributeSettings.js" type="text/javascript"></script>
+            <script src="~/Scripts/custom/Attribute/Attribute.js" type="text/javascript"></script>
+            <script src="~/Scripts/custom/Attribute/AttributePanel.js" type="text/javascript"></script>
+            <h3>@(Session["DossierInsetName"] == null ? ViewBag.Title : Session["DossierInsetName"].ToString())</h3>
+            <div>
+                <input id="createBtn" type="button" class="btn btn-primary btn-sm" onclick="AddWindow(0)" value="@Resource.AddField" />
+            </div>
+            <div id="AttributePanel"></div>
+            @*<div>
+                <input id="saveBtn" type="button" class="btn btn-primary btn-sm" onclick="SaveAttribute()" value="@Resource.Save" />
+            </div>*@
         }
     }
     <div style="height:20px"></div>
