@@ -2,6 +2,7 @@
 $(document).ready(function () {
     panel = new AttributePanel('AttributePanel');
     CreatePanel();
+    console.log(panel.Attributes)
 });
 
 function CreatePanel() {
@@ -13,7 +14,7 @@ function CreatePanel() {
             var maxWidth = panel.Width;
             var maxHeight = panel.Height;
             result.forEach(function (item) {
-                panel.AddAttribute(item.AttributeTypeName, item.DosAttributeId, item.FullName, item.Width, item.Height, item.X, item.Y);
+                panel.AddAttribute(item.AttributeTypeName, item.DosAttributeId, item.FullName, item.Width, item.Height, item.X, item.Y, item.IsShowInGrid);
                 if (item.X + item.Width > maxWidth) {
                     maxWidth = item.X + item.Width;
                 }

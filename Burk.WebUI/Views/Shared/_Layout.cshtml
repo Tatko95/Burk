@@ -42,7 +42,10 @@
                     @if (ViewBag.IsShowSystemName == true)
                     {
                         <li>@Html.ActionLink(Session["SystemName"].ToString(), "Index", "SettingSystem")</li>
-                        <li>@Html.ActionLink(@Resource.Dictionaries, "Index", "Dictionary")</li>
+                        if (Session["IsWork"] != null && (bool)Session["IsWork"] == false)
+                        {
+                            <li>@Html.ActionLink(@Resource.Dictionaries, "Index", "Dictionary")</li>
+                        }
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

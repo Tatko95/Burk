@@ -265,4 +265,7 @@ The possibility of recovering lost data due to logical data deletion.</value>
   <data name="AttributeType" xml:space="preserve">
     <value>Attribute type</value>
   </data>
+  <data name="ShowInGrid" xml:space="preserve">
+    <value>Show in grid</value>
+  </data>
 </root>

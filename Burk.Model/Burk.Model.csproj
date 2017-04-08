@@ -119,6 +119,10 @@
     <Compile Include="Migrations\201703251215165_AddFieldInAttribute.Designer.cs">
       <DependentUpon>201703251215165_AddFieldInAttribute.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201704080847574_AddIsShowInGridInAttribute.cs" />
+    <Compile Include="Migrations\201704080847574_AddIsShowInGridInAttribute.Designer.cs">
+      <DependentUpon>201704080847574_AddIsShowInGridInAttribute.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Misc\Enums.cs" />
     <Compile Include="Misc\MenuItem.cs" />
@@ -212,6 +216,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201703251215165_AddFieldInAttribute.resx">
       <DependentUpon>201703251215165_AddFieldInAttribute.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201704080847574_AddIsShowInGridInAttribute.resx">
+      <DependentUpon>201704080847574_AddIsShowInGridInAttribute.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Resources\Resource.en-GB.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>

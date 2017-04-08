@@ -6,8 +6,8 @@
 
     ConfigurationPanel(this);
 
-    this.AddAttribute = function (attributeType, attributeId, fullName, width, height, x, y) {
-        var attr = new Attribute(this, attributeType, attributeId, fullName, width, height, x, y);
+    this.AddAttribute = function (attributeType, attributeId, fullName, width, height, x, y, isInGrid) {
+        var attr = new Attribute(this, attributeType, attributeId, fullName, width, height, x, y, isInGrid);
         this.Attributes.push(attr);
         if (attr.IsDeleted) {
             this.Attributes.pop();
@@ -19,12 +19,13 @@
         this.Height = height;
         $('#' + this.Id).height(this.Height);
     };
-    this.EditAttribute = function (attrId, newName) {
+    this.EditAttribute = function (attrId, newName, isInGrid) {
         panel.Attributes.forEach(function (item) {
-            if (item.ServerId = attrId) {
+            if (item.ServerId == attrId) {
                 ChangePositionOnServer(item);
                 ChangeSizeOnServer(item);
                 ChangeNameAttribute(item, newName);
+                ChangeIsInGridAttribute(item, isInGrid)
             }
         });
 

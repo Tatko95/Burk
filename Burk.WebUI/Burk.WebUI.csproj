@@ -216,6 +216,7 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\SettingSystemController.cs" />
     <Compile Include="Controllers\SystemController.cs" />
+    <Compile Include="Controllers\WorkController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -594,6 +595,7 @@
     <Content Include="Scripts\custom\System\AddEditSystem.js" />
     <Content Include="Scripts\custom\System\UserSystems.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\custom\Work\Index.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -744,10 +746,12 @@
     <Content Include="Views\Dictionary\AddEditDictionary.cshtml" />
     <Content Include="Views\Dictionary\AddEditValue.cshtml" />
     <Content Include="Views\Attribute\AddEditAttribute.cshtml" />
+    <Content Include="Views\Work\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Main\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

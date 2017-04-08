@@ -431,6 +431,15 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Показувати в гірді.
+        /// </summary>
+        public static string ShowInGrid {
+            get {
+                return ResourceManager.GetString("ShowInGrid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Успішно.
         /// </summary>
         public static string Successfully {

@@ -8,6 +8,7 @@
     @Html.Hidden("SystemId", Session["SystemId"])
     @Html.Hidden("DossierId", Session["DossierId"])
     @Html.Hidden("DossierInsetId", Session["DossierInsetId"])
+    @Html.Hidden("IsWork", Session["IsWork"])
     <h2>@(Session["DossierName"] == null ? ViewBag.Title : Session["DossierName"].ToString())</h2>
 
     @if (Session["DossierId"] != null)

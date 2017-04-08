@@ -17,7 +17,9 @@
     <div>@Html.TextBoxFor(x => x.ShortName)</div>
     <div class="tb_title">@Html.DisplayNameFor(x => x.AttributeType):</div>
     <div>@Html.DropDownListFor(x => x.AttributeTypeName, new List<SelectListItem>() { new SelectListItem() { Text = Resource.Text, Value = "Text" }, new SelectListItem() { Text = Resource.Number, Value = "Number" }, new SelectListItem() { Text = Resource.Date, Value = "Date" } })</div>
-
+    <div class="tb_title">@Html.DisplayNameFor(x => x.IsShowInGrid)</div>
+    <input id="IsShowInGrid" name="IsShowInGrid" type="checkbox" value="true" @(Model.IsShowInGrid ? "checked=\"checked\"" : "") />
+    <div>@*@Html.EditorFor(x => x.IsShowInGrid)*@</div>
     <div id="ErrorInputDiv" />
     <div id="SuccessfulCreateDiv" />
 

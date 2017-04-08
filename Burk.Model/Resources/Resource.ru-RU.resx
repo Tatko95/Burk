@@ -265,4 +265,7 @@
   <data name="AttributeType" xml:space="preserve">
     <value>Тип атрибута</value>
   </data>
+  <data name="ShowInGrid" xml:space="preserve">
+    <value>Показивать в гриде</value>
+  </data>
 </root>

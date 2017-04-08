@@ -57,7 +57,7 @@ function InitGrid() {
         var columnindex = event.args.columnindex;
         var systemId = $("#jqxgrid").jqxGrid('getrowid', rowindex);
         if (columnindex == 1) {
-            alert("Work");
+            window.location.href = "/Work/Index?systemId=" + systemId;
         }
         if (columnindex == 2) {
             AddEdit(systemId);
@@ -70,7 +70,6 @@ function InitGrid() {
         }
     });
 }
-
 
 function AddEdit(objKey) {
     $.ajax({

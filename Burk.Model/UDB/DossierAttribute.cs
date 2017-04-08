@@ -34,6 +34,9 @@ namespace Burk.Model.UDB
 
         public int Height { get; set; }
 
+        [Display(Name = "ShowInGrid", ResourceType = typeof(Resource))]
+        public bool IsShowInGrid { get; set; }
+
         public int UID { get; set; }
         
         [NotMapped]

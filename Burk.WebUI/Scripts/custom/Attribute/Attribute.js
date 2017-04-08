@@ -1,4 +1,4 @@
-﻿function Attribute(attributePanel, attributeType, attributeId, fullName, width, height, x, y) {
+﻿function Attribute(attributePanel, attributeType, attributeId, fullName, width, height, x, y, isInGrd) {
     this.AttributePanel = attributePanel;
     this.Id = attributeType + attributeId;
     this.ServerId = attributeId;
@@ -9,6 +9,7 @@
     this.IsDeleted = false;
     this.FullName = fullName;
     this.MinWidth = 0;
+    this.IsInGrid = isInGrd;
     ConfigurateAttr(this);
 }
 
@@ -153,7 +154,16 @@ function ChangeSizeOnServer(attr) {
     });
 }
 function ChangeNameAttribute(attr, name) {
-    $('#fullName' + attr.Id).text(name);
+    $('#fullName' + attr.Id).text(name + ":");
+}
+function ChangeIsInGridAttribute(attr, isInGrid) {
+    attr.IsInGrid = isInGrid;
+    if (attr.IsInGrid) {
+        $('#popoverBtn' + attr.Id).css('background-color', '#428bca');
+    }
+    else {
+        $('#popoverBtn' + attr.Id).css('background-color', '#ff3333');
+    }
 }
 //function ChangeSizeInput(attr, ui) {
 //    if (!IsLesOfMinHeightAttribute(attr,ui)) {
@@ -172,7 +182,12 @@ function ConfiguratePopOver(attr) {
         "<input type='button' id='edit" + attr.ServerId + "' class='btn btn-primary btn-sm' value='" + localization.Edit + "' onclick='EditAttribute(this)'/>" +
         "</div>");
 
-    $('#' + attr.Id).append("<button style='float:right; background-color:#428bca; height:23px' id='popoverBtn" + attr.Id + "'>&nbsp&nbsp</button>");
+    if (attr.IsInGrid) {
+        $('#' + attr.Id).append("<button style='float:right; background-color:#428bca; height:23px' id='popoverBtn" + attr.Id + "'>&nbsp&nbsp</button>");
+    }
+    else {
+        $('#' + attr.Id).append("<button style='float:right; background-color:#ff3333; height:23px' id='popoverBtn" + attr.Id + "'>&nbsp&nbsp</button>");
+    }
     $('#' + attr.Id).append("</br>");
     $("#popover" + attr.Id).jqxPopover({ title: "", showCloseButton: true, selector: $("#popoverBtn" + attr.Id) });
 }

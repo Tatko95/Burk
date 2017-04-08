@@ -1,13 +1,15 @@
 ﻿using Burk.Logic.Abstract.Services;
 using Burk.Logic.Concrete.Users.Managers;
-using Burk.Model.Misc;
+using System;
+using System.Collections.Generic;
 using System.Linq;
+using System.Web;
 using System.Web.Mvc;
 
 namespace Burk.WebUI.Controllers
 {
     [Authorize]
-    public class SettingSystemController : BaseController
+    public class WorkController : BaseController
     {
         #region Fields
         private ISystemService service;
@@ -17,12 +19,12 @@ namespace Burk.WebUI.Controllers
         #endregion
 
         #region ctor
-        //public SettingSystemController(ISystemService _service)
+        //public WorkController(ISystemService _service)
         //{
         //    service = _service;
         //}
 
-        public SettingSystemController(IDictionaryService _dicService, IInsetService _insetService, IDossierService _dossierService ,ISystemService _service, ApplicationUserManager userManager) : base(userManager)
+        public WorkController(IDictionaryService _dicService, IInsetService _insetService, IDossierService _dossierService, ISystemService _service, ApplicationUserManager userManager) : base(userManager)
         {
             service = _service;
             dossierService = _dossierService;
@@ -33,26 +35,36 @@ namespace Burk.WebUI.Controllers
         }
         #endregion
 
-        public ActionResult Index(int systemId, int? dossierId, int? insetId)
+        public ActionResult Index(int systemId, int? dossierId)
         {
             CleanSessions();
             var system = service.GetById("SystemId", systemId.ToString());
             Session["SystemName"] = system.FullName;
             Session["SystemId"] = system.SystemId;
-            Session["IsWork"] = false;
+            Session["IsWork"] = true;
             if (dossierId != null && dossierId != 0)
             {
                 var dossierObject = dossierService.GetById("DosObjectId", dossierId.ToString());
                 Session["DossierName"] = dossierObject.FullName;
                 Session["DossierId"] = dossierId;
             }
-            if (insetId != null && insetId != 0)
-            {
-                var insetObject = insetService.GetById("DosInsetId", insetId.ToString());
-                Session["DossierInsetName"] = insetObject.FullName;
-                Session["DossierInsetId"] = insetId;
-            }
             return View();
         }
+
+        //public JsonResult GetGrid(int systemId, int dossierId)
+        //{
+        //    var systems = service.GetAllByUser(CurrentUser.Id);
+        //    var systemsList = systems.ToList();
+
+        //    var jsonData = from item in systemsList
+        //                   select new
+        //                   {
+        //                       item.SystemId,
+        //                       item.FullName,
+        //                       item.ShortName
+        //                   };
+
+        //    return Json(jsonData, JsonRequestBehavior.AllowGet);
+        //}
     }
 }
