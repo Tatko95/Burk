@@ -268,4 +268,7 @@
   <data name="ShowInGrid" xml:space="preserve">
     <value>Показувати в гірді</value>
   </data>
+  <data name="IsRequired" xml:space="preserve">
+    <value>Обовязкове поле</value>
+  </data>
 </root>

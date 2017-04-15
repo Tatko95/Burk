@@ -41,7 +41,7 @@
                 <ul class="nav navbar-nav">
                     @if (ViewBag.IsShowSystemName == true)
                     {
-                        <li>@Html.ActionLink(Session["SystemName"].ToString(), "Index", "SettingSystem")</li>
+                        <li>@Html.ActionLink(Session["SystemName"].ToString(), "Index", "Work", new { systemId = Session["SystemId"] }, null)</li>
                         if (Session["IsWork"] != null && (bool)Session["IsWork"] == false)
                         {
                             <li>@Html.ActionLink(@Resource.Dictionaries, "Index", "Dictionary")</li>

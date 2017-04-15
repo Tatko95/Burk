@@ -31,7 +31,7 @@
 });
 
 function LoadMenu() {
-    ShowBlockUI();
+    //ShowBlockUI();
     if ($('#IsWork').val() == "False") {
         $.ajax({
             url: '/Menu/GetMenuItemsForSettings/',
@@ -57,7 +57,7 @@ function LoadMenu() {
                 var records = dataAdapter.getRecordsHierarchy('id', 'parentid', 'items', [{ name: 'text', map: 'label' }]);
 
                 $("#jqxMenu").jqxMenu({ source: records, width: '120', mode: 'vertical' });
-                UnblockUI();
+                //UnblockUI();
             }
         });
     }
@@ -86,7 +86,7 @@ function LoadMenu() {
                 var records = dataAdapter.getRecordsHierarchy('id', 'parentid', 'items', [{ name: 'text', map: 'label' }]);
 
                 $("#jqxMenu").jqxMenu({ source: records, width: '120', mode: 'vertical' });
-                UnblockUI();
+                //UnblockUI();
             }
         });
     }

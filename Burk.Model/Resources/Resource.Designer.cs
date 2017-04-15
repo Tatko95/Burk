@@ -277,6 +277,15 @@ namespace Burk.Model.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Обовязкове поле.
+        /// </summary>
+        public static string IsRequired {
+            get {
+                return ResourceManager.GetString("IsRequired", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Вліво.
         /// </summary>
         public static string Left {

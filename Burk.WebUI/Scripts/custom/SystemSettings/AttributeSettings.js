@@ -1,8 +1,7 @@
 ﻿var panel;
 $(document).ready(function () {
-    panel = new AttributePanel('AttributePanel');
+    panel = new AttributePanel('AttributePanel', true);
     CreatePanel();
-    console.log(panel.Attributes)
 });
 
 function CreatePanel() {
@@ -14,7 +13,7 @@ function CreatePanel() {
             var maxWidth = panel.Width;
             var maxHeight = panel.Height;
             result.forEach(function (item) {
-                panel.AddAttribute(item.AttributeTypeName, item.DosAttributeId, item.FullName, item.Width, item.Height, item.X, item.Y, item.IsShowInGrid);
+                panel.AddAttribute(item.AttributeTypeName, item.DosAttributeId, item.FullName, item.Width, item.Height, item.X, item.Y, item.IsShowInGrid, item.IsReq, true, item.AttributeTypeIndex);
                 if (item.X + item.Width > maxWidth) {
                     maxWidth = item.X + item.Width;
                 }
@@ -22,7 +21,7 @@ function CreatePanel() {
                     maxHeight = item.Y + item.Height;
                 }
             });
-            panel.SetSize(maxWidth, maxHeight)
+            panel.SetSize(maxWidth, maxHeight);
         }
     });
 }

@@ -5,7 +5,7 @@
 function InitGrid() {
     $("#jqxgrid").jqxGrid(
         {
-            width: 835,
+            width: 820,
             height: 346,
             localization: getLocalization(UICulture),
             source: {

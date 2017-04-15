@@ -1,15 +1,21 @@
-﻿function Attribute(attributePanel, attributeType, attributeId, fullName, width, height, x, y, isInGrd) {
+﻿function Attribute(attributePanel, attributeType, attributeId, fullName, width, height, x, y, isInGrd, isReq, isSettings, attributeTypeIndex, insetId, isEdit) {
     this.AttributePanel = attributePanel;
     this.Id = attributeType + attributeId;
     this.ServerId = attributeId;
-    this.X = x;
-    this.Y = y;
+    this.X = ((isSettings || isEdit) ? x : 0);
+    this.Y = ((isSettings || isEdit) ? y : 0);
     this.Width = width;
     this.Height = height;
     this.IsDeleted = false;
     this.FullName = fullName;
     this.MinWidth = 0;
     this.IsInGrid = isInGrd;
+    this.IsReq = isReq;
+    this.IsSettings = isSettings;
+    this.AttributeTypeName = attributeType;
+    this.AttributeTypeIndex = attributeTypeIndex;
+    this.InsetId = insetId;
+    this.Value = "";
     ConfigurateAttr(this);
 }
 
@@ -17,69 +23,77 @@ function ConfigurateAttr(attr) {
     $('#' + attr.AttributePanel.Id).prepend("<div id='" + attr.Id + "'></div>");
     ConfigurateStyleAttribute(attr);
     ConfigurateFullName(attr);
-    ConfiguratePopOver(attr);
+    if (attr.IsReq) {
+        ConfigurateReq(attr);
+    }
+    if (attr.IsSettings) {
+        ConfiguratePopOver(attr);
+    }
     ConfigurateInputBox(attr);
-    $('#' + attr.Id).draggable({
-        stop: function (event, ui) {
-            if (IsCrossingAttribute(attr.AttributePanel, attr, ui.position.left, ui.position.top, ui.position.left + ui.helper[0].clientWidth, ui.position.top + ui.helper[0].clientHeight)) {
-                attr.X = ui.originalPosition.left;
-                attr.Y = ui.originalPosition.top;
-            }
-            else {
-                attr.X = ui.position.left;
-                attr.Y = ui.position.top;
-            }
-            ChangePositionOnServer(attr);
-        },
-        drag: function (event, ui) {
-            if (IsCrossingAttribute(attr.AttributePanel, attr, ui.position.left, ui.position.top, ui.position.left + ui.helper[0].clientWidth, ui.position.top + ui.helper[0].clientHeight)) {
-                ui.position.left = ui.originalPosition.left;
-                ui.position.top = ui.originalPosition.top;
-            }
-        },
-        containment: "parent"
-    });
-    $('#' + attr.Id).resizable({
-        resize: function (event, ui) {
-            if (IsCrossingAttribute(attr.AttributePanel, attr, attr.X, attr.Y, attr.X + ui.size.width, attr.Y + ui.size.height)) {
-                ui.element.width(ui.originalSize.width);
-                ui.element.height(ui.originalSize.height);
-            }
-            if (IsLesOfMinWidthAttribute(attr, ui)) {
-                ui.element.width(ui.originalSize.width);
-                ui.element.height(ui.originalSize.height);
-            }
-            if (IsLesOfMinHeightAttribute(attr, ui)) {
-                ui.element.width(ui.originalSize.width);
-                ui.element.height(ui.originalSize.height);
-            }
-            //ChangeSizeInput(attr, ui);
-        },
-        stop: function (event, ui) {
-            if (IsCrossingAttribute(attr.AttributePanel, attr, attr.X, attr.Y, attr.X + ui.size.width, attr.Y + ui.size.height)) {
-                attr.Width = ui.originalSize.width;
-                attr.Height = ui.originalSize.height;
-            }
-            else if (IsLesOfMinWidthAttribute(attr, ui)) {
-                attr.Width = ui.originalSize.width;
-                attr.Height = ui.originalSize.height;
-            }
-            else if (IsLesOfMinHeightAttribute(attr, ui)) {
-                attr.Width = ui.originalSize.width;
-                attr.Height = ui.originalSize.height;
-            }
-            else {
-                attr.Width = ui.size.width;
-                attr.Height = ui.size.height;
-            }
-            ChangeSizeOnServer(attr);
-        },
-        containment: "parent"
-    });
+    if (attr.IsSettings) {
+        $('#' + attr.Id).draggable({
+            stop: function (event, ui) {
+                if (IsCrossingAttribute(attr.AttributePanel, attr, ui.position.left, ui.position.top, ui.position.left + ui.helper[0].clientWidth, ui.position.top + ui.helper[0].clientHeight)) {
+                    attr.X = ui.originalPosition.left;
+                    attr.Y = ui.originalPosition.top;
+                }
+                else {
+                    attr.X = ui.position.left;
+                    attr.Y = ui.position.top;
+                }
+                ChangePositionOnServer(attr);
+            },
+            drag: function (event, ui) {
+                if (IsCrossingAttribute(attr.AttributePanel, attr, ui.position.left, ui.position.top, ui.position.left + ui.helper[0].clientWidth, ui.position.top + ui.helper[0].clientHeight)) {
+                    ui.position.left = ui.originalPosition.left;
+                    ui.position.top = ui.originalPosition.top;
+                }
+            },
+            containment: "parent"
+        });
+        $('#' + attr.Id).resizable({
+            resize: function (event, ui) {
+                if (IsCrossingAttribute(attr.AttributePanel, attr, attr.X, attr.Y, attr.X + ui.size.width, attr.Y + ui.size.height)) {
+                    ui.element.width(ui.originalSize.width);
+                    ui.element.height(ui.originalSize.height);
+                }
+                if (IsLesOfMinWidthAttribute(attr, ui)) {
+                    ui.element.width(ui.originalSize.width);
+                    ui.element.height(ui.originalSize.height);
+                }
+                if (IsLesOfMinHeightAttribute(attr, ui)) {
+                    ui.element.width(ui.originalSize.width);
+                    ui.element.height(ui.originalSize.height);
+                }
+                //ChangeSizeInput(attr, ui);
+            },
+            stop: function (event, ui) {
+                if (IsCrossingAttribute(attr.AttributePanel, attr, attr.X, attr.Y, attr.X + ui.size.width, attr.Y + ui.size.height)) {
+                    attr.Width = ui.originalSize.width;
+                    attr.Height = ui.originalSize.height;
+                }
+                else if (IsLesOfMinWidthAttribute(attr, ui)) {
+                    attr.Width = ui.originalSize.width;
+                    attr.Height = ui.originalSize.height;
+                }
+                else if (IsLesOfMinHeightAttribute(attr, ui)) {
+                    attr.Width = ui.originalSize.width;
+                    attr.Height = ui.originalSize.height;
+                }
+                else {
+                    attr.Width = ui.size.width;
+                    attr.Height = ui.size.height;
+                }
+                ChangeSizeOnServer(attr);
+            },
+            containment: "parent"
+        });
+    }
 
     ChangeSizeOnServer(attr);
+    
     while (IsCrossingAttribute(attr.AttributePanel, attr, attr.X, attr.Y, attr.X + attr.Width, attr.Y + attr.Height)) {
-        if ((attr.X + attr.Width) < attr.AttributePanel.Width) {
+        if ((attr.X + attr.Width - (attr.IsSettings ? 0 : 10)) < attr.AttributePanel.Width) {
             attr.X = attr.X + 1;
         }
         else if ((attr.Y + attr.Height) < attr.AttributePanel.Height) {
@@ -92,9 +106,13 @@ function ConfigurateAttr(attr) {
             break;
         }
     }
-
+    if (!attr.IsSettings) {
+        attr.X = attr.X + 10;
+    }
     if (!attr.IsDeleted) {
-        ChangePositionOnServer(attr);
+        if (attr.IsSettings) {
+            ChangePositionOnServer(attr);
+        }
         $('#' + attr.Id).css('left', attr.X);
         $('#' + attr.Id).css('top', attr.Y);
     }
@@ -155,6 +173,16 @@ function ChangeSizeOnServer(attr) {
 }
 function ChangeNameAttribute(attr, name) {
     $('#fullName' + attr.Id).text(name + ":");
+    attr.FullName = name;
+}
+function ChangeIsReq(attr, isReq) {
+    if (isReq) {
+        $('#fullName' + attr.Id).append("<span class='req' id='spanReq" + attr.Id + "'>*</span>");
+    }
+    else {
+        $('#spanReq' + attr.Id).remove();
+    }
+    attr.IsReq = isReq;
 }
 function ChangeIsInGridAttribute(attr, isInGrid) {
     attr.IsInGrid = isInGrid;
@@ -164,6 +192,9 @@ function ChangeIsInGridAttribute(attr, isInGrid) {
     else {
         $('#popoverBtn' + attr.Id).css('background-color', '#ff3333');
     }
+}
+function ChangeValue(item, value) {
+    $('#inputBox' + item.AttributeTypeName + item.DosAttributeId).val(value);
 }
 //function ChangeSizeInput(attr, ui) {
 //    if (!IsLesOfMinHeightAttribute(attr,ui)) {
@@ -243,14 +274,19 @@ function EditAttribute(element) {
 function ConfigurateStyleAttribute(attr) {
     $('#' + attr.Id).width(attr.Width);
     $('#' + attr.Id).height(attr.Height);
-    $('#' + attr.Id).css("border-width", "1px");
-    $('#' + attr.Id).css("border-color", "black");
-    $('#' + attr.Id).css("border-style", "dotted");
+    if (attr.IsSettings) {
+        $('#' + attr.Id).css("border-width", "1px");
+        $('#' + attr.Id).css("border-color", "black");
+        $('#' + attr.Id).css("border-style", "dotted");
+    }
     $('#' + attr.Id).css("position", "absolute");
 }
 function ConfigurateInputBox(attr) {
-    $('#' + attr.Id).append("<div><input id='inputBox" + attr.Id + "' style='width:100%; height:100%; margin-top:5px' disabled></div>");
+    $('#' + attr.Id).append("<div><input id='inputBox" + attr.Id + "' style='width:100%; height:100%; margin-top:5px' " + (attr.IsSettings ? "disabled" : "") + "></div>");
 }
 function ConfigurateFullName(attr) {
     $('#' + attr.Id).append("<div id='fullName" + attr.Id + "' class='tb_title' style='float:left'>" + attr.FullName + ":</div>");
+}
+function ConfigurateReq(attr) {
+    $('#fullName' + attr.Id).append("<span class='req' id='spanReq" + attr.Id + "'>*</span>");
 }

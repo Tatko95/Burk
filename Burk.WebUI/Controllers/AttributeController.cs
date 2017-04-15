@@ -1,6 +1,7 @@
 ﻿using Burk.Logic.Abstract.Services;
 using Burk.Logic.Concrete.Users.Managers;
 using Burk.Model.UDB;
+using Burk.WebUI.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,11 +18,6 @@ namespace Burk.WebUI.Controllers
         #endregion
 
         #region ctor
-        public AttributeController(IAttributeService _service)
-        {
-            service = _service;
-        }
-
         public AttributeController(IAttributeService _service, ApplicationUserManager userManager) : base(userManager)
         {
             service = _service;
@@ -31,6 +27,20 @@ namespace Burk.WebUI.Controllers
         #endregion
 
         #region CRUD
+        #region Get
+        public JsonResult GetAttributePanel(int insetId)
+        {
+            var attributes = service.GetAllAttributes(insetId);
+            return Json(attributes, JsonRequestBehavior.AllowGet);
+        }
+
+        public JsonResult GetAttribtePanelWithOnlyReq(int dossierId)
+        {
+            var attributes = service.GetDossierAttributeWithOnlyReqByDosId(dossierId);
+            return Json(attributes, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
         #region AddEdit
         [HttpGet]
         public ActionResult AddEditAttribute(int? attributeId, int? insetId)
@@ -88,12 +98,6 @@ namespace Burk.WebUI.Controllers
             }
             return Content(string.Empty);
         }
-
-        public JsonResult GetAttributePanel(int insetId)
-        {
-            var attributes = service.GetAllAttributes(insetId);
-            return Json(attributes, JsonRequestBehavior.AllowGet);
-        }
         #endregion
 
         #region Delete
@@ -112,5 +116,20 @@ namespace Burk.WebUI.Controllers
         }
         #endregion
         #endregion
+
+        public JsonResult GetColumnsAttributeForGrid(int dossierId)
+        {
+            var attributes = service.GetDossierAttributeForGrid(dossierId);
+
+            var jsonData = from item in attributes.Select((row, index) => new { Row = row, Index = index })
+                           select new GridColumn
+                           {
+                               text = item.Row.FullName,
+                               attributeType = "Text" + item.Index,
+                               width = item.Row.Width
+                           };
+
+            return Json(jsonData, JsonRequestBehavior.AllowGet);
+        }
     }
 }

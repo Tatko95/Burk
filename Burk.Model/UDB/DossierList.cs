@@ -17,7 +17,7 @@ namespace Burk.Model.UDB
         public int? DosInsetId { get; set; }
 
         [ForeignKey("DosList")]
-        public int DosListRefId { get; set; }
+        public int? DosListRefId { get; set; }
 
         public DateTime? CreateDate { get; set; }
 

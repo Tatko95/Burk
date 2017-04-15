@@ -78,7 +78,7 @@ namespace Burk.Core.Repository
         #region CRUD
         public IQueryable<T> Table<T>() where T : class
         {
-            return dbContext.Set<T>();
+            return dbContext.Set<T>().AsQueryable();
         }
 
         public T Insert<T>(T entity) where T : class

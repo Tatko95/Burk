@@ -124,7 +124,7 @@
     <value>Подтверждение пароля</value>
   </data>
   <data name="CreateNew" xml:space="preserve">
-    <value>Создание новго</value>
+    <value>Создание нового</value>
   </data>
   <data name="CreateNewSystem" xml:space="preserve">
     <value>Создать нову систему</value>
@@ -267,5 +267,8 @@
   </data>
   <data name="ShowInGrid" xml:space="preserve">
     <value>Показивать в гриде</value>
+  </data>
+  <data name="IsRequired" xml:space="preserve">
+    <value>Обязательное поле</value>
   </data>
 </root>

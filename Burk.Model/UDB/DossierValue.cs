@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.IO;
@@ -20,7 +21,7 @@ namespace Burk.Model.UDB
 
         public string Text1 { get; set; }
 
-        public string Test2 { get; set; }
+        public string Text2 { get; set; }
 
         public string Text3 { get; set; }
 
@@ -28,7 +29,7 @@ namespace Burk.Model.UDB
 
         public string Text5 { get; set; }
 
-        public string Test6 { get; set; }
+        public string Text6 { get; set; }
 
         public string Text7 { get; set; }
 
@@ -36,7 +37,7 @@ namespace Burk.Model.UDB
 
         public string Text9 { get; set; }
 
-        public string Test10 { get; set; }
+        public string Text10 { get; set; }
 
         public string Text11 { get; set; }
 
@@ -44,7 +45,7 @@ namespace Burk.Model.UDB
 
         public string Text13 { get; set; }
 
-        public string Test14 { get; set; }
+        public string Text14 { get; set; }
 
         public string Text15 { get; set; }
 
@@ -52,7 +53,7 @@ namespace Burk.Model.UDB
 
         public string Text17 { get; set; }
 
-        public string Test18 { get; set; }
+        public string Text18 { get; set; }
 
         public string Text19 { get; set; }
 

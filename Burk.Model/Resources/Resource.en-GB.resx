@@ -268,4 +268,7 @@ The possibility of recovering lost data due to logical data deletion.</value>
   <data name="ShowInGrid" xml:space="preserve">
     <value>Show in grid</value>
   </data>
+  <data name="IsRequired" xml:space="preserve">
+    <value>Is required field</value>
+  </data>
 </root>

@@ -9,6 +9,11 @@
     @Html.HiddenFor(x => x.DosInsetId)
     @Html.HiddenFor(x => x.DictionaryId)
     @Html.HiddenFor(x => x.UID)
+    @Html.HiddenFor(x => x.AttributeTypeIndex)
+    @Html.HiddenFor(x => x.X)
+    @Html.HiddenFor(x => x.Y)
+    @Html.HiddenFor(x => x.Width)
+    @Html.HiddenFor(x => x.Height)
 
     <div class="tb_title">@Html.DisplayNameFor(x => x.FullName):<span class="req">*</span></div>
     <div>@Html.TextBoxFor(x => x.FullName)</div>
@@ -19,7 +24,8 @@
     <div>@Html.DropDownListFor(x => x.AttributeTypeName, new List<SelectListItem>() { new SelectListItem() { Text = Resource.Text, Value = "Text" }, new SelectListItem() { Text = Resource.Number, Value = "Number" }, new SelectListItem() { Text = Resource.Date, Value = "Date" } })</div>
     <div class="tb_title">@Html.DisplayNameFor(x => x.IsShowInGrid)</div>
     <input id="IsShowInGrid" name="IsShowInGrid" type="checkbox" value="true" @(Model.IsShowInGrid ? "checked=\"checked\"" : "") />
-    <div>@*@Html.EditorFor(x => x.IsShowInGrid)*@</div>
+    <div class="tb_title">@Html.DisplayNameFor(x => x.IsReq)</div>
+    <input id="IsReq" name="IsReq" type="checkbox" value="true" @(Model.IsReq ? "checked=\"checked\"" : "") />
     <div id="ErrorInputDiv" />
     <div id="SuccessfulCreateDiv" />
 

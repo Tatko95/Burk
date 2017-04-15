@@ -1,33 +1,46 @@
 ﻿$(document).ready(function () {
     LoadInsetMenu();
-    $("#jqxMenuInset").on('itemclick', function (event) {
-        insetId = event.args.id / 10000 >> 0;
-        if (event.args.id == 0) {
-            AddEditInsetItem(event.args.id);
-        }
-        else if (event.args.id > 10000 && event.args.id % 10 == 1) {
-            AddEditInsetItem(insetId);
-        }
-        else if (event.args.id > 10000 && event.args.id % 10 == 2) {
-            DeleteInsetItem(insetId);
-        }
-        else if (event.args.id > 10000 && event.args.id % 10 == 3) {
-            LeftInsetItem(insetId);
-        }
-        else if (event.args.id > 10000 && event.args.id % 10 == 4) {
-            RightInsetItem(insetId);
+    if ($('#IsWork').val() == "False") {
+        $("#jqxMenuInset").on('itemclick', function (event) {
+            insetId = event.args.id / 10000 >> 0;
+            if (event.args.id == 0) {
+                AddEditInsetItem(event.args.id);
+            }
+            else if (event.args.id > 10000 && event.args.id % 10 == 1) {
+                AddEditInsetItem(insetId);
+            }
+            else if (event.args.id > 10000 && event.args.id % 10 == 2) {
+                DeleteInsetItem(insetId);
+            }
+            else if (event.args.id > 10000 && event.args.id % 10 == 3) {
+                LeftInsetItem(insetId);
+            }
+            else if (event.args.id > 10000 && event.args.id % 10 == 4) {
+                RightInsetItem(insetId);
+            }
+            else {
+                window.location.href = "/SettingSystem/Index?systemId=" + $('#SystemId').val() + "&dossierId=" + $('#DossierId').val() + "&insetId=" + event.args.id;
+            }
+        });
+    }
+    else {
+        if ($('#IsCreate').val() == "True") {
+            $('#jqxMenuInset').hide();
         }
         else {
-            window.location.href = "/SettingSystem/Index?systemId=" + $('#SystemId').val() + "&dossierId=" + $('#DossierId').val() + "&insetId=" + event.args.id;
+            $("#jqxMenuInset").on('itemclick', function (event) {
+                window.location.href = '/Work/AddEditObj?systemId=' + $('#SystemId').val() + '&dossierId=' + $('#DossierId').val() + "&mainListId=" + $('#MainListId').val() + "&insetId=" + event.args.id;
+                //window.location.href = "/SettingSystem/Index?systemId=" + $('#SystemId').val() + "&dossierId=" + $('#DossierId').val() + "&insetId=" + event.args.id;
+            });
         }
-    });
-
+    }
 });
 
 function LoadInsetMenu() {
-    ShowBlockUI();
+    //ShowBlockUI();
+    var URL = $('#IsWork').val() == "True" ? '/Inset/GetInsetItem/' : '/Inset/GetInsetItemForSettings/';
     $.ajax({
-        url: '/Inset/GetInsetItemForSettings/',
+        url: URL,
         type: 'GET',
         data: { dossierId: $("#DossierId").val() },
         success: function (result) {
@@ -50,7 +63,7 @@ function LoadInsetMenu() {
             var records = dataAdapter.getRecordsHierarchy('id', 'parentid', 'items', [{ name: 'text', map: 'label' }]);
 
             $("#jqxMenuInset").jqxMenu({ source: records, width: 'auto' });
-            UnblockUI();
+            //UnblockUI();
         }
     });
 }

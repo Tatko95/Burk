@@ -1,6 +1,6 @@
-﻿
+﻿@using Burk.Model.Resources
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Session["DossierName"] == null ? Session["SystemName"].ToString() : Session["DossierName"].ToString();
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -9,10 +9,13 @@
 <div class="input_with_menu">
     @Html.Hidden("SystemId", Session["SystemId"])
     @Html.Hidden("DossierId", Session["DossierId"])
-    @*@Html.Hidden("DossierInsetId", Session["DossierInsetId"])*@
-    @Html.Hidden("IsWork", Session["IsWorkMenu"])
-    <h2>@(Session["DossierName"] == null ? ViewBag.Title : Session["DossierName"].ToString())</h2>
-
+    @Html.Hidden("IsWork", Session["IsWork"])
+    <h2>@(Session["DossierName"] == null ? string.Empty : Session["DossierName"].ToString())</h2>
+    @if (Session["DossierId"] != null)
+    {
+        <input id="createBtn" type="button" class="btn btn-primary btn-sm" onclick="window.location.href = '/Work/AddEditObj?dossierId=' + $('#DossierId').val()" value="@Resource.Add" />
+        <div id="jqxgrid" />
+    }
 
     <div style="height:20px"></div>
 </div>

@@ -5,8 +5,6 @@ using Burk.Model.UDB;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Burk.Logic.Concrete.Services
 {
@@ -85,8 +83,29 @@ namespace Burk.Logic.Concrete.Services
 
         public IQueryable<DossierAttribute> GetAllAttributes(int dosInsetId)
         {
-            var result = repository.Table<DossierAttribute>().Where(x => x.DosInsetId == dosInsetId);
+            var result = repository.Table<DossierAttribute>().Where(x => x.DosInsetId == dosInsetId).OrderBy(x => x.DosAttributeId);
             return result;
+        }
+
+        public IEnumerable<DossierAttribute> GetDossierAttributeForGrid(int dossierId)
+        {
+            var attributes = (from inset in repository.Table<DossierInset>().Where(x => x.DosObjectId == dossierId)
+                              join attribute in repository.Table<DossierAttribute>().Where(x => x.IsShowInGrid == true) on inset.DosInsetId equals attribute.DosInsetId
+                              select attribute).OrderBy(x => x.DosAttributeId);
+            return attributes;
+        }
+
+        public IQueryable<DossierAttribute> GetDossierAttributeWithOnlyReqByDosId(int dossierId)
+        {
+            var attributes = (from inset in repository.Table<DossierInset>().Where(x => x.DosObjectId == dossierId)
+                              join attr in repository.Table<DossierAttribute>().Where(x => x.IsReq == true) on inset.DosInsetId equals attr.DosInsetId
+                              select attr).OrderBy(x => x.DosAttributeId);
+            if (attributes.Count() == 0)
+            {
+                var inset = repository.Table<DossierInset>().First(x => x.DosObjectId == dossierId && x.Index == 1);
+                attributes = repository.Table<DossierAttribute>().Where(x => x.DosInsetId == inset.DosInsetId).OrderBy(x => x.DosAttributeId);
+            }
+            return attributes;
         }
         #endregion
     }

@@ -39,5 +39,19 @@ namespace Burk.Logic.Abstract.Services
         /// <param name="dosInsetId">ИД вкладки</param>
         /// <returns>Список атрибутов</returns>
         IQueryable<DossierAttribute> GetAllAttributes(int dosInsetId);
+
+        /// <summary>
+        /// Получения атрибутов обєкта, которые входят в грид
+        /// </summary>
+        /// <param name="dossierId">ИД обэкта</param>
+        /// <returns>Список атрибутов</returns>
+        IEnumerable<DossierAttribute> GetDossierAttributeForGrid(int dossierId);
+
+        /// <summary>
+        /// Получения атрибутов обєкта, с признаком ОБЕЗАТЕЛЬНОСТИ
+        /// </summary>
+        /// <param name="dossierID">ИД обєкта</param>
+        /// <returns>Список атрибутов</returns>
+        IQueryable<DossierAttribute> GetDossierAttributeWithOnlyReqByDosId(int dossierId);
     }
 }

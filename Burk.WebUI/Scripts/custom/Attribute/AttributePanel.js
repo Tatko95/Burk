@@ -1,54 +1,71 @@
-﻿function AttributePanel(id) {
+﻿function AttributePanel(id, isSettings) {
     this.Attributes = [];
     this.Width = 1100;
     this.Height = 300;
     this.Id = id;
+    this.IsSettings = isSettings;
 
     ConfigurationPanel(this);
 
-    this.AddAttribute = function (attributeType, attributeId, fullName, width, height, x, y, isInGrid) {
-        var attr = new Attribute(this, attributeType, attributeId, fullName, width, height, x, y, isInGrid);
+    this.AddAttribute = function (attributeType, attributeId, fullName, width, height, x, y, isInGrid, isReq, isSettings, attributeTypeIndex, dosInsetId, isEdit) {
+        var attr = new Attribute(this, attributeType, attributeId, fullName, width, height, x, y, isInGrid, isReq, isSettings, attributeTypeIndex, dosInsetId, isEdit);
         this.Attributes.push(attr);
         if (attr.IsDeleted) {
             this.Attributes.pop();
         }
     };
     this.SetSize = function (width, height) {
-        this.Width = width;
-        $('#' + this.Id).width(this.Width);
-        this.Height = height;
-        $('#' + this.Id).height(this.Height);
+        if (width != null) {
+            this.Width = width;
+            $('#' + this.Id).width(this.Width);
+        }
+        if (height != null) {
+            this.Height = height;
+            $('#' + this.Id).height(this.Height);
+        }
     };
-    this.EditAttribute = function (attrId, newName, isInGrid) {
+    this.EditAttribute = function (attrId, newName, isInGrid, isReq) {
         panel.Attributes.forEach(function (item) {
             if (item.ServerId == attrId) {
                 ChangePositionOnServer(item);
                 ChangeSizeOnServer(item);
                 ChangeNameAttribute(item, newName);
-                ChangeIsInGridAttribute(item, isInGrid)
+                ChangeIsInGridAttribute(item, isInGrid);
+                ChangeIsReq(item, isReq);
             }
         });
 
+    }
+    this.GetJSONModel = function () {
+        var returnModel = [];
+        this.Attributes.forEach(function (item, i) {
+            returnModel.push({ AttributeTypeName: item.AttributeTypeName, AttributeTypeIndex: item.AttributeTypeIndex, InsetId: item.InsetId, Value: $('#inputBox' + item.Id).val() });
+            //console.log($('#inputBox' + item.Id).val());
+        });
+        return returnModel;
     }
 
     function ConfigurationPanel(panel) {
         $('#' + panel.Id).width(panel.Width);
         $('#' + panel.Id).height(panel.Height);
-        $('#' + panel.Id).css("border-width", "1px");
-        $('#' + panel.Id).css("border-color", "black");
-        $('#' + panel.Id).css("border-style", "dotted");
-        $('#' + panel.Id).resizable({
-            resize: function (event, ui) {
-                if (IsCrossingPanel(panel, ui.size.width, ui.size.height)) {
-                    ui.element.width(ui.originalSize.width);
-                    ui.element.height(ui.originalSize.height);
+        if (panel.IsSettings) {
+            $('#' + panel.Id).css("border-width", "1px");
+            $('#' + panel.Id).css("border-color", "black");
+            $('#' + panel.Id).css("border-style", "dotted");
+            $('#' + panel.Id).resizable({
+                resize: function (event, ui) {
+                    if (IsCrossingPanel(panel, ui.size.width, ui.size.height)) {
+                        ui.element.width(ui.originalSize.width);
+                        ui.element.height(ui.originalSize.height);
+                    }
+                },
+                stop: function (event, ui) {
+                    panel.Width = ui.size.width;
+                    panel.Height = ui.size.height;
                 }
-            },
-            stop: function (event, ui) {
-                panel.Width = ui.size.width;
-                panel.Height = ui.size.height;
-            }
-        });
+            });
+        }
+        $('#' + panel.Id).css("position", "relative");
     }
 }
 

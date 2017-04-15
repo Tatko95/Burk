@@ -37,6 +37,9 @@ namespace Burk.Model.UDB
         [Display(Name = "ShowInGrid", ResourceType = typeof(Resource))]
         public bool IsShowInGrid { get; set; }
 
+        [Display(Name = "IsRequired", ResourceType = typeof(Resource))]
+        public bool IsReq { get; set; }
+
         public int UID { get; set; }
         
         [NotMapped]
