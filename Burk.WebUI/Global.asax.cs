@@ -51,6 +51,8 @@ namespace Burk.WebUI
             UnityContainerFactory.UnityContainer.RegisterType<IDossierService, DossierService>(new TransientLifetimeManager());
             UnityContainerFactory.UnityContainer.RegisterType<IInsetService, InsetService>(new TransientLifetimeManager());
             UnityContainerFactory.UnityContainer.RegisterType<IDictionaryService, DictionaryService>(new TransientLifetimeManager());
+            UnityContainerFactory.unityContainer.RegisterType<IAttributeService, AttributeService>(new TransientLifetimeManager());
+            UnityContainerFactory.unityContainer.RegisterType<IValueService, ValueService>(new TransientLifetimeManager());
         }
     }
 }

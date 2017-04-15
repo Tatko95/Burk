@@ -33,6 +33,12 @@ namespace Burk.WebUI.Controllers
             var list = service.GetMenuItemsForSettings(systemId);
             return Json(list, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult GetMenuItems(int systemId)
+        {
+            var list = service.GetMenuItems(systemId);
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
         #endregion
 
         #region CRUD with MenuItem
@@ -64,12 +70,13 @@ namespace Burk.WebUI.Controllers
         #region Delete
         public ActionResult DeleteMenuItem(int dossierId)
         {
+            CleanSessions();
             try
             {
                 var model = service.GetById("DosObjectId", dossierId.ToString());
                 service.Delete(model);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return Content("Error");
             }

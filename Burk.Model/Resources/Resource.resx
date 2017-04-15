@@ -238,4 +238,37 @@
   <data name="Values" xml:space="preserve">
     <value>Значення</value>
   </data>
+  <data name="AddField" xml:space="preserve">
+    <value>Додати поле</value>
+  </data>
+  <data name="AddRowValue" xml:space="preserve">
+    <value>Додати рядок значень</value>
+  </data>
+  <data name="AddTable" xml:space="preserve">
+    <value>Додати таблицю</value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>Дата</value>
+  </data>
+  <data name="FieldName" xml:space="preserve">
+    <value>Назва поля</value>
+  </data>
+  <data name="FieldType" xml:space="preserve">
+    <value>Тип поля</value>
+  </data>
+  <data name="Number" xml:space="preserve">
+    <value>Число</value>
+  </data>
+  <data name="Text" xml:space="preserve">
+    <value>Текст</value>
+  </data>
+  <data name="AttributeType" xml:space="preserve">
+    <value>Тип атрибуту</value>
+  </data>
+  <data name="ShowInGrid" xml:space="preserve">
+    <value>Показувати в гірді</value>
+  </data>
+  <data name="IsRequired" xml:space="preserve">
+    <value>Обовязкове поле</value>
+  </data>
 </root>

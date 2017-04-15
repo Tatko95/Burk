@@ -33,6 +33,12 @@ namespace Burk.WebUI.Controllers
             var list = service.GetInsetItemsForSettings(dossierId);
             return Json(list, JsonRequestBehavior.AllowGet);
         }
+
+        public JsonResult GetInsetItem(int dossierId)
+        {
+            var list = service.GetInsetItems(dossierId);
+            return Json(list, JsonRequestBehavior.AllowGet);
+        }
         #endregion
 
         #region CRUD with MenuItem

@@ -207,6 +207,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AttributeController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\DictionaryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -215,11 +216,15 @@
     <Compile Include="Controllers\MenuController.cs" />
     <Compile Include="Controllers\SettingSystemController.cs" />
     <Compile Include="Controllers\SystemController.cs" />
+    <Compile Include="Controllers\ValueController.cs" />
+    <Compile Include="Controllers\WorkController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\GridColumn.cs" />
+    <Compile Include="Models\GridDataField.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -579,16 +584,22 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Scripts\custom\Attribute\AddEditAttribute.js" />
+    <Content Include="Scripts\custom\Attribute\Attribute.js" />
+    <Content Include="Scripts\custom\Attribute\AttributePanel.js" />
     <Content Include="Scripts\custom\Dictionary\AddEditDictionary.js" />
     <Content Include="Scripts\custom\Dictionary\AddEditDictionaryValue.js" />
     <Content Include="Scripts\custom\Dictionary\Settings.js" />
     <Content Include="Scripts\custom\SystemSettings\AddEditInsetItem.js" />
     <Content Include="Scripts\custom\SystemSettings\AddEditMenuItem.js" />
+    <Content Include="Scripts\custom\SystemSettings\AttributeSettings.js" />
     <Content Include="Scripts\custom\SystemSettings\InsetSettings.js" />
     <Content Include="Scripts\custom\SystemSettings\MenuSettings.js" />
     <Content Include="Scripts\custom\System\AddEditSystem.js" />
     <Content Include="Scripts\custom\System\UserSystems.js" />
     <None Include="Scripts\jquery-3.1.1.intellisense.js" />
+    <Content Include="Scripts\custom\Work\AddEdit.js" />
+    <Content Include="Scripts\custom\Work\Index.js" />
     <Content Include="Scripts\jquery-3.1.1.js" />
     <Content Include="Scripts\jquery-3.1.1.min.js" />
     <Content Include="Scripts\jquery-3.1.1.slim.js" />
@@ -670,6 +681,7 @@
     <Content Include="Scripts\JQWidgets\jqxnumberinput.js" />
     <Content Include="Scripts\JQWidgets\jqxpanel.js" />
     <Content Include="Scripts\JQWidgets\jqxpasswordinput.js" />
+    <Content Include="Scripts\JQWidgets\jqxpopover.js" />
     <Content Include="Scripts\JQWidgets\jqxprogressbar.js" />
     <Content Include="Scripts\JQWidgets\jqxradiobutton.js" />
     <Content Include="Scripts\JQWidgets\jqxrangeselector.js" />
@@ -737,10 +749,15 @@
     <Content Include="Views\Dictionary\Index.cshtml" />
     <Content Include="Views\Dictionary\AddEditDictionary.cshtml" />
     <Content Include="Views\Dictionary\AddEditValue.cshtml" />
+    <Content Include="Views\Attribute\AddEditAttribute.cshtml" />
+    <Content Include="Views\Work\Index.cshtml" />
+    <Content Include="Views\Work\AddEditObj.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
+    <Folder Include="Views\Main\" />
+    <Folder Include="Views\Value\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

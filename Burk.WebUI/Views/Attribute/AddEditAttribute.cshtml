@@ -1,0 +1,33 @@
+﻿@model Burk.Model.UDB.DossierAttribute
+@using Burk.Model.Resources; 
+
+<script type="text/javascript" src="~/Scripts/custom/Attribute/AddEditAttribute.js"></script>
+@Scripts.Render("~/bundles/jqueryval")
+@using (Html.BeginForm("AddEdit", "Attribute", FormMethod.Post, new { id = "addEditAttributeDialog" }))
+{
+    @Html.HiddenFor(x => x.DosAttributeId)
+    @Html.HiddenFor(x => x.DosInsetId)
+    @Html.HiddenFor(x => x.DictionaryId)
+    @Html.HiddenFor(x => x.UID)
+    @Html.HiddenFor(x => x.AttributeTypeIndex)
+    @Html.HiddenFor(x => x.X)
+    @Html.HiddenFor(x => x.Y)
+    @Html.HiddenFor(x => x.Width)
+    @Html.HiddenFor(x => x.Height)
+
+    <div class="tb_title">@Html.DisplayNameFor(x => x.FullName):<span class="req">*</span></div>
+    <div>@Html.TextBoxFor(x => x.FullName)</div>
+    <div>@Html.ValidationMessageFor(x => x.FullName)</div>
+    <div class="tb_title">@Html.DisplayNameFor(x => x.ShortName):</div>
+    <div>@Html.TextBoxFor(x => x.ShortName)</div>
+    <div class="tb_title">@Html.DisplayNameFor(x => x.AttributeType):</div>
+    <div>@Html.DropDownListFor(x => x.AttributeTypeName, new List<SelectListItem>() { new SelectListItem() { Text = Resource.Text, Value = "Text" }, new SelectListItem() { Text = Resource.Number, Value = "Number" }, new SelectListItem() { Text = Resource.Date, Value = "Date" } })</div>
+    <div class="tb_title">@Html.DisplayNameFor(x => x.IsShowInGrid)</div>
+    <input id="IsShowInGrid" name="IsShowInGrid" type="checkbox" value="true" @(Model.IsShowInGrid ? "checked=\"checked\"" : "") />
+    <div class="tb_title">@Html.DisplayNameFor(x => x.IsReq)</div>
+    <input id="IsReq" name="IsReq" type="checkbox" value="true" @(Model.IsReq ? "checked=\"checked\"" : "") />
+    <div id="ErrorInputDiv" />
+    <div id="SuccessfulCreateDiv" />
+
+    <input id="saveBtn" type="button" class="btn btn-primary btn-sm" onclick="Save()" value="@Resource.Save" />
+}

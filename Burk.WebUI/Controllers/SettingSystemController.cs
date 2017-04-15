@@ -17,11 +17,6 @@ namespace Burk.WebUI.Controllers
         #endregion
 
         #region ctor
-        public SettingSystemController(ISystemService _service)
-        {
-            service = _service;
-        }
-
         public SettingSystemController(IDictionaryService _dicService, IInsetService _insetService, IDossierService _dossierService ,ISystemService _service, ApplicationUserManager userManager) : base(userManager)
         {
             service = _service;
@@ -33,18 +28,23 @@ namespace Burk.WebUI.Controllers
         }
         #endregion
 
-        #region Attribute
         public ActionResult Index(int systemId, int? dossierId, int? insetId)
         {
             CleanSessions();
             var system = service.GetById("SystemId", systemId.ToString());
             Session["SystemName"] = system.FullName;
             Session["SystemId"] = system.SystemId;
+            Session["IsWork"] = false;
             if (dossierId != null && dossierId != 0)
             {
                 var dossierObject = dossierService.GetById("DosObjectId", dossierId.ToString());
                 Session["DossierName"] = dossierObject.FullName;
                 Session["DossierId"] = dossierId;
+            }
+            else
+            {
+                Session["DossierName"] = null;
+                Session["DossierId"] = null;
             }
             if (insetId != null && insetId != 0)
             {
@@ -52,8 +52,12 @@ namespace Burk.WebUI.Controllers
                 Session["DossierInsetName"] = insetObject.FullName;
                 Session["DossierInsetId"] = insetId;
             }
+            else
+            {
+                Session["DossierInsetName"] = null;
+                Session["DossierInsetId"] = null;
+            }
             return View();
         }
-        #endregion
     }
 }
